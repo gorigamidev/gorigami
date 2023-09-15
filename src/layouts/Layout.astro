@@ -17,6 +17,15 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ERFZ1FECC9"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-ERFZ1FECC9');
+		</script>
+<!-- End Google tag (gtag.js) -->
 		<ViewTransitions />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -29,6 +38,7 @@ const { title } = Astro.props;
 		</main>
 	</body>
 </html>
+
 <style is:global>
 	/* global styles */
     @import url('https://fonts.cdnfonts.com/css/nautilus-pompilius');
