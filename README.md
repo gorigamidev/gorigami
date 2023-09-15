@@ -1,6 +1,6 @@
 # Bienvenido a Gorigami Landing Page
 
-¡Hola! Soy Nicolas Balaguera, y esta es la página de aterrizaje de servicios para mi marca Gorigami. Aquí puedes encontrar información sobre los servicios que ofrezco y cómo contactarme.
+¡Hola! Soy Nicolas Balaguera, y esta es la Landing Page de servicios para mi marca Gorigami. Aquí puedes encontrar información sobre los servicios que ofrezco y cómo contactarme.
 
 ## Servicios
 
