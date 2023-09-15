@@ -1,54 +1,35 @@
-# Astro Starter Kit: Basics
+# Bienvenido a Gorigami Landing Page
 
-```
-npm create astro@latest -- --template basics
-```
+¡Hola! Soy [Tu Nombre], y esta es la página de aterrizaje de servicios para mi marca Gorigami. Aquí puedes encontrar información sobre los servicios que ofrezco y cómo contactarme.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Servicios
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+En Gorigami, ofrecemos una amplia gama de servicios, incluyendo:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Landing-Pages
+- E-commerce o páginas más robustas (e-learning, CRM entre otros)
+- Software a la medida (Apps, APIS, Data Analisis, Asesorias Software)
 
-## 🚀 Project Structure
+Puedes obtener más detalles sobre cada uno de estos servicios en nuestro sitio web [Gorigami](https://www.gorigami.xyz).
 
-Inside of your Astro project, you'll see the following folders and files:
+## Cómo contactarnos
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Si deseas contactarnos para obtener más información o solicitar alguno de nuestros servicios, puedes hacerlo a través de la siguiente dirección de correo electrónico:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- Correo electrónico: [info@gorigami.xyz](mailto:info@gorigami.xyz)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tecnologías Utilizadas
 
-Any static assets, like images, can be placed in the `public/` directory.
+Este proyecto se construyó utilizando [Astro Build](https://astro.build/) como framework y se desplegó en [Netlify](https://www.netlify.com/).
 
-## 🧞 Commands
+# Licencia de Software Propietario
 
-All commands are run from the root of the project, from a terminal:
+Todos los derechos reservados. Este software y su código fuente son propiedad de Nicolas Balaguera y Gorigami Dev.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Se prohíbe estrictamente la redistribución y el uso en copias no autorizadas de este software, ya sea en su forma original o modificada.
 
-## 👀 Want to learn more?
+Para obtener más información sobre cómo utilizar este software o para solicitar permisos, comuníquese con nosotros a través de [info@gorigami.xyz](mailto:info@gorigami.xyz).
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+© [2023] [Gorigami] - Todos los derechos reservados
+
+¡Gracias por visitar nuestra página!
