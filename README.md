@@ -1,6 +1,6 @@
 # Bienvenido a Gorigami Landing Page
 
-¡Hola! Soy [Tu Nombre], y esta es la página de aterrizaje de servicios para mi marca Gorigami. Aquí puedes encontrar información sobre los servicios que ofrezco y cómo contactarme.
+¡Hola! Soy Nicolas Balaguera, y esta es la página de aterrizaje de servicios para mi marca Gorigami. Aquí puedes encontrar información sobre los servicios que ofrezco y cómo contactarme.
 
 ## Servicios
 
@@ -10,7 +10,7 @@ En Gorigami, ofrecemos una amplia gama de servicios, incluyendo:
 - E-commerce o páginas más robustas (e-learning, CRM entre otros)
 - Software a la medida (Apps, APIS, Data Analisis, Asesorias Software)
 
-Puedes obtener más detalles sobre cada uno de estos servicios en nuestro sitio web [Gorigami](https://www.gorigami.xyz).
+Puedes obtener más detalles sobre cada uno de estos servicios en nuestro sitio web [Gorigami](https://www.gorigami.xyz/#services).
 
 ## Cómo contactarnos
 
