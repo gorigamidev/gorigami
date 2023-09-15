@@ -1,0 +1,51 @@
+<main id="error-page">
+    <img src="/img/Gorilla-Transparent.png" alt="Estas perdido">
+    <h3>Veo que estás perdido</h3>
+    <a href="/">¿Te ayudo a volver?</a>
+</main>
+<style>
+    #error-page {
+        height: 90vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10%;
+        position: relative;
+        overflow: hidden;
+        gap: 1rem;
+        text-align: center;
+    }
+    #error-page img {
+        height: 25rem;
+    }
+    #error-page h3 {
+        font-size: 2.5rem;
+    }
+    #error-page a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--purple-color);
+        background: var(--dark-color);
+        border: var(--purple-color) .2rem solid;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        text-decoration: none;
+    }
+    #error-page a:hover {
+        background: var(--ligth-color);
+        color: var(--dark-color);
+    }
+    @media screen and (max-width: 700px){
+        #error-page img {
+            height: 15rem;
+        }
+        #error-page h3 {
+            font-size: 1.5rem;
+        }
+        #error-page a {
+            font-size: 1rem;
+        }
+    }
+</style>

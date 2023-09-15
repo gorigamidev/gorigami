@@ -1,0 +1,81 @@
+--- 
+import NavBar from '../components/common/NavBar.astro';
+import FooterMain from '../components/common/FooterMain.astro';
+import { ViewTransitions } from 'astro:transitions';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+		<ViewTransitions />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main id="landing">
+			<NavBar />
+			<slot />
+			<FooterMain />
+		</main>
+	</body>
+</html>
+<style is:global>
+	/* global styles */
+    @import url('https://fonts.cdnfonts.com/css/nautilus-pompilius');
+	@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
+	:root{
+		--primary-font: 'Nautilus Pompilius', cursive;
+		--secondary-font: 'Heebo', system-ui, sans-serif;
+		/* --secondary-font: system-ui, sans-serif; */
+		font-size: 14px;
+		--dark-color: rgb(22, 16, 31);
+		--ligth-color: #e7edee;
+		--purple-color: #c679fa;
+		--orange-color: #fdb74d;
+	}
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+	a{
+		text-decoration: none;
+		color: inherit;
+	}
+	body{
+		background-color: var(--dark-color);
+		color: var(--ligth-color);
+	}
+	ul{
+		list-style: none;
+	}
+	main{
+        display: flex;
+	}
+	#landing{
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: var(--ligth-color);
+		font-family: var(--secondary-font);
+	}
+	#logo{
+        font-family: var(--primary-font);
+	}
+	#links{
+        font-family: var(--secondary-font);
+	}
+</style>

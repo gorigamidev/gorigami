@@ -1,0 +1,153 @@
+---
+import EnvelopeIcon from '../icons/envelope.astro'
+import PeopleIcon from '../icons/people.astro'
+import CubesIcons from '../icons/cubes.astro'
+---
+
+<nav id="main-nav">
+    <div id="logo">
+        <a href="/"><h2>gorigami<span>.</span></h2></a>
+    </div>
+    <div id="links">
+        <ul>
+            <li><a href="/#services">Servicios</a></li>
+            <li><a href="/#team">Nosotros</a></li>
+            <li><a href="/#contact">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+<nav id="mobile-nav">
+    <div id="logo">
+        <a href="/"><h2>gg<span>.</span></h2></a>
+    </div>
+    <div id="links">
+        <ul>
+            <li><a href="/#services">
+                <div>Servicios</div>
+                <CubesIcons />
+            </a></li>
+            <li><a href="/#team">
+                <div>Nosotros</div>
+                <PeopleIcon />
+            </a></li>
+            <li><a href="/#contact">
+                <div>Contacto</div>
+                <EnvelopeIcon />
+            </a></li>
+        </ul>
+    </div>
+</nav>
+<style>
+    #mobile-nav{
+        display: none;
+    }
+    #main-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding: 1rem 10%;
+        color: var(--ligth-color);
+        font-family: var(--secondary-font);
+        position: fixed;
+        width: 100%;
+        height: 6rem;
+        top: 0;
+        z-index: 100;
+        background: rgba(22, 16, 31, 0.7);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 3px );
+        -webkit-backdrop-filter: blur( 3px );
+    }
+    #logo{
+        font-family: var(--primary-font);
+        color: var(--purple-color);
+        font-size: 2rem;
+        margin: 0;
+    }
+    #logo > a{
+        text-decoration: none;
+        color: var(--purple-color);
+    }
+    #logo span{
+        color: var(--orange-color);
+    }
+    #links{
+        font-family: var(--secondary-font);
+        font-weight: 400;
+        color: var(--ligth-color);
+        fill: var(--ligth-color);
+    }
+    #links > ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 0;
+        padding: 0;
+        width: auto;
+    }
+    #links > ul > li{
+        text-align: center;
+        padding: 0;
+        width: 7rem;
+    }
+    #links a{
+        text-decoration: none;
+        width: 5.5rem;
+        color: var(--ligth-color);
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+    }
+    #links a:hover{
+        color: var(--purple-color);
+        border-bottom: 3px solid var(--purple-color);
+    }
+    .icons{
+        width: 2rem;
+        height: 1.3rem;
+    }
+    .icons svg{
+        width: 2rem;
+        height: 1.3rem;
+        color: var(--ligth-color);
+    }
+    .icons svg:hover{
+        color: var(--purple-color);
+    }
+    @media screen and (max-width: 700px){
+        #main-nav{
+            display: none;
+        }
+        #mobile-nav{
+            display: flex;
+            position: fixed;
+            justify-content: space-between;
+            align-items: center;
+            bottom: .5rem;
+            width: 99%;
+            padding: .5rem;
+            background: rgba(22, 16, 31, 0.7);
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 3px );
+            -webkit-backdrop-filter: blur( 3px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            z-index: 100;
+        }
+        #mobile-nav #logo{
+            margin-left: 1rem;
+            font-size: 1.4rem;
+        }
+        #mobile-nav #links{
+            font-size: .6rem;
+            font-weight: lighter;
+        }
+        #mobile-nav #links > ul > li{
+            width: 5.5rem;
+        }   
+        #mobile-nav #links > ul > li > a:hover{
+        border: none;
+        }
+    }
+</style>
