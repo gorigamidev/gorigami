@@ -5,32 +5,32 @@
         
         <!-- Week 1 -->
         <div class="week-1">
-            <div class="week-header active">Semana 1</div>
+            <div class="week-header active">Semana 1 - <span class="date">Martes 1 de Octubre</span></div>
             <div class="point active"></div>
             <div class="week-divider active"></div>
 
             <li class="timeline-item reached">
                 <span class="label cliente">Cliente</span>
-                <h3>Viernes</h3>
-                <p>Implementar el flujo de registro e inicio de sesión. Verificar la integración con el backend y realizar pruebas funcionales.</p>
-            </li>
-
-            <li class="timeline-item">
-                <span class="label cliente">Cliente</span>
-                <h3>Lunes</h3>
-                <p>Asegurarse de que el catálogo de productos sea accesible y se redirija correctamente al ecommerce. Implementar filtros básicos.</p>
-            </li>
-
-            <li class="timeline-item">
-                <span class="label cliente">Cliente</span>
                 <h3>Martes</h3>
-                <p>Implementar y probar los buscadores: header, ecommerce y "Mis pedidos".</p>
+                <p>Negociaciones y planeación del empalme del proyecto.</p>
             </li>
 
-            <li class="timeline-item">
+            <li class="timeline-item reached">
                 <span class="label cliente">Cliente</span>
                 <h3>Miércoles</h3>
-                <p>Arreglar el botón de "Dejar reseña" y resolver el error de cerrar sesión. Probar con diferentes usuarios y productos.</p>
+                <p>Implementar el flujo de empalme del proyecto. Verificar la integración con el backend y realizar pruebas funcionales de despliegue local y en producción.</p>
+            </li>
+
+            <li class="timeline-item reached">
+                <span class="label cliente">Cliente</span>
+                <h3>Jueves</h3>
+                <p>Creación de entornos de desarrollo y producción, implementación de Tabs y prioridad de CRUD de productos desde el perfil de admin.</p> 
+            </li>
+
+            <li class="timeline-item">
+                <span class="label cliente">Cliente</span>
+                <h3>Viernes</h3>
+                <p>Asegurarse de que el catálogo de productos sea accesible y se redirija correctamente al ecommerce. Implementar filtros básicos.</p>
             </li>
         </div>
 
@@ -49,7 +49,7 @@
             <li class="timeline-item">
                 <span class="label administrador">Administrador</span>
                 <h3>Martes</h3>
-                <p>Configurar tienda, permitir la gestión de imágenes y agregar productos al catálogo.</p>
+                <p>Implementar y probar los buscadores: header, ecommerce y "Mis pedidos".</p>
             </li>
 
             <li class="timeline-item">
@@ -61,7 +61,13 @@
             <li class="timeline-item">
                 <span class="label administrador">Administrador</span>
                 <h3>Jueves</h3>
-                <p>Implementar la edición de usuarios creados desde el panel de administración.</p>
+                <p>Arreglar el botón de "Dejar reseña" y resolver el error de cerrar sesión. Probar con diferentes usuarios y productos.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Viernes</h3>
+                <p>Redirigir a "Mis pedidos" tras pago y permitir la edición del perfil de usuario.</p>
             </li>
         </div>
 
@@ -72,8 +78,32 @@
             <div class="week-divider"></div>
 
             <li class="timeline-item">
-                <span class="label">Buffer de contingencia</span>
-                <h3>Lunes y Martes</h3>
+                <span class="label cliente">Cliente</span>
+                <h3>Lunes</h3>
+                <p>Configurar tienda, permitir la gestión de imágenes y agregar productos al catálogo.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Martes</h3>
+                <p>Implementar el buscador de pedidos desde el panel de administración.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Miércoles</h3>
+                <p>Implementar la edición de usuarios creados desde el panel de administración.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Jueves</h3>
+                <p>Ajustes adicionales o tareas retrasadas.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Viernes</h3>
                 <p>Ajustes adicionales o tareas retrasadas.</p>
             </li>
         </div>
@@ -101,17 +131,6 @@
             position: relative;
         }
 
-        /* Línea de tiempo principal */
-        /* .timeline:before {
-            content: '';
-            position: absolute;
-            left: -.5rem;
-            top: 0;
-            width: .2rem;
-            height: 100%;
-            background-color: #ecececc4;
-        } */
-
         /* Puntos redondeados */
         .point {
             position: absolute;
@@ -119,15 +138,15 @@
             top: 1rem;
             width: 1.1rem;
             height: 1.1rem;
-            background-color: #007bff;
+            background-color: #FDB74D;
             border-radius: 100%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease-in-out;
         }
 
         .point.active {
-            background-color: #da4c21;
-            box-shadow: 0 0 5px rgba(255, 87, 34, 0.6);
+            background-color: #C679FA;
+            box-shadow: 0 0 5px #c679fa5d
         }
         .week-1, .week-2, .week-3{
             position: relative;
@@ -163,7 +182,7 @@
         .label {
             display: inline-block;
             padding: .3rem .6rem;
-            background-color: #007bff;
+            background-color: #FDB74D;
             color: white;
             font-size: .8rem;
             border-radius: .5rem;
@@ -174,18 +193,18 @@
         }
 
         .label.cliente {
-            background-color: #28a745;
+            background-color: #FDB74D;
         }
 
         .label.administrador {
-            background-color: #17a2b8;
+            background-color: #C679FA;
         }
 
         /* Estilos para las semanas */
         .week-header {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #007bff;
+            color: #FDB74D;
             margin-bottom: .6rem;
             padding-left: 4rem;
             position: relative;
@@ -198,7 +217,7 @@
         /* Línea divisora para cada semana */
         .week-divider {
             height: .2rem;
-            background-color: #007bff;
+            background-color: #FDB74D;
             width: calc(100% - 60px);
             margin-left: 45px;
             margin-bottom: 20px;
@@ -207,7 +226,7 @@
 
         /* Para la semana activa, resaltar */
         .week-divider.active {
-            background-color: #ff5722;
+            background-color: #C679FA;
         }
 
         /* Media Queries */
