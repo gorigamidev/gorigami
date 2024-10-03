@@ -1,0 +1,219 @@
+<div class="container">
+<div class="roadmap-container">
+    <h2>BITA - ROADMAP</h2>
+    <ul class="timeline">
+        
+        <!-- Week 1 -->
+        <div class="week-1">
+            <div class="week-header active">Semana 1</div>
+            <div class="point active"></div>
+            <div class="week-divider active"></div>
+
+            <li class="timeline-item reached">
+                <span class="label cliente">Cliente</span>
+                <h3>Viernes</h3>
+                <p>Implementar el flujo de registro e inicio de sesión. Verificar la integración con el backend y realizar pruebas funcionales.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label cliente">Cliente</span>
+                <h3>Lunes</h3>
+                <p>Asegurarse de que el catálogo de productos sea accesible y se redirija correctamente al ecommerce. Implementar filtros básicos.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label cliente">Cliente</span>
+                <h3>Martes</h3>
+                <p>Implementar y probar los buscadores: header, ecommerce y "Mis pedidos".</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label cliente">Cliente</span>
+                <h3>Miércoles</h3>
+                <p>Arreglar el botón de "Dejar reseña" y resolver el error de cerrar sesión. Probar con diferentes usuarios y productos.</p>
+            </li>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="week-2">
+            <div class="week-header">Semana 2</div>
+            <div class="point"></div>
+            <div class="week-divider"></div>
+
+            <li class="timeline-item">
+                <span class="label cliente">Cliente</span>
+                <h3>Lunes</h3>
+                <p>Redirigir a "Mis pedidos" tras pago y permitir la edición del perfil de usuario.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Martes</h3>
+                <p>Configurar tienda, permitir la gestión de imágenes y agregar productos al catálogo.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Miércoles</h3>
+                <p>Implementar el buscador de pedidos desde el panel de administración.</p>
+            </li>
+
+            <li class="timeline-item">
+                <span class="label administrador">Administrador</span>
+                <h3>Jueves</h3>
+                <p>Implementar la edición de usuarios creados desde el panel de administración.</p>
+            </li>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="week-3">
+            <div class="week-header">Semana 3</div>
+            <div class="point"></div>
+            <div class="week-divider"></div>
+
+            <li class="timeline-item">
+                <span class="label">Buffer de contingencia</span>
+                <h3>Lunes y Martes</h3>
+                <p>Ajustes adicionales o tareas retrasadas.</p>
+            </li>
+        </div>
+
+    </ul>
+</div>
+</div>
+<style scoped>
+
+.roadmap-container {
+            width: 100%;
+            margin: 0 auto;
+            padding-top: 7rem;
+            position: relative;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            position: relative;
+        }
+
+        /* Línea de tiempo principal */
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: -.5rem;
+            top: 0;
+            width: .2rem;
+            height: 100%;
+            background-color: #ecececc4;
+        }
+
+        /* Puntos redondeados */
+        .point {
+            position: absolute;
+            left: 1.3rem;
+            top: 1rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            background-color: #007bff;
+            border-radius: 100%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .point.active {
+            background-color: #da4c21;
+            box-shadow: 0 0 5px rgba(255, 87, 34, 0.6);
+        }
+        .week-1, .week-2, .week-3{
+            position: relative;
+        }
+
+        .timeline-item {
+            background-color: #ffffff;
+            padding: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: .5rem;
+            transition: background-color 0.3s ease-in-out;
+            position: relative;
+            margin-top: 1rem;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 1rem;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .timeline-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Resaltar tareas alcanzadas */
+        .timeline-item.reached {
+            background-color: #daf5da;
+        }
+
+        .label {
+            display: inline-block;
+            padding: .3rem .6rem;
+            background-color: #007bff;
+            color: white;
+            font-size: .8rem;
+            border-radius: .5rem;
+            position: absolute;
+            top: .8rem;
+            right: .8rem;
+            opacity: .8;
+        }
+
+        .label.cliente {
+            background-color: #28a745;
+        }
+
+        .label.administrador {
+            background-color: #17a2b8;
+        }
+
+        /* Estilos para las semanas */
+        .week-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: .6rem;
+            padding-left: 4rem;
+            position: relative;
+        }
+
+        .week-header.active {
+            color: #ff5722;
+        }
+
+        /* Línea divisora para cada semana */
+        .week-divider {
+            height: .2rem;
+            background-color: #007bff;
+            width: calc(100% - 60px);
+            margin-left: 45px;
+            margin-bottom: 20px;
+            border-radius: 100px;
+        }
+
+        /* Para la semana activa, resaltar */
+        .week-divider.active {
+            background-color: #ff5722;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 600px) {
+            .roadmap-container{
+                padding:  4rem .5rem 6rem 1rem;
+            }
+        }
+
+</style>
