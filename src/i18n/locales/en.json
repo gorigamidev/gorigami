@@ -1,0 +1,91 @@
+{
+    "nav": {
+        "whatWeBuild": "What we build",
+        "team": "Team",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Create & Innovate.",
+        "subhead": "We're a focused group of makers crafting custom digital systems that scale, from startups to enterprise.",
+        "cta": "Start your project",
+        "ctaSecondary": "See how we build"
+    },
+    "why": {
+        "label": "WHY GORIGAMI",
+        "title": "Why we exist",
+        "copy": "Great software doesn't need huge teams. It needs small, talented groups with clear ownership. We fold creativity, engineering, and brand into tools that actually move your business.",
+        "bullet1": "Small teams, big impact",
+        "bullet2": "Craft over hype",
+        "bullet3": "Partnership > projects"
+    },
+    "whatWeBuild": {
+        "label": "CAPABILITIES",
+        "title": "What we build"
+    },
+    "process": {
+        "label": "HOW WE WORK",
+        "title": "Our way"
+    },
+    "portfolio": {
+        "label": "PROJECTS WE'VE CRAFTED",
+        "title": "Systems we believe in",
+        "intro": "Real projects, real impact. Built with craft and clarity.",
+        "viewCase": "View case study"
+    },
+    "products": {
+        "label": "PRODUCTS & FRAMEWORKS",
+        "title": "Tools we build and maintain",
+        "intro": "SaaS products and open-source frameworks designed to solve real problems."
+    },
+    "team": {
+        "label": "THE TEAM",
+        "title": "Inside the Lab",
+        "subtitle": "A small group of builders, designers, and engineers, focused on creating systems that last.",
+        "tagline": "Bogotá, CO. Building globally."
+    },
+    "contact": {
+        "label": "GET IN TOUCH",
+        "title": "Let's build something extraordinary",
+        "subhead": "No layers. No noise. A small team that listens, thinks, and delivers.",
+        "detailsTitle": "CONTACT DETAILS",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "locationLabel": "Location",
+        "nameLabel": "Name",
+        "emailFieldLabel": "Email",
+        "companyLabel": "Company",
+        "projectTypeLabel": "Project Type",
+        "messageLabel": "Message",
+        "privacyNote": "We'll only use your info to reply to your inquiry.",
+        "submitBtn": "→ Send",
+        "bookBtn": "→ Book a 20-min intro",
+        "selectType": "Select type",
+        "customSystem": "Custom System",
+        "ecommerce": "E-commerce",
+        "api": "API/Integration",
+        "mvp": "MVP/Landing",
+        "other": "Other"
+    },
+    "footer": {
+        "tagline": "Create & Innovate",
+        "terms": "Terms & Conditions",
+        "careers": "Careers"
+    },
+    "caseStudy": {
+        "backLink": "Back to projects",
+        "projectType": "Project Type",
+        "status": "Status",
+        "year": "Year",
+        "overview": "Overview",
+        "challenge": "The Challenge",
+        "approach": "Our Approach",
+        "features": "Key Features",
+        "results": "Results",
+        "ctaTitle": "Ready to build something extraordinary?",
+        "ctaBtn": "Let's talk on WhatsApp"
+    },
+    "status": {
+        "ready": "Ready",
+        "comingSoon": "Coming Soon"
+    }
+}

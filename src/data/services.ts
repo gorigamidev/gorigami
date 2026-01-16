@@ -1,29 +1,43 @@
 export interface Service {
-    title: string;
-    subtitle: string;
+    name: string;
+    name_es: string;
     description: string;
-    icon?: string;
+    description_es: string;
+    tag: string;
+    tag_es: string;
 }
 
 export const services: Service[] = [
     {
-        title: "Custom Systems",
-        subtitle: "When off-the-shelf isn't enough.",
-        description: "ERPs, quoting, CRMs, back-office tools, tailored to your workflow, not the other way around."
+        name: "Custom Systems",
+        name_es: "Sistemas Personalizados",
+        description: "Tailored ERPs, CRMs, and internal tools designed to fit your exact workflow, not the other way around.",
+        description_es: "ERPs, CRMs y herramientas internas diseñadas para adaptarse a tu flujo de trabajo exacto, no al revés.",
+        tag: "Build what you need",
+        tag_es: "Construye lo que necesitas"
     },
     {
-        title: "E-commerce & Sites",
-        subtitle: "From niche to full retail.",
-        description: "Storefronts and brand sites that convert. Fast, beautiful, and built to scale."
+        name: "E-commerce",
+        name_es: "E-commerce",
+        description: "Fast, scalable online stores with seamless checkout, inventory sync, and analytics that actually help.",
+        description_es: "Tiendas en línea rápidas y escalables con checkout fluido, sincronización de inventario y analíticas que realmente ayudan.",
+        tag: "Sell smarter",
+        tag_es: "Vende más inteligente"
     },
     {
-        title: "APIs & Integrations",
-        subtitle: "Automation without chaos.",
-        description: "Connect what you already use. Make your tools talk to each other seamlessly."
+        name: "APIs & Integrations",
+        name_es: "APIs e Integraciones",
+        description: "Connect your tools, automate workflows, and make your data work for you across platforms.",
+        description_es: "Conecta tus herramientas, automatiza flujos de trabajo y haz que tus datos trabajen para ti en todas las plataformas.",
+        tag: "Plug & play",
+        tag_es: "Conecta y usa"
     },
     {
-        title: "MVPs & Landings",
-        subtitle: "Start small, think big.",
-        description: "Validate in days, scale later. Perfect for testing ideas before full commitment."
+        name: "MVPs & Landing Pages",
+        name_es: "MVPs y Landing Pages",
+        description: "Ship fast, test ideas, and validate your product with real users before going all-in.",
+        description_es: "Lanza rápido, prueba ideas y valida tu producto con usuarios reales antes de ir con todo.",
+        tag: "Start lean",
+        tag_es: "Comienza ágil"
     }
 ];

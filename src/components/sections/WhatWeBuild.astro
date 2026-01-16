@@ -1,27 +1,71 @@
 ---
 import { services } from "../../data/services";
+import { getLang } from "../../i18n/utils";
+import { getLocalizedField } from "../../i18n/helpers";
+
+const lang = getLang();
 ---
 
 <section id="what-we-build">
-	<div class="what-container">
-		<div class="section-label">CAPABILITIES</div>
-		<h2>What we build</h2>
+	<div class="services-container">
+		<div class="section-label" data-i18n="whatWeBuild.label">CAPABILITIES</div>
+		<h2 data-i18n="whatWeBuild.title">What we build</h2>
+
 		<div class="services-grid">
 			{
 				services.map((service) => (
 					<div class="service-card">
-						<h3>{service.title}</h3>
-						<p class="subtitle">{service.subtitle}</p>
-						<p class="description">{service.description}</p>
+						<h3 data-i18n-field="name">
+							{getLocalizedField(service, "name", lang)}
+						</h3>
+						<p class="service-tag" data-i18n-field="tag">
+							{getLocalizedField(service, "tag", lang)}
+						</p>
+						<p class="service-description" data-i18n-field="description">
+							{getLocalizedField(service, "description", lang)}
+						</p>
 					</div>
 				))
 			}
 		</div>
+
 		<div class="cta-section">
 			<a href="#contact" class="btn-cta">→ Let's design your system</a>
 		</div>
 	</div>
 </section>
+
+<script>
+	import { getLang } from "../../i18n/utils";
+	import { getLocalizedField } from "../../i18n/helpers";
+	import { services } from "../../data/services";
+
+	// Update service cards when language changes
+	function updateServices() {
+		const lang = getLang();
+		const cards = document.querySelectorAll(".service-card");
+
+		cards.forEach((card, index) => {
+			const service = services[index];
+			const nameEl = card.querySelector('[data-i18n-field="name"]');
+			const tagEl = card.querySelector('[data-i18n-field="tag"]');
+			const descEl = card.querySelector('[data-i18n-field="description"]');
+
+			if (nameEl) nameEl.textContent = getLocalizedField(service, "name", lang);
+			if (tagEl) tagEl.textContent = getLocalizedField(service, "tag", lang);
+			if (descEl)
+				descEl.textContent = getLocalizedField(service, "description", lang);
+		});
+	}
+
+	// Listen for language changes
+	document.addEventListener("click", (e) => {
+		const target = e.target as HTMLElement;
+		if (target.closest(".lang-btn")) {
+			setTimeout(updateServices, 100);
+		}
+	});
+</script>
 
 <style>
 	#what-we-build {
@@ -31,7 +75,7 @@ import { services } from "../../data/services";
 		border-top: 1px solid var(--light-gray);
 	}
 
-	.what-container {
+	.services-container {
 		max-width: 1200px;
 		margin: 0 auto;
 	}
@@ -77,7 +121,7 @@ import { services } from "../../data/services";
 		font-weight: 600;
 	}
 
-	.subtitle {
+	.service-tag {
 		font-size: 0.95rem;
 		color: var(--mid-gray);
 		font-style: italic;
@@ -85,7 +129,7 @@ import { services } from "../../data/services";
 		font-weight: 400;
 	}
 
-	.description {
+	.service-description {
 		font-size: 1rem;
 		color: var(--mid-gray);
 		line-height: 1.6;

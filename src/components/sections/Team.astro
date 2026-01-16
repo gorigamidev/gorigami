@@ -5,9 +5,9 @@ import { teamMembers } from "../../data/team";
 <section id="team">
 	<div class="team-container">
 		<div class="team-header">
-			<div class="section-label">THE TEAM</div>
-			<h2>Inside the Lab</h2>
-			<p class="team-subtitle">
+			<div class="section-label" data-i18n="team.label">THE TEAM</div>
+			<h2 data-i18n="team.title">Inside the Lab</h2>
+			<p class="team-subtitle" data-i18n="team.subtitle">
 				A small group of builders, designers, and engineers, focused on creating
 				systems that last.
 			</p>
@@ -16,7 +16,7 @@ import { teamMembers } from "../../data/team";
 		<div class="team-panels">
 			{
 				teamMembers.map((member, index) => (
-					<div class="member-panel" data-index={index}>
+					<div class="team-member member-panel" data-index={index}>
 						<div class="vertical-label">{member.verticalLabel}</div>
 
 						<div class="portrait-frame">
@@ -25,8 +25,12 @@ import { teamMembers } from "../../data/team";
 
 						<div class="member-info">
 							<h3 class="member-name">{member.name}</h3>
-							<p class="member-role">{member.role}</p>
-							<p class="member-descriptor">{member.descriptor}</p>
+							<p class="member-role" data-i18n-field="role">
+								{member.role}
+							</p>
+							<p class="member-descriptor" data-i18n-field="descriptor">
+								{member.descriptor}
+							</p>
 						</div>
 
 						<div class="panel-separator" />
@@ -35,7 +39,9 @@ import { teamMembers } from "../../data/team";
 			}
 		</div>
 
-		<p class="team-tagline">Bogotá, CO. Building globally.</p>
+		<p class="team-tagline" data-i18n="team.tagline">
+			Bogotá, CO. Building globally.
+		</p>
 	</div>
 </section>
 

@@ -1,12 +1,12 @@
 ---
-// Contact section - Brand Lineage: minimal, functional
+// Contact section
 ---
 
 <section id="contact">
 	<div class="contact-container">
-		<div class="section-label">GET IN TOUCH</div>
-		<h2>Let's build something extraordinary</h2>
-		<p class="contact-subhead">
+		<div class="section-label" data-i18n="contact.label">GET IN TOUCH</div>
+		<h2 data-i18n="contact.title">Let's build something extraordinary</h2>
+		<p class="contact-subhead" data-i18n="contact.subhead">
 			No layers. No noise. A small team that listens, thinks, and delivers.
 		</p>
 
@@ -14,41 +14,58 @@
 			<div class="contact-form">
 				<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 					<div class="form-group">
-						<label for="name">Name</label>
+						<label for="name" data-i18n="contact.nameLabel">Name</label>
 						<input type="text" id="name" name="name" required />
 					</div>
 					<div class="form-group">
-						<label for="email">Email</label>
+						<label for="email" data-i18n="contact.emailFieldLabel">Email</label>
 						<input type="email" id="email" name="email" required />
 					</div>
 					<div class="form-group">
-						<label for="company">Company</label>
+						<label for="company" data-i18n="contact.companyLabel">Company</label
+						>
 						<input type="text" id="company" name="company" />
 					</div>
 					<div class="form-group">
-						<label for="project-type">Project Type</label>
+						<label for="project-type" data-i18n="contact.projectTypeLabel"
+							>Project Type</label
+						>
 						<select id="project-type" name="project-type">
-							<option value="">Select type</option>
-							<option value="custom-system">Custom System</option>
-							<option value="ecommerce">E-commerce</option>
-							<option value="api">API/Integration</option>
-							<option value="mvp">MVP/Landing</option>
-							<option value="other">Other</option>
+							<option value="" data-i18n="contact.selectType"
+								>Select type</option
+							>
+							<option value="custom-system" data-i18n="contact.customSystem"
+								>Custom System</option
+							>
+							<option value="ecommerce" data-i18n="contact.ecommerce"
+								>E-commerce</option
+							>
+							<option value="api" data-i18n="contact.api"
+								>API/Integration</option
+							>
+							<option value="mvp" data-i18n="contact.mvp">MVP/Landing</option>
+							<option value="other" data-i18n="contact.other">Other</option>
 						</select>
 					</div>
 					<div class="form-group full-width">
-						<label for="message">Message</label>
+						<label for="message" data-i18n="contact.messageLabel">Message</label
+						>
 						<textarea id="message" name="message" rows="5" required></textarea>
 					</div>
-					<p class="privacy-note">
+					<p class="privacy-note" data-i18n="contact.privacyNote">
 						We'll only use your info to reply to your inquiry.
 					</p>
 					<div class="form-actions">
-						<button type="submit" class="btn-submit">→ Send</button>
+						<button
+							type="submit"
+							class="btn-submit"
+							data-i18n="contact.submitBtn">→ Send</button
+						>
 						<a
 							href="https://wa.me/573057197012?text=I'd%20like%20to%20book%20a%2020-min%20intro"
 							target="_blank"
 							class="btn-book"
+							data-i18n="contact.bookBtn"
 						>
 							Book a 20-min intro
 						</a>
@@ -57,26 +74,34 @@
 			</div>
 
 			<div class="contact-info">
-				<div class="info-label">CONTACT DETAILS</div>
+				<div class="info-label" data-i18n="contact.detailsTitle">
+					CONTACT DETAILS
+				</div>
 				<div class="contact-details">
 					<div class="detail-item">
 						<div class="detail-icon icon-email"></div>
 						<div class="detail-content">
-							<span class="detail-label">Email</span>
+							<span class="detail-label" data-i18n="contact.emailLabel"
+								>Email</span
+							>
 							<a href="mailto:develop@gorigami.xyz">develop@gorigami.xyz</a>
 						</div>
 					</div>
 					<div class="detail-item">
 						<div class="detail-icon icon-phone"></div>
 						<div class="detail-content">
-							<span class="detail-label">Phone</span>
+							<span class="detail-label" data-i18n="contact.phoneLabel"
+								>Phone</span
+							>
 							<a href="tel:+573057197012">+57 305 7197012</a>
 						</div>
 					</div>
 					<div class="detail-item">
 						<div class="detail-icon icon-location"></div>
 						<div class="detail-content">
-							<span class="detail-label">Location</span>
+							<span class="detail-label" data-i18n="contact.locationLabel"
+								>Location</span
+							>
 							<span>Bogotá, Colombia</span>
 						</div>
 					</div>

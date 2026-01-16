@@ -4,9 +4,11 @@ import { products } from "../../data/products";
 
 <section id="products">
 	<div class="products-container">
-		<div class="section-label">PRODUCTS & FRAMEWORKS</div>
-		<h2>Tools we build and maintain</h2>
-		<p class="intro">
+		<div class="section-label" data-i18n="products.label">
+			PRODUCTS & FRAMEWORKS
+		</div>
+		<h2 data-i18n="products.title">Tools we build and maintain</h2>
+		<p class="intro" data-i18n="products.intro">
 			SaaS products and open-source frameworks designed to solve real problems.
 		</p>
 
@@ -18,14 +20,23 @@ import { products } from "../../data/products";
 							<div class="product-type">{product.type}</div>
 							<div
 								class={`product-status status-${product.status.toLowerCase().replace(" ", "-")}`}
+								data-i18n={
+									product.status === "Ready"
+										? "status.ready"
+										: "status.comingSoon"
+								}
 							>
 								{product.status}
 							</div>
 						</div>
 
-						<h3>{product.name}</h3>
-						<p class="product-tagline">{product.tagline}</p>
-						<p class="product-description">{product.description}</p>
+						<h3 data-i18n-field="name">{product.name}</h3>
+						<p class="product-tagline" data-i18n-field="tagline">
+							{product.tagline}
+						</p>
+						<p class="product-description" data-i18n-field="description">
+							{product.description}
+						</p>
 
 						{product.link && (
 							<a href={product.link} target="_blank" class="product-link">

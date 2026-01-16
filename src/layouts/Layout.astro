@@ -19,7 +19,27 @@ const { title } = Astro.props;
 			content="Gorigami. Small teams crafting custom digital systems that scale. From startups to enterprise, we build ERPs, e-commerce, APIs, and MVPs with craft and clarity."
 		/>
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+		<link rel="icon" type="image/x-x-icon" href="/img/favicon.ico" />
+
+		<!-- CRITICAL: i18n must run BEFORE anything else to prevent flash -->
+		<script is:inline>
+			// Immediately detect and set language from localStorage ONLY
+			(function () {
+				// Get language from localStorage (default to EN)
+				let lang = localStorage.getItem("gorigami-lang");
+
+				// Only accept 'es', everything else defaults to 'en'
+				if (lang !== "es") {
+					lang = "en";
+				}
+
+				// Set HTML lang attribute immediately
+				document.documentElement.lang = lang;
+
+				console.log("[i18n] Language on page load:", lang);
+			})();
+		</script>
+
 		<!-- Google tag (gtag.js) -->
 		<script
 			is:inline
@@ -32,6 +52,27 @@ const { title } = Astro.props;
 			}
 			gtag("js", new Date());
 			gtag("config", "G-ERFZ1FECC9");
+		</script>
+
+		<!-- Initialize translations after DOM loads -->
+		<script>
+			import { initI18n } from "../i18n/utils";
+
+			// Initialize i18n translations on page load
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", initI18n);
+			} else {
+				initI18n();
+			}
+
+			// CRITICAL: Re-initialize translations on View Transitions navigation
+			// This ensures language persists when navigating between pages
+			document.addEventListener("astro:page-load", () => {
+				console.log(
+					"[i18n] Page navigated via View Transitions - re-initializing",
+				);
+				initI18n();
+			});
 		</script>
 		<!-- End Google tag (gtag.js) -->
 		<ClientRouter />

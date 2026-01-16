@@ -5,10 +5,12 @@ import { demos } from "../../data/demos";
 <section id="in-house">
 	<div class="in-house-bg-shape"></div>
 	<div class="demos-container">
-		<div class="section-label">PROJECTS WE'VE CRAFTED</div>
-		<h2>Systems we believe in</h2>
-		<p class="intro">
-			Real projects, real impact — built with craft and clarity.
+		<div class="section-label" data-i18n="portfolio.label">
+			PROJECTS WE'VE CRAFTED
+		</div>
+		<h2 data-i18n="portfolio.title">Systems we believe in</h2>
+		<p class="intro" data-i18n="portfolio.intro">
+			Real projects, real impact. Built with craft and clarity.
 		</p>
 
 		<div class="demos-grid">
@@ -18,7 +20,9 @@ import { demos } from "../../data/demos";
 						<div class="demo-preview">
 							<img src={demo.poster} alt={demo.title} class="demo-image" />
 							<div class="demo-overlay">
-								<span class="view-case">View case study →</span>
+								<span class="view-case" data-i18n="portfolio.viewCase">
+									View case study
+								</span>
 							</div>
 						</div>
 						<div class="demo-info">

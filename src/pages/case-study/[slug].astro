@@ -16,13 +16,15 @@ const { demo } = Astro.props;
 	<section id="case-study">
 		<div class="case-study-container">
 			<!-- Back button -->
-			<a href="/#in-house" class="back-link">← Back to projects</a>
+			<a href="/#in-house" class="back-link" data-i18n="caseStudy.backLink"
+				>← Back to projects</a
+			>
 
 			<!-- Header -->
 			<div class="case-header">
-				<span class="case-tag">{demo.tag}</span>
+				<span class="case-tag" data-i18n-field="tag">{demo.tag}</span>
 				<h1>{demo.title}</h1>
-				<p class="case-caption">{demo.caption}</p>
+				<p class="case-caption" data-i18n-field="caption">{demo.caption}</p>
 			</div>
 
 			<!-- Hero Image -->
@@ -31,59 +33,62 @@ const { demo } = Astro.props;
 			</div>
 
 			<!-- Content Grid -->
-			<div class="case-content">
+			<div class="case-content case-study-content" data-slug={demo.slug}>
 				<div class="content-sidebar">
 					<div class="info-block">
-						<h3>Project Type</h3>
-						<p>{demo.tag}</p>
+						<h3 data-i18n="caseStudy.projectType">Project Type</h3>
+						<p data-i18n-field="tag">{demo.tag}</p>
 					</div>
 					<div class="info-block">
-						<h3>Status</h3>
-						<p>{demo.status}</p>
+						<h3 data-i18n="caseStudy.status">Status</h3>
+						<p data-i18n-field="status">{demo.status}</p>
 					</div>
 					<div class="info-block">
-						<h3>Year</h3>
+						<h3 data-i18n="caseStudy.year">Year</h3>
 						<p>{demo.year}</p>
 					</div>
 				</div>
 
 				<div class="content-main">
 					<div class="content-section">
-						<h2>Overview</h2>
-						<p>{demo.overview}</p>
+						<h2 data-i18n="caseStudy.overview">Overview</h2>
+						<p data-i18n-field="overview">{demo.overview}</p>
 					</div>
 
 					<div class="content-section">
-						<h2>The Challenge</h2>
-						<p>{demo.challenge}</p>
+						<h2 data-i18n="caseStudy.challenge">The Challenge</h2>
+						<p data-i18n-field="challenge">{demo.challenge}</p>
 					</div>
 
 					<div class="content-section">
-						<h2>Our Approach</h2>
-						<p>{demo.approach}</p>
+						<h2 data-i18n="caseStudy.approach">Our Approach</h2>
+						<p data-i18n-field="approach">{demo.approach}</p>
 					</div>
 
 					<div class="content-section">
-						<h2>Key Features</h2>
-						<ul class="feature-list">
+						<h2 data-i18n="caseStudy.features">Key Features</h2>
+						<ul class="feature-list" data-i18n-field="features">
 							{demo.features.map((feature) => <li>{feature}</li>)}
 						</ul>
 					</div>
 
 					<div class="content-section">
-						<h2>Results</h2>
-						<p>{demo.results}</p>
+						<h2 data-i18n="caseStudy.results">Results</h2>
+						<p data-i18n-field="results">{demo.results}</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- CTA -->
 			<div class="case-cta">
-				<h2>Ready to build something extraordinary?</h2>
+				<h2 data-i18n="caseStudy.ctaTitle">
+					Ready to build something extraordinary?
+				</h2>
 				<a
 					href="https://wa.me/573057197012?text=Hi!%20I'm%20interested%20in%20starting%20a%20project%20with%20Gorigami"
 					target="_blank"
-					class="btn-primary">→ Let's talk on WhatsApp</a
+					class="btn-primary"
+					data-i18n="caseStudy.ctaBtn">→ Let's talk on WhatsApp</a
 				>
 			</div>
 		</div>

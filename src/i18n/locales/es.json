@@ -1,0 +1,91 @@
+{
+    "nav": {
+        "whatWeBuild": "Qué construimos",
+        "team": "Equipo",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "title": "Crear e Innovar.",
+        "subhead": "Somos un grupo enfocado de creadores que construyen sistemas digitales personalizados que escalan, desde startups hasta empresas.",
+        "cta": "Inicia tu proyecto",
+        "ctaSecondary": "Mira cómo construimos"
+    },
+    "why": {
+        "label": "POR QUÉ GORIGAMI",
+        "title": "Por qué existimos",
+        "copy": "El gran software no necesita equipos enormes. Necesita grupos pequeños y talentosos con responsabilidad clara. Combinamos creatividad, ingeniería y marca en herramientas que realmente mueven tu negocio.",
+        "bullet1": "Equipos pequeños, gran impacto",
+        "bullet2": "Artesanía sobre publicidad",
+        "bullet3": "Asociación > proyectos"
+    },
+    "whatWeBuild": {
+        "label": "CAPACIDADES",
+        "title": "Qué construimos"
+    },
+    "process": {
+        "label": "CÓMO TRABAJAMOS",
+        "title": "Nuestra forma"
+    },
+    "portfolio": {
+        "label": "PROYECTOS QUE HEMOS CREADO",
+        "title": "Sistemas en los que creemos",
+        "intro": "Proyectos reales, impacto real. Construidos con artesanía y claridad.",
+        "viewCase": "Ver caso de estudio"
+    },
+    "products": {
+        "label": "PRODUCTOS Y FRAMEWORKS",
+        "title": "Herramientas que construimos y mantenemos",
+        "intro": "Productos SaaS y frameworks de código abierto diseñados para resolver problemas reales."
+    },
+    "team": {
+        "label": "EL EQUIPO",
+        "title": "Dentro del Laboratorio",
+        "subtitle": "Un pequeño grupo de constructores, diseñadores e ingenieros, enfocados en crear sistemas que perduren.",
+        "tagline": "Bogotá, CO. Construyendo globalmente."
+    },
+    "contact": {
+        "label": "CONTÁCTANOS",
+        "title": "Construyamos algo extraordinario",
+        "subhead": "Sin capas. Sin ruido. Un equipo pequeño que escucha, piensa y entrega.",
+        "detailsTitle": "DETALLES DE CONTACTO",
+        "emailLabel": "Correo",
+        "phoneLabel": "Teléfono",
+        "locationLabel": "Ubicación",
+        "nameLabel": "Nombre",
+        "emailFieldLabel": "Correo",
+        "companyLabel": "Empresa",
+        "projectTypeLabel": "Tipo de Proyecto",
+        "messageLabel": "Mensaje",
+        "privacyNote": "Solo usaremos tu información para responder a tu consulta.",
+        "submitBtn": "→ Enviar",
+        "bookBtn": "→ Agenda una intro de 20 min",
+        "selectType": "Selecciona tipo",
+        "customSystem": "Sistema Personalizado",
+        "ecommerce": "E-commerce",
+        "api": "API/Integración",
+        "mvp": "MVP/Landing",
+        "other": "Otro"
+    },
+    "footer": {
+        "tagline": "Crear e Innovar",
+        "terms": "Términos y Condiciones",
+        "careers": "Carreras"
+    },
+    "caseStudy": {
+        "backLink": "Volver a proyectos",
+        "projectType": "Tipo de Proyecto",
+        "status": "Estado",
+        "year": "Año",
+        "overview": "Resumen",
+        "challenge": "El Desafío",
+        "approach": "Nuestro Enfoque",
+        "features": "Características Clave",
+        "results": "Resultados",
+        "ctaTitle": "¿Listo para construir algo extraordinario?",
+        "ctaBtn": "→ Hablemos por WhatsApp"
+    },
+    "status": {
+        "ready": "Listo",
+        "comingSoon": "Próximamente"
+    }
+}

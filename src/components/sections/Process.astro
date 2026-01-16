@@ -4,8 +4,8 @@ import { processSteps } from "../../data/process";
 
 <section id="process">
 	<div class="process-container">
-		<div class="section-label">HOW WE WORK</div>
-		<h2>Our way</h2>
+		<div class="section-label" data-i18n="process.label">HOW WE WORK</div>
+		<h2 data-i18n="process.title">Our way</h2>
 
 		<div class="process-layout">
 			<div class="process-image">
@@ -25,8 +25,8 @@ import { processSteps } from "../../data/process";
 										{step.number.toString().padStart(2, "0")}
 									</span>
 								</div>
-								<h3>{step.title}</h3>
-								<p>{step.description}</p>
+								<h3 data-i18n-field="title">{step.title}</h3>
+								<p data-i18n-field="description">{step.description}</p>
 							</div>
 						))
 					}
