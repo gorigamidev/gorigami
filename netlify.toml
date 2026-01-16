@@ -5,6 +5,17 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Use Ubuntu 22.04 LTS (Jammy) build image
+[build.processing]
+  skip_processing = false
+
+[context.production]
+  environment = { NODE_VERSION = "22" }
+
+# Specify the build image (Ubuntu 22.04)
+[build]
+  base = "jammy"
+
 # Redirect rules for SPA-like behavior
 [[redirects]]
   from = "/*"
