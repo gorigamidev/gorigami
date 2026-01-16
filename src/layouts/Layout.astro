@@ -1,7 +1,7 @@
---- 
-import NavBar from '../components/common/NavBar.astro';
-import FooterMain from '../components/common/FooterMain.astro';
-import { ViewTransitions } from 'astro:transitions';
+---
+import NavBar from "../components/common/NavBar.astro";
+import FooterMain from "../components/common/FooterMain.astro";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -10,23 +10,31 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Hacemos paginas de aterrizaje (Landing Pages) ultrarrápidas y optimizadas, por solo 450.000 COP, Somos especialistas en potenciar su negocio">
+		<meta
+			name="description"
+			content="Gorigami. Small teams crafting custom digital systems that scale. From startups to enterprise, we build ERPs, e-commerce, APIs, and MVPs with craft and clarity."
+		/>
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ERFZ1FECC9"></script>
-		<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'G-ERFZ1FECC9');
+		<script
+			is:inline
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-ERFZ1FECC9"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-ERFZ1FECC9");
 		</script>
-<!-- End Google tag (gtag.js) -->
-		<ViewTransitions />
+		<!-- End Google tag (gtag.js) -->
+		<ClientRouter />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -40,52 +48,107 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-	/* global styles */
-    @import url('https://fonts.cdnfonts.com/css/nautilus-pompilius');
-	@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
-	:root{
-		--primary-font: 'Nautilus Pompilius', cursive;
-		--secondary-font: 'Heebo', system-ui, sans-serif;
-		/* --secondary-font: system-ui, sans-serif; */
-		font-size: 14px;
-		--dark-color: rgb(22, 16, 31);
-		--ligth-color: #e7edee;
-		--purple-color: #c679fa;
-		--orange-color: #fdb74d;
+	/* global styles - Brand Lineage: minimal, intentional, calm */
+
+	/* UI Fonts - @import must come first */
+	@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+	/* Gorigami Logo Font - only for brand mark */
+	@font-face {
+		font-family: "Nautilus";
+		src: url("/font/Nautilus.otf") format("opentype");
+		font-weight: normal;
+		font-style: normal;
+		font-display: swap;
 	}
-	*{
+
+	/* UI Fonts */
+
+	:root {
+		--logo-font: "Nautilus", serif;
+		--heading-font: "Urbanist", system-ui, sans-serif;
+		--body-font: "Inter", system-ui, sans-serif;
+		font-size: 16px;
+
+		/* Gorigami Brand Color System: 70% white, 25% dark, 5% accent */
+
+		/* Primary Dark - Midnight Violet */
+		--midnight-violet: #16091d;
+		--midnight-violet-soft: #2a1d31;
+
+		/* Primary Light - Smoke */
+		--smoke: #f0f0ef;
+		--paper-white: #ffffff;
+
+		/* Accent - Sandy Brown */
+		--sandy-brown: #ffa454;
+		--sandy-brown-hover: #ff9340;
+
+		/* Light Accent - Lavender Mist */
+		--lavender-mist: #f3f2ff;
+
+		/* Supporting Grays */
+		--mid-gray: #6b6b6b;
+		--light-gray: #e0e0df;
+
+		/* Semantic Aliases (70/25/5 rule) */
+		--ink-black: var(--midnight-violet);
+		--off-white: var(--smoke);
+		--accent: var(--sandy-brown);
+		--accent-hover: var(--sandy-brown-hover);
+
+		/* Deprecated - keeping for backward compatibility */
+		--dark-color: var(--midnight-violet);
+		--white-base: var(--paper-white);
+		--text-dark: var(--midnight-violet);
+		--text-light: var(--mid-gray);
+	}
+	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 		scroll-behavior: smooth;
 	}
-	a{
+	a {
 		text-decoration: none;
 		color: inherit;
 	}
-	body{
-		background-color: var(--dark-color);
-		color: var(--ligth-color);
+	body {
+		background-color: var(--smoke);
+		color: var(--midnight-violet);
+		font-family: var(--body-font);
+		line-height: 1.6;
 	}
-	ul{
+	ul {
 		list-style: none;
 	}
-	main{
-        display: flex;
+	main {
+		display: flex;
 	}
-	#landing{
+	#landing {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		color: var(--ligth-color);
-		font-family: var(--secondary-font);
+		font-family: var(--body-font);
 	}
-	#logo{
-        font-family: var(--primary-font);
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: var(--heading-font);
+		font-weight: 700;
+		line-height: 1.2;
 	}
-	#links{
-        font-family: var(--secondary-font);
+	#logo {
+		font-family: var(--logo-font);
+		font-weight: normal;
+	}
+	#links {
+		font-family: var(--body-font);
 	}
 </style>

@@ -1,0 +1,282 @@
+---
+import { processSteps } from "../../data/process";
+---
+
+<section id="process">
+	<div class="process-container">
+		<div class="section-label">HOW WE WORK</div>
+		<h2>Our way</h2>
+
+		<div class="process-layout">
+			<div class="process-image">
+				<img
+					src="/img/EnjoyWork.png"
+					alt="Enjoy the work - Gorigami team culture"
+				/>
+			</div>
+
+			<div class="process-path">
+				<div class="steps-flow">
+					{
+						processSteps.map((step, index) => (
+							<div class="step-card" data-step={index + 1}>
+								<div class="step-waypoint">
+									<span class="waypoint-number">
+										{step.number.toString().padStart(2, "0")}
+									</span>
+								</div>
+								<h3>{step.title}</h3>
+								<p>{step.description}</p>
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	#process {
+		width: 100%;
+		padding: 8rem 10%;
+		background: var(--paper-white);
+		border-top: 1px solid var(--light-gray);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.process-container {
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--sandy-brown);
+		margin-bottom: 1.5rem;
+	}
+
+	#process h2 {
+		font-size: 2.5rem;
+		color: var(--midnight-violet);
+		margin-bottom: 4rem;
+		font-weight: 700;
+	}
+
+	/* 40% / 60% Layout */
+	.process-layout {
+		display: grid;
+		grid-template-columns: 40% 60%;
+		gap: 4rem;
+		align-items: start;
+	}
+
+	.process-image {
+		position: sticky;
+		top: 8rem;
+		width: 100%;
+		max-width: 380px;
+	}
+
+	.process-image img {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	/* Path container */
+	.process-path {
+		position: relative;
+	}
+
+	.steps-flow {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+		position: relative;
+	}
+
+	.step-card {
+		background: transparent;
+		padding: 0;
+		text-align: left;
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 1.5rem;
+	}
+
+	/* Connecting line between waypoints - vertical */
+	.step-card::after {
+		content: "";
+		position: absolute;
+		top: 4rem;
+		left: 2rem;
+		width: 2px;
+		height: calc(100% + 3rem);
+		background: linear-gradient(
+			to bottom,
+			var(--sandy-brown) 0%,
+			var(--sandy-brown) 50%,
+			transparent 50%
+		);
+		background-size: 2px 8px;
+		z-index: 0;
+	}
+
+	.step-card:last-child::after {
+		display: none;
+	}
+
+	/* Waypoint number in circle */
+	.step-waypoint {
+		width: 4rem;
+		height: 4rem;
+		border-radius: 50%;
+		background: var(--paper-white);
+		border: 3px solid var(--sandy-brown);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 12px rgba(255, 164, 84, 0.15);
+		flex-shrink: 0;
+	}
+
+	.step-card:hover .step-waypoint {
+		background: var(--sandy-brown);
+		transform: scale(1.1);
+		box-shadow: 0 6px 20px rgba(255, 164, 84, 0.3);
+	}
+
+	.waypoint-number {
+		font-size: 1.5rem;
+		font-weight: 800;
+		color: var(--sandy-brown);
+		font-family: var(--heading-font);
+		transition: color 0.3s ease;
+	}
+
+	.step-card:hover .waypoint-number {
+		color: var(--paper-white);
+	}
+
+	.step-card h3 {
+		font-size: 1.25rem;
+		color: var(--midnight-violet);
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+	}
+
+	.step-card p {
+		font-size: 0.95rem;
+		color: var(--mid-gray);
+		line-height: 1.6;
+		font-weight: 400;
+	}
+
+	/* Tablet */
+	@media screen and (max-width: 1024px) {
+		.process-layout {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.process-image {
+			position: relative;
+			top: 0;
+			max-width: 400px;
+			margin: 0 auto;
+		}
+
+		.step-card::after {
+			display: none;
+		}
+	}
+
+	/* Mobile */
+	@media screen and (max-width: 768px) {
+		#process {
+			padding: 5rem 1.5rem;
+		}
+
+		#process h2 {
+			font-size: 2rem;
+			margin-bottom: 3rem;
+		}
+
+		.process-layout {
+			display: flex;
+			flex-direction: column;
+			gap: 2rem;
+		}
+
+		.process-image {
+			position: relative;
+			top: 0;
+			max-width: 280px;
+			margin: 0 auto;
+			opacity: 1;
+		}
+
+		.process-path {
+			position: relative;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+
+		.steps-flow {
+			gap: 2.5rem;
+			text-align: center;
+		}
+
+		/* Vertical layout for mobile */
+		.step-card {
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			padding-left: 0;
+			padding-right: 0;
+			text-align: center;
+			width: 100%;
+			max-width: 100%;
+		}
+
+		.step-card h3,
+		.step-card p {
+			margin-left: 0;
+			margin-right: 0;
+			width: 100%;
+		}
+
+		.step-card::after {
+			display: none;
+		}
+
+		.step-waypoint {
+			width: 3rem;
+			height: 3rem;
+			flex-shrink: 0;
+		}
+
+		.waypoint-number {
+			font-size: 1.2rem;
+		}
+
+		.step-card h3 {
+			margin-top: 0;
+			font-size: 1.1rem;
+		}
+
+		.step-card p {
+			font-size: 0.9rem;
+		}
+	}
+</style>

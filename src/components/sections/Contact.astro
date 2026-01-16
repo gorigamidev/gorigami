@@ -1,34 +1,384 @@
 ---
-import Ubication from "../common/Ubication.astro";
-import ContactForm from "../common/ContactForm.astro";
+// Contact section - Brand Lineage: minimal, functional
 ---
 
-<main id="contact">
-    <Ubication />
-    <ContactForm />
-</main>
+<section id="contact">
+	<div class="contact-container">
+		<div class="section-label">GET IN TOUCH</div>
+		<h2>Let's build something extraordinary</h2>
+		<p class="contact-subhead">
+			No layers. No noise. A small team that listens, thinks, and delivers.
+		</p>
+
+		<div class="contact-content">
+			<div class="contact-form">
+				<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" id="name" name="name" required />
+					</div>
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required />
+					</div>
+					<div class="form-group">
+						<label for="company">Company</label>
+						<input type="text" id="company" name="company" />
+					</div>
+					<div class="form-group">
+						<label for="project-type">Project Type</label>
+						<select id="project-type" name="project-type">
+							<option value="">Select type</option>
+							<option value="custom-system">Custom System</option>
+							<option value="ecommerce">E-commerce</option>
+							<option value="api">API/Integration</option>
+							<option value="mvp">MVP/Landing</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="form-group full-width">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<p class="privacy-note">
+						We'll only use your info to reply to your inquiry.
+					</p>
+					<div class="form-actions">
+						<button type="submit" class="btn-submit">→ Send</button>
+						<a
+							href="https://wa.me/573057197012?text=I'd%20like%20to%20book%20a%2020-min%20intro"
+							target="_blank"
+							class="btn-book"
+						>
+							Book a 20-min intro
+						</a>
+					</div>
+				</form>
+			</div>
+
+			<div class="contact-info">
+				<div class="info-label">CONTACT DETAILS</div>
+				<div class="contact-details">
+					<div class="detail-item">
+						<div class="detail-icon icon-email"></div>
+						<div class="detail-content">
+							<span class="detail-label">Email</span>
+							<a href="mailto:develop@gorigami.xyz">develop@gorigami.xyz</a>
+						</div>
+					</div>
+					<div class="detail-item">
+						<div class="detail-icon icon-phone"></div>
+						<div class="detail-content">
+							<span class="detail-label">Phone</span>
+							<a href="tel:+573057197012">+57 305 7197012</a>
+						</div>
+					</div>
+					<div class="detail-item">
+						<div class="detail-icon icon-location"></div>
+						<div class="detail-content">
+							<span class="detail-label">Location</span>
+							<span>Bogotá, Colombia</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 <style>
-    #contact {
-        height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
-        padding: 4.5rem 10% 2rem 10%;
-        position: relative;
-        overflow: hidden;
-        background: var(--dark-color);
-        gap: 1rem;
-    }
-    @media screen and (max-width: 700px){
-        #contact{
-            height: auto;
-            width: 100%;
-            padding: 1.5rem .2rem 4rem .2rem;
-            flex-direction: column-reverse;
-            z-index: 10;
-        }
-    }
+	#contact {
+		width: 100%;
+		padding: 8rem 10%;
+		background: var(--paper-white);
+		border-top: 1px solid var(--light-gray);
+	}
+
+	.contact-container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--sandy-brown);
+		margin-bottom: 1.5rem;
+	}
+
+	#contact h2 {
+		font-size: 2.5rem;
+		color: var(--ink-black);
+		margin-bottom: 1rem;
+		font-weight: 700;
+	}
+
+	.contact-subhead {
+		font-size: 1.25rem;
+		color: var(--mid-gray);
+		margin-bottom: 4rem;
+		font-weight: 400;
+	}
+
+	.contact-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 5rem;
+		align-items: start;
+	}
+
+	.contact-form {
+		background: transparent;
+	}
+
+	.form-group {
+		margin-bottom: 2rem;
+	}
+
+	.form-group.full-width {
+		grid-column: 1 / -1;
+	}
+
+	label {
+		display: block;
+		font-weight: 500;
+		margin-bottom: 0.5rem;
+		color: var(--ink-black);
+		font-size: 0.9rem;
+		letter-spacing: 0.02em;
+	}
+
+	input,
+	select,
+	textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid var(--light-gray);
+		background: var(--paper-white);
+		font-family: var(--body-font);
+		font-size: 1rem;
+		transition: border-color 0.2s ease;
+		color: var(--ink-black);
+	}
+
+	input:focus,
+	select:focus,
+	textarea:focus {
+		outline: none;
+		border-color: var(--ink-black);
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	.privacy-note {
+		font-size: 0.85rem;
+		color: var(--mid-gray);
+		margin-bottom: 2rem;
+		font-style: italic;
+	}
+
+	.form-actions {
+		display: flex;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.btn-submit,
+	.btn-book {
+		padding: 1rem 1.5rem;
+		font-weight: 500;
+		font-size: 1rem;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		border: 1px solid var(--ink-black);
+		cursor: pointer;
+		font-family: var(--body-font);
+		display: inline-block;
+		text-align: center;
+	}
+
+	.btn-submit {
+		background: var(--ink-black);
+		color: var(--paper-white);
+	}
+
+	.btn-submit:hover {
+		background: var(--accent-hover);
+		transform: translateX(4px);
+	}
+
+	.btn-book {
+		background: transparent;
+		color: var(--ink-black);
+	}
+
+	.btn-book:hover {
+		background: var(--off-white);
+		transform: translateX(2px);
+	}
+
+	.contact-info {
+		background: transparent;
+		padding-top: 0;
+	}
+
+	.info-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--mid-gray);
+		margin-bottom: 2rem;
+	}
+
+	.contact-details {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.detail-item {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		margin-bottom: 0;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid var(--light-gray);
+	}
+
+	.detail-item:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+
+	/* Flat CSS Icons */
+	.detail-icon {
+		width: 2.5rem;
+		height: 2.5rem;
+		background: var(--sandy-brown);
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	/* Email icon - envelope */
+	.icon-email::before {
+		content: "";
+		width: 1.2rem;
+		height: 0.9rem;
+		border: 2px solid var(--paper-white);
+		border-radius: 2px;
+		position: absolute;
+	}
+
+	.icon-email::after {
+		content: "";
+		width: 0;
+		height: 0;
+		border-left: 0.6rem solid transparent;
+		border-right: 0.6rem solid transparent;
+		border-top: 0.5rem solid var(--paper-white);
+		position: absolute;
+		top: 0.7rem;
+	}
+
+	/* Phone icon - handset */
+	.icon-phone::before {
+		content: "";
+		width: 0.8rem;
+		height: 0.8rem;
+		border: 2px solid var(--paper-white);
+		border-radius: 3px;
+		position: absolute;
+		transform: rotate(-45deg);
+	}
+
+	.icon-phone::after {
+		content: "";
+		width: 0.3rem;
+		height: 0.3rem;
+		background: var(--paper-white);
+		border-radius: 50%;
+		position: absolute;
+		top: 0.6rem;
+		left: 0.6rem;
+	}
+
+	/* Location icon - pin */
+	.icon-location::before {
+		content: "";
+		width: 0.9rem;
+		height: 1.2rem;
+		border: 2px solid var(--paper-white);
+		border-radius: 50% 50% 50% 0;
+		position: absolute;
+		transform: rotate(-45deg);
+	}
+
+	.icon-location::after {
+		content: "";
+		width: 0.4rem;
+		height: 0.4rem;
+		background: var(--paper-white);
+		border-radius: 50%;
+		position: absolute;
+	}
+
+	.detail-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		flex: 1;
+		padding-top: 0.25rem;
+	}
+
+	.detail-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--mid-gray);
+	}
+
+	.contact-details a {
+		color: var(--ink-black);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.contact-details a:hover {
+		color: var(--mid-gray);
+	}
+
+	.contact-details span {
+		color: var(--ink-black);
+	}
+
+	@media screen and (max-width: 968px) {
+		.contact-content {
+			grid-template-columns: 1fr;
+			gap: 4rem;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		#contact {
+			padding: 5rem 1.5rem;
+		}
+
+		#contact h2 {
+			font-size: 2rem;
+		}
+
+		.contact-subhead {
+			font-size: 1.1rem;
+		}
+	}
 </style>

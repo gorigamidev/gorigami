@@ -1,153 +1,163 @@
 ---
-import EnvelopeIcon from '../icons/envelope.astro'
-import PeopleIcon from '../icons/people.astro'
-import CubesIcons from '../icons/cubes.astro'
+// Navigation - Brand Lineage: minimal, clean
 ---
 
 <nav id="main-nav">
-    <div id="logo">
-        <a href="/"><h2>gorigami<span>.</span></h2></a>
-    </div>
-    <div id="links">
-        <ul>
-            <li><a href="/#services">Servicios</a></li>
-            <li><a href="/#team">Nosotros</a></li>
-            <li><a href="/#contact">Contacto</a></li>
-        </ul>
-    </div>
+	<div id="logo">
+		<a href="/"><h2>gorigami<span>.</span></h2></a>
+	</div>
+	<div id="links">
+		<ul>
+			<li><a href="/#what-we-build">What we build</a></li>
+			<li><a href="/#team">Team</a></li>
+			<li><a href="/#contact">Contact</a></li>
+		</ul>
+	</div>
 </nav>
+
 <nav id="mobile-nav">
-    <div id="logo">
-        <a href="/"><h2>gg<span>.</span></h2></a>
-    </div>
-    <div id="links">
-        <ul>
-            <li><a href="/#services">
-                <div>Servicios</div>
-                <CubesIcons />
-            </a></li>
-            <li><a href="/#team">
-                <div>Nosotros</div>
-                <PeopleIcon />
-            </a></li>
-            <li><a href="/#contact">
-                <div>Contacto</div>
-                <EnvelopeIcon />
-            </a></li>
-        </ul>
-    </div>
+	<div id="logo">
+		<a href="/"><h2>gg<span>.</span></h2></a>
+	</div>
+	<div id="links">
+		<ul>
+			<li><a href="/#what-we-build">What</a></li>
+			<li><a href="/#team">Team</a></li>
+			<li><a href="/#contact">Contact</a></li>
+		</ul>
+	</div>
 </nav>
+
 <style>
-    #mobile-nav{
-        display: none;
-    }
-    #main-nav{
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 1rem 10%;
-        color: var(--ligth-color);
-        font-family: var(--secondary-font);
-        position: fixed;
-        width: 100%;
-        height: 6rem;
-        top: 0;
-        z-index: 100;
-        background: rgba(22, 16, 31, 0.7);
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 3px );
-        -webkit-backdrop-filter: blur( 3px );
-    }
-    #logo{
-        font-family: var(--primary-font);
-        color: var(--purple-color);
-        font-size: 2rem;
-        margin: 0;
-    }
-    #logo > a{
-        text-decoration: none;
-        color: var(--purple-color);
-    }
-    #logo span{
-        color: var(--orange-color);
-    }
-    #links{
-        font-family: var(--secondary-font);
-        font-weight: 400;
-        color: var(--ligth-color);
-        fill: var(--ligth-color);
-    }
-    #links > ul{
-        list-style-type: none;
-        display: flex;
-        justify-content: space-evenly;
-        margin: 0;
-        padding: 0;
-        width: auto;
-    }
-    #links > ul > li{
-        text-align: center;
-        padding: 0;
-        width: 7rem;
-    }
-    #links a{
-        text-decoration: none;
-        width: 5.5rem;
-        color: var(--ligth-color);
-        font-weight: bold;
-        display: flex;
-        flex-direction: column;
-        gap: .2rem;
-    }
-    #links a:hover{
-        color: var(--purple-color);
-        border-bottom: 3px solid var(--purple-color);
-    }
-    .icons{
-        width: 2rem;
-        height: 1.3rem;
-    }
-    .icons svg{
-        width: 2rem;
-        height: 1.3rem;
-        color: var(--ligth-color);
-    }
-    .icons svg:hover{
-        color: var(--purple-color);
-    }
-    @media screen and (max-width: 700px){
-        #main-nav{
-            display: none;
-        }
-        #mobile-nav{
-            display: flex;
-            position: fixed;
-            justify-content: space-between;
-            align-items: center;
-            bottom: .5rem;
-            width: 99%;
-            padding: .5rem;
-            background: rgba(22, 16, 31, 0.7);
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-            backdrop-filter: blur( 3px );
-            -webkit-backdrop-filter: blur( 3px );
-            border-radius: 10px;
-            border: 1px solid rgba( 255, 255, 255, 0.18 );
-            z-index: 100;
-        }
-        #mobile-nav #logo{
-            margin-left: 1rem;
-            font-size: 1.4rem;
-        }
-        #mobile-nav #links{
-            font-size: .6rem;
-            font-weight: lighter;
-        }
-        #mobile-nav #links > ul > li{
-            width: 5.5rem;
-        }   
-        #mobile-nav #links > ul > li > a:hover{
-        border: none;
-        }
-    }
+	#mobile-nav {
+		display: none;
+	}
+
+	#main-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.5rem 10%;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 100;
+		background: rgba(255, 255, 255, 0.95);
+		border-bottom: 1px solid var(--light-gray);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
+
+	/* Logo uses Nautilus font */
+	#logo {
+		font-family: var(--logo-font);
+		color: var(--ink-black);
+		font-size: 1.5rem;
+		margin: 0;
+	}
+
+	#logo > a {
+		text-decoration: none;
+		color: var(--ink-black);
+	}
+
+	#logo h2 {
+		margin: 0;
+		font-weight: normal;
+		font-family: var(--logo-font);
+	}
+
+	#logo span {
+		color: var(--mid-gray);
+	}
+
+	/* Links use body font */
+	#links {
+		font-family: var(--body-font);
+		font-weight: 500;
+	}
+
+	#links > ul {
+		list-style-type: none;
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		gap: 2rem;
+	}
+
+	#links > ul > li {
+		text-align: center;
+		padding: 0;
+	}
+
+	#links a {
+		text-decoration: none;
+		color: var(--ink-black);
+		font-size: 0.95rem;
+		transition: color 0.2s ease;
+		position: relative;
+	}
+
+	#links a:hover {
+		color: var(--mid-gray);
+	}
+
+	#links a::after {
+		content: "";
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background: var(--ink-black);
+		transition: width 0.2s ease;
+	}
+
+	#links a:hover::after {
+		width: 100%;
+	}
+
+	@media screen and (max-width: 768px) {
+		#main-nav {
+			display: none;
+		}
+
+		#mobile-nav {
+			display: flex;
+			position: fixed;
+			justify-content: space-between;
+			align-items: center;
+			bottom: 1rem;
+			left: 1rem;
+			right: 1rem;
+			padding: 1rem 1.5rem;
+			background: rgba(255, 255, 255, 0.95);
+			border: 1px solid var(--light-gray);
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+			z-index: 100;
+		}
+
+		#mobile-nav #logo {
+			font-size: 1.2rem;
+		}
+
+		#mobile-nav #links {
+			font-size: 0.85rem;
+		}
+
+		#mobile-nav #links > ul {
+			gap: 1.5rem;
+		}
+
+		#mobile-nav #links > ul > li {
+			min-width: auto;
+		}
+
+		#mobile-nav #links a::after {
+			display: none;
+		}
+	}
 </style>

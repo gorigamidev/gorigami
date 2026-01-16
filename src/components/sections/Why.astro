@@ -1,0 +1,213 @@
+---
+// Why section - Brand Lineage: minimal, calm
+---
+
+<section id="why">
+	<div class="why-bg-shape"></div>
+	<div class="tech-background"></div>
+	<div class="why-container">
+		<div class="section-label">WHY GORIGAMI</div>
+		<h2>Why we exist</h2>
+		<p class="why-copy">
+			Great software doesn't need huge teams. It needs <strong
+				>small, talented groups</strong
+			> with clear ownership. We fold creativity, engineering, and brand into tools
+			that actually move your business.
+		</p>
+		<ul class="why-bullets">
+			<li>
+				<span class="bullet-icon icon-target"></span>
+				<span>Small teams, big impact</span>
+			</li>
+			<li>
+				<span class="bullet-icon icon-craft"></span>
+				<span>Craft over hype</span>
+			</li>
+			<li>
+				<span class="bullet-icon icon-partnership"></span>
+				<span>Partnership > projects</span>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<style>
+	#why {
+		width: 100%;
+		padding: 8rem 10%;
+		background: var(--smoke);
+		position: relative;
+		overflow: hidden;
+	}
+
+	/* Decorative background shape */
+	.why-bg-shape {
+		position: absolute;
+		bottom: -20%;
+		left: -10%;
+		width: 50%;
+		height: 80%;
+		background: var(--lavender-mist);
+		clip-path: polygon(0% 20%, 60% 0%, 100% 80%, 40% 100%);
+		z-index: 0;
+		opacity: 0.5;
+	}
+
+	/* Tech background image - floating on left */
+	.tech-background {
+		position: absolute;
+		left: 0;
+		top: 10%;
+		width: 40%;
+		height: 80%;
+		background-image: url("/img/TechThings.png");
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: left center;
+		opacity: 0.15;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.why-container {
+		max-width: 800px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--sandy-brown);
+		margin-bottom: 1.5rem;
+	}
+
+	#why h2 {
+		font-size: 2.5rem;
+		color: var(--midnight-violet);
+		margin-bottom: 2rem;
+		font-weight: 700;
+		line-height: 1.1;
+	}
+
+	.why-copy {
+		font-size: 1.25rem;
+		color: var(--mid-gray);
+		line-height: 1.7;
+		margin-bottom: 3rem;
+		font-weight: 400;
+	}
+
+	.why-copy strong {
+		color: var(--midnight-violet);
+		font-weight: 500;
+	}
+
+	.why-bullets {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 2rem;
+		border-left: 1px solid var(--light-gray);
+		padding-left: 2rem;
+	}
+
+	.why-bullets li {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		font-size: 1.1rem;
+		color: var(--midnight-violet);
+		font-weight: 400;
+	}
+
+	/* Minimal CSS Icons */
+	.bullet-icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		flex-shrink: 0;
+	}
+
+	/* Target icon - concentric circles */
+	.icon-target::before {
+		content: "";
+		width: 1.2rem;
+		height: 1.2rem;
+		border: 2px solid var(--sandy-brown);
+		border-radius: 50%;
+		position: absolute;
+	}
+
+	.icon-target::after {
+		content: "";
+		width: 0.6rem;
+		height: 0.6rem;
+		background: var(--sandy-brown);
+		border-radius: 50%;
+		position: absolute;
+	}
+
+	/* Craft icon - sparkle/star */
+	.icon-craft::before {
+		content: "✦";
+		font-size: 1.2rem;
+		color: var(--sandy-brown);
+		line-height: 1;
+	}
+
+	/* Partnership icon - handshake symbol */
+	.icon-partnership::before {
+		content: "";
+		width: 1rem;
+		height: 0.5rem;
+		border: 2px solid var(--sandy-brown);
+		border-radius: 0.25rem;
+		position: absolute;
+		transform: rotate(-15deg);
+	}
+
+	.icon-partnership::after {
+		content: "";
+		width: 1rem;
+		height: 0.5rem;
+		border: 2px solid var(--sandy-brown);
+		border-radius: 0.25rem;
+		position: absolute;
+		transform: rotate(15deg);
+	}
+
+	@media screen and (max-width: 768px) {
+		#why {
+			padding: 5rem 1.5rem;
+		}
+
+		/* Reduce tech background on mobile */
+		.tech-background {
+			opacity: 0.08;
+			width: 60%;
+		}
+
+		#why h2 {
+			font-size: 2rem;
+		}
+
+		.why-copy {
+			font-size: 1.1rem;
+		}
+
+		.why-bullets {
+			padding-left: 1.5rem;
+		}
+
+		.why-bullets li {
+			font-size: 1rem;
+		}
+	}
+</style>

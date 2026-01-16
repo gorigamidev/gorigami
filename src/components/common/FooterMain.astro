@@ -1,51 +1,107 @@
+---
+// Footer - Brand Lineage: minimal, readable
+---
+
 <footer id="main-foot">
-    <ul id="navigation">
-        <li><a href="/terms" >Terminos & Condiciones</a></li>
-        <li><a href="https://www.linkedin.com/company/gorigami/" target="_blank">Carreras</a></li>
-    </ul>
-    <div id="foot-logo">
-        <a href="/"><img src="/img/ggtra.png" alt="mini logo gorigami"></a>
-    </div>
+	<div class="footer-content">
+		<div id="foot-logo">
+			<a href="/"
+				><span class="logo-text">gorigami<span class="dot">.</span></span></a
+			>
+		</div>
+		<ul id="navigation">
+			<li><a href="/terms">Terms & Conditions</a></li>
+			<li>
+				<a href="https://www.linkedin.com/company/gorigami/" target="_blank"
+					>Careers</a
+				>
+			</li>
+		</ul>
+		<p class="footer-tag">Create & Innovate</p>
+	</div>
 </footer>
+
 <style>
-    #main-foot {
-        height: 7rem;
-        position: static;
-        bottom: 0;
-        padding: 0 10%;
-        background: black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-    #foot-logo{
-        height: 3rem;
-        width: 3rem;
-    }
-    #foot-logo img{
-        height: 100%;
-        width: 100%;
-    }
-    #navigation{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        gap: 1rem;
-    }
-    @media screen and (max-width: 700px){
-        #main-foot{
-            position: absolute;
-            top: 0;
-            z-index: 30;
-            height: 3.5rem;
-            font-size: .8rem;
-            background: rgba(22, 16, 31, 0.7);
-            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-            backdrop-filter: blur( 3px );
-            -webkit-backdrop-filter: blur( 3px );
-        }
-    }
+	#main-foot {
+		padding: 3rem 10%;
+		background: var(--midnight-violet);
+		width: 100%;
+	}
+
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	#foot-logo {
+		flex: 1;
+	}
+
+	.logo-text {
+		font-family: var(--logo-font);
+		font-size: 1.5rem;
+		color: var(--lavender-mist);
+		font-weight: normal;
+	}
+
+	.dot {
+		color: var(--sandy-brown);
+	}
+
+	#navigation {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+		flex: 1;
+	}
+
+	footer a {
+		color: var(--lavender-mist);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	footer a:hover {
+		color: var(--sandy-brown);
+	}
+
+	.footer-tagline {
+		font-size: 0.9rem;
+		color: var(--lavender-mist);
+		opacity: 0.8;
+	}
+
+	@media screen and (max-width: 768px) {
+		#main-foot {
+			padding: 3rem 1.5rem;
+		}
+
+		.footer-content {
+			flex-direction: column;
+			text-align: center;
+			gap: 1.5rem;
+		}
+
+		#foot-logo,
+		#navigation,
+		.footer-tag {
+			flex: none;
+		}
+
+		.footer-tag {
+			text-align: center;
+		}
+
+		#navigation {
+			flex-direction: column;
+			gap: 1rem;
+		}
+	}
 </style>

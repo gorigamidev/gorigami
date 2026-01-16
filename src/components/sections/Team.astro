@@ -1,117 +1,233 @@
 ---
-import MemberCard from "../common/MemberCard.astro"
+import { teamMembers } from "../../data/team";
 ---
 
-<main id="team">
-    <section class="about">
-        <h2>¿Quienes somos?</h2>
-        <p>
-            ¡Hola! Somos <span>gorigami</span>, y estamos aquí para darle vida a tus ideas. 
-            <br/>Apasionados creadores y pensadores de Bogotá, Colombia, obsesionados con la innovación, la creatividad y el liderazgo. 
-            <br/>¿Necesitas una web que deje a todos boquiabiertos? 
-            <br/>¿Un aplicativo a medida que sea la solución perfecta? 
-            <br/>¿O quizás una orientación experta en arquitectura de software? 
-            <br/>Estamos listos para doblar las reglas y hacer que tus proyectos cobren vida.
-        </p>
-    </section>
-    <section class="the-team">
-        <h2>Nuestro Equipo</h2>
-        <div class="members">
-            <MemberCard
-                imgUrl="/img/DaveTra.png"
-                name="Leonardo Bonilla"
-                description="Transforma ideas en experiencias digitales con maestría."
-                role="FullStack developer"
-            />
-            <MemberCard
-                imgUrl="/img/NicoTra.png"
-                name="Nicolas Balaguera"
-                description="Construye la base sólida de tu proyecto con un backend de nivel experto."
-                role="Data Engineer & Backend Developer"
-            />
-            <MemberCard
-                imgUrl="/img/JennTra.png"
-                name="Jennifer Concha"
-                description="Diseña el futuro con creatividad, elegancia y pasión."
-                role="Designer & Marketing Leader"
-            />
-        </div>
-    </section>
+<section id="team">
+	<div class="team-container">
+		<div class="team-header">
+			<div class="section-label">THE TEAM</div>
+			<h2>Inside the Lab</h2>
+			<p class="team-subtitle">
+				A small group of builders, designers, and engineers, focused on creating
+				systems that last.
+			</p>
+		</div>
 
-    <p class="tag-team">Creando innovación, desarrollando la creatividad, empoderando a los humanos</p>
+		<div class="team-panels">
+			{
+				teamMembers.map((member, index) => (
+					<div class="member-panel" data-index={index}>
+						<div class="vertical-label">{member.verticalLabel}</div>
 
-</main>
+						<div class="portrait-frame">
+							<img src={member.imgUrl} alt={member.name} class="portrait" />
+						</div>
+
+						<div class="member-info">
+							<h3 class="member-name">{member.name}</h3>
+							<p class="member-role">{member.role}</p>
+							<p class="member-descriptor">{member.descriptor}</p>
+						</div>
+
+						<div class="panel-separator" />
+					</div>
+				))
+			}
+		</div>
+
+		<p class="team-tagline">Bogotá, CO. Building globally.</p>
+	</div>
+</section>
+
 <style>
-    #team {
-        height: auto;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 7rem 10% 3.5rem 10%;
-        position: relative;
-        background: var(--dark-color);
-        overflow: hidden;
-        gap: 1.5rem;
-    }
-    #team h2{
-        font-size: 2.2rem;
+	#team {
+		width: 100%;
+		padding: 8rem 10%;
+		background: var(--paper-white);
+		border-top: 1px solid var(--light-gray);
+	}
 
-    }
-    .about{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        width: 50%;
-        text-align: left;
-    }
-    .about>p{
-        font-size: 1.3rem;
-    }
-    .about span{
-        font-family: var(--primary-font);
-        font-size: 1.5rem;
-        color: var(--orange-color);
-    }
-    .the-team{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .members{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        overflow: auto;
-    }
-    .tag-team{
-        font-family: var(--primary-font);
-        font-size: 1.8rem;
-        opacity: .7;
-        width: 100%;
-        position: absolute;
-        margin: 0 1rem;
-        bottom:0; 
-    }
-    @media screen and (max-width: 700px){
-        #team{
-            height: 100%;
-            padding: 1rem;
-            flex-direction: column;
-            z-index: 10;
-        }
-        .about{
-        width: 100%;
-        text-align: center;
-        }
-        .tag-team{
-            position: relative;
-        }
-    }
+	.team-container {
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.team-header {
+		max-width: 800px;
+		margin-bottom: 5rem;
+	}
+
+	.section-label {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		color: var(--sandy-brown);
+		margin-bottom: 1.5rem;
+	}
+
+	#team h2 {
+		font-size: 3rem;
+		color: var(--midnight-violet);
+		margin-bottom: 1.5rem;
+		font-weight: 800;
+		line-height: 1;
+	}
+
+	.team-subtitle {
+		font-size: 1.25rem;
+		color: var(--mid-gray);
+		line-height: 1.7;
+		font-weight: 400;
+	}
+
+	/* Editorial Panels Layout */
+	.team-panels {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 4rem;
+		margin-bottom: 4rem;
+		position: relative;
+	}
+
+	.member-panel {
+		position: relative;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		max-width: 320px;
+	}
+
+	/* Vertical Label - Signature Element */
+	.vertical-label {
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+		color: var(--sandy-brown);
+		margin-bottom: 0.5rem;
+	}
+
+	/* Portrait - Compact */
+	.portrait-frame {
+		width: 100%;
+		height: 280px;
+		overflow: hidden;
+		background: var(--smoke);
+		position: relative;
+		border: 1px solid var(--light-gray);
+	}
+
+	.portrait {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center 30%;
+		filter: grayscale(1) contrast(1.1);
+		transition:
+			filter 0.3s ease,
+			transform 0.3s ease;
+	}
+
+	.member-panel:hover .portrait {
+		filter: grayscale(0.7) contrast(1.05);
+		transform: scale(1.02);
+	}
+
+	/* Member Info */
+	.member-info {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.member-name {
+		font-size: 1.4rem;
+		font-weight: 700;
+		color: var(--midnight-violet);
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	.member-role {
+		font-size: 0.7rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--mid-gray);
+		margin: 0;
+		padding-bottom: 0.5rem;
+		border-bottom: 1px solid var(--light-gray);
+	}
+
+	.member-descriptor {
+		font-size: 0.95rem;
+		color: var(--mid-gray);
+		line-height: 1.65;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	/* Geometric Separator - Removed for cleaner columns */
+	.panel-separator {
+		display: none;
+	}
+
+	.team-tagline {
+		font-size: 1rem;
+		color: var(--mid-gray);
+		text-align: center;
+		font-weight: 400;
+		margin-top: 3rem;
+	}
+
+	/* Tablet */
+	@media screen and (max-width: 1024px) {
+		.team-panels {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 3rem;
+		}
+
+		.member-panel {
+			max-width: none;
+		}
+
+		.member-panel:nth-child(2),
+		.member-panel:nth-child(3) {
+			margin-top: 0;
+		}
+	}
+
+	/* Mobile */
+	@media screen and (max-width: 768px) {
+		#team {
+			padding: 5rem 1.5rem;
+		}
+
+		.team-header {
+			margin-bottom: 3rem;
+		}
+
+		#team h2 {
+			font-size: 2.5rem;
+		}
+
+		.team-subtitle {
+			font-size: 1.1rem;
+		}
+
+		.team-panels {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+
+		.portrait-frame {
+			height: 320px;
+		}
+
+		.member-name {
+			font-size: 1.3rem;
+		}
+	}
 </style>
