@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gorigami.xyz/sitemap-index.xml

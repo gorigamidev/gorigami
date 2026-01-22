@@ -1,25 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TermsConditions from '../components/common/TermsConditions.md';
+import Layout from "../layouts/Layout.astro";
+import TermsConditions from "../components/common/TermsConditions.md";
 ---
-<Layout title='Términos & Condiciones'>
-    <main id="termns">
-        <TermsConditions />
-    </main>
+
+<Layout
+	title="Términos & Condiciones"
+	description="Read Gorigami's Terms and Conditions, privacy policies, and service agreements. Transparent and clear."
+>
+	<main id="termns">
+		<TermsConditions />
+	</main>
 </Layout>
 <style>
-    #termns {
-        height: 93vh;
-        width: 100%;
-        padding: 6.5rem 10% 1rem 10%;
-        position: relative;
-        overflow: auto;
-        text-align: left;
-        line-height: 2rem;
-        font-family: var(--secondary-font);
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        gap: 1rem;
-    }
+	#termns {
+		height: 93vh;
+		width: 100%;
+		padding: 6.5rem 10% 1rem 10%;
+		position: relative;
+		overflow: auto;
+		text-align: left;
+		line-height: 2rem;
+		font-family: var(--secondary-font);
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		gap: 1rem;
+	}
 </style>

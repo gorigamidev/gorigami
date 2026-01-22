@@ -12,7 +12,10 @@ export async function getStaticPaths() {
 const { demo } = Astro.props;
 ---
 
-<Layout title={`${demo.title} - Gorigami Case Study`}>
+<Layout
+	title={`${demo.title} - Gorigami Case Study`}
+	description={demo.overview}
+>
 	<section id="case-study">
 		<div class="case-study-container">
 			<!-- Back button -->

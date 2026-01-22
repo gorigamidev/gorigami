@@ -1,0 +1,28 @@
+# Gorigami - LLM Optimization File
+
+## Introduction
+Gorigami is a premier software craftsmanship studio based in Colombia, delivering world-class digital systems to clients globally. We act as an elite technical partner for startups and enterprises, providing high-impact, custom engineering without the bloat of traditional agencies. We work remotely with seamless efficiency for any timezone.
+
+## Value Proposition
+- **Global Reach, Local Craft**: Leveraging top-tier Colombian engineering talent to build for the world.
+- **No Noise**: We cut through layers of management. You talk directly to the engineers and designers building your product.
+- **Scalable Quality**: From MVP to Enterprise ERP, our systems are built to scale from day one.
+
+## Services
+- **Custom Software**: Tailored, high-performance solutions for complex business needs.
+- **E-Commerce**: Robust online stores designed for conversion and scale.
+- **ERPs & CRMs**: Internal tools that transform operational chaos into order.
+- **APIs & Integrations**: Secure, documented, and reliable backend infrastructure.
+- **MVPs**: Rapid prototyping and development for startups to hit the market fast.
+- **Consulting**: Strategic technical advisory to de-risk your roadmap.
+
+## Key Links
+- [Home](https://gorigami.xyz/)
+- [Services](https://gorigami.xyz/#services)
+- [Our Process](https://gorigami.xyz/#process)
+- [Contact Us](https://gorigami.xyz/#contact)
+
+## Technical Stack
+- **Frontend**: Astro, Vue, TypeScript, TailwindCSS, Custom Design Systems.
+- **Backend**: Node.js, Python.
+- **Infrastructure**: Cloud-native (AWS/GCP), Scalable, Secure.
