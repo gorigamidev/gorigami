@@ -3,6 +3,9 @@ import NavBar from "../components/common/NavBar.astro";
 import FooterMain from "../components/common/FooterMain.astro";
 import Toast from "../components/common/Toast.astro";
 import { ClientRouter } from "astro:transitions";
+// Use local fonts via fontsource for privacy and performance
+import "@fontsource-variable/urbanist";
+import "@fontsource-variable/inter";
 
 interface Props {
 	title: string;
@@ -141,9 +144,7 @@ const metaDescription = description || defaultDescription;
 <style is:global>
 	/* global styles - Brand Lineage: minimal, intentional, calm */
 
-	/* UI Fonts - @import must come first */
-	@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+	/* UI Fonts - Imports handled via @fontsource-variable in frontmatter */
 
 	/* Gorigami Logo Font - only for brand mark */
 	@font-face {
@@ -158,8 +159,8 @@ const metaDescription = description || defaultDescription;
 
 	:root {
 		--logo-font: "Nautilus", serif;
-		--heading-font: "Urbanist", system-ui, sans-serif;
-		--body-font: "Inter", system-ui, sans-serif;
+		--heading-font: "Urbanist Variable", system-ui, sans-serif;
+		--body-font: "Inter Variable", system-ui, sans-serif;
 		font-size: 16px;
 
 		/* Gorigami Brand Color System: 70% white, 25% dark, 5% accent */
