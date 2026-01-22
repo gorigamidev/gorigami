@@ -1,0 +1,139 @@
+---
+// Toast Notification Component
+---
+
+<div id="toast-container" class="toast-hidden">
+	<div id="toast-message"></div>
+	<button id="toast-close">&times;</button>
+</div>
+
+<script>
+	interface ToastEvent extends CustomEvent {
+		detail: {
+			message: string;
+			type: "success" | "error" | "info";
+		};
+	}
+
+	const toastContainer = document.getElementById("toast-container");
+	const toastMessage = document.getElementById("toast-message");
+	const toastClose = document.getElementById("toast-close");
+	let toastTimeout: ReturnType<typeof setTimeout>;
+
+	function showToast(
+		message: string,
+		type: "success" | "error" | "info" = "info",
+	) {
+		if (!toastContainer || !toastMessage) return;
+
+		// Reset classes
+		toastContainer.className = "";
+		toastContainer.classList.add("toast-visible");
+		toastContainer.classList.add(`toast-${type}`);
+
+		// Set message
+		toastMessage.textContent = message;
+
+		// Clear existing timeout
+		if (toastTimeout) {
+			clearTimeout(toastTimeout);
+		}
+
+		// Auto hide after 3 seconds
+		toastTimeout = setTimeout(() => {
+			hideToast();
+		}, 3000);
+	}
+
+	function hideToast() {
+		if (!toastContainer) return;
+		toastContainer.classList.remove("toast-visible");
+		toastContainer.classList.add("toast-hidden");
+	}
+
+	// Listen for custom event
+	window.addEventListener("toast", ((event: ToastEvent) => {
+		const { message, type } = event.detail;
+		showToast(message, type);
+	}) as EventListener);
+
+	if (toastClose) {
+		toastClose.addEventListener("click", hideToast);
+	}
+</script>
+
+<style>
+	#toast-container {
+		position: fixed;
+		bottom: 2rem;
+		right: 2rem;
+		padding: 1rem 1.5rem;
+		border-radius: 0.5rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		z-index: 9999;
+		transition: all 0.3s ease;
+		min-width: 300px;
+		color: var(--paper-white);
+		font-family: var(--body-font);
+	}
+
+	#toast-message {
+		flex: 1;
+		font-weight: 500;
+		font-size: 1rem;
+	}
+
+	#toast-close {
+		background: transparent;
+		border: none;
+		color: inherit;
+		font-size: 1.5rem;
+		cursor: pointer;
+		padding: 0;
+		line-height: 1;
+		opacity: 0.8;
+	}
+
+	#toast-close:hover {
+		opacity: 1;
+	}
+
+	.toast-hidden {
+		opacity: 0;
+		transform: translateY(20px);
+		pointer-events: none;
+	}
+
+	.toast-visible {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	/* Types */
+	.toast-success {
+		background-color: #10b981; /* Green */
+	}
+
+	.toast-error {
+		background-color: #ef4444; /* Red */
+	}
+
+	.toast-info {
+		background-color: var(--sandy-brown); /* Brand accent */
+		color: var(--midnight-violet) !important;
+	}
+
+	/* Responsive */
+	@media (max-width: 640px) {
+		#toast-container {
+			bottom: 1rem;
+			right: 1rem;
+			left: 1rem;
+			min-width: auto;
+		}
+	}
+</style>

@@ -1,6 +1,7 @@
 ---
 import NavBar from "../components/common/NavBar.astro";
 import FooterMain from "../components/common/FooterMain.astro";
+import Toast from "../components/common/Toast.astro";
 import { ClientRouter } from "astro:transitions";
 
 interface Props {
@@ -84,6 +85,7 @@ const { title } = Astro.props;
 			<NavBar />
 			<slot />
 			<FooterMain />
+			<Toast />
 		</main>
 	</body>
 </html>
