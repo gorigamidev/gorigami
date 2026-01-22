@@ -20,7 +20,13 @@ import { teamMembers } from "../../data/team";
 						<div class="vertical-label">{member.verticalLabel}</div>
 
 						<div class="portrait-frame">
-							<img src={member.imgUrl} alt={member.name} class="portrait" />
+							<img
+								src={member.imgUrl}
+								alt={member.name}
+								class="portrait"
+								loading="lazy"
+								decoding="async"
+							/>
 						</div>
 
 						<div class="member-info">
