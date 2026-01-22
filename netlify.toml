@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[configuration]
+  # These keys are public/client-side identifiers for EmailJS and safe to expose
+  SECRETS_SCAN_OMIT_KEYS = [
+    "PUBLIC_EMAILJS_SERVICE_ID", 
+    "PUBLIC_EMAILJS_TEMPLATE_ID", 
+    "PUBLIC_EMAILJS_USER_ID", 
+    "PUBLIC_EMAILJS_API_URL"
+  ]
