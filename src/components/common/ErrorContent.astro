@@ -1,51 +1,97 @@
-<main id="error-page">
-    <img src="/img/Gorilla-Transparent.png" alt="Estas perdido">
-    <h3>Veo que estás perdido</h3>
-    <a href="/">¿Te ayudo a volver?</a>
+<main id="not-found-page">
+	<div class="error-container">
+		<img
+			src="https://res.cloudinary.com/gorigami/image/upload/v1769109708/gorigamiland/EnjoyWork_lgbnej.png"
+			alt="Lost Gorilla"
+		/>
+		<div class="error-content">
+			<h1 class="error-title">Oops! You're lost.</h1>
+			<p class="error-desc">
+				We can't seem to find the page you're looking for.
+			</p>
+			<a href="/" class="btn-home">→ Return Home</a>
+		</div>
+	</div>
 </main>
+
 <style>
-    #error-page {
-        height: 90vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 10%;
-        position: relative;
-        overflow: hidden;
-        gap: 1rem;
-        text-align: center;
-    }
-    #error-page img {
-        height: 25rem;
-    }
-    #error-page h3 {
-        font-size: 2.5rem;
-    }
-    #error-page a {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--purple-color);
-        background: var(--dark-color);
-        border: var(--purple-color) .2rem solid;
-        padding: 1rem 2rem;
-        border-radius: 1rem;
-        text-decoration: none;
-    }
-    #error-page a:hover {
-        background: var(--ligth-color);
-        color: var(--dark-color);
-    }
-    @media screen and (max-width: 700px){
-        #error-page img {
-            height: 15rem;
-        }
-        #error-page h3 {
-            font-size: 1.5rem;
-        }
-        #error-page a {
-            font-size: 1rem;
-        }
-    }
+	#not-found-page {
+		min-height: 80vh;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 4rem 10%;
+		background-color: var(--smoke, #f0f0ef);
+		font-family: var(--body-font, sans-serif);
+	}
+
+	.error-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 2rem;
+		max-width: 600px;
+	}
+
+	#not-found-page img {
+		height: auto;
+        margin-top: 3rem;
+		width: 100%;
+		max-width: 200px;
+		object-fit: contain;
+	}
+
+	.error-title {
+		font-family: var(--heading-font, sans-serif);
+		font-size: 3.5rem;
+		font-weight: 800;
+		color: var(--midnight-violet, #16091d);
+		line-height: 1.2;
+		margin-bottom: 1rem;
+	}
+
+	.error-desc {
+		color: var(--mid-gray, #6b6b6b);
+		font-size: 1.25rem;
+		margin-bottom: 2.5rem;
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.btn-home {
+		display: inline-block;
+		padding: 1rem 2.5rem;
+		font-weight: 600;
+		font-size: 1rem;
+		color: #ffffff !important;
+		background: var(--midnight-violet, #16091d);
+		border: 2px solid var(--midnight-violet, #16091d);
+		text-decoration: none;
+		transition: all 0.3s ease;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	.btn-home:hover {
+		background: transparent;
+		color: var(--midnight-violet, #16091d) !important;
+		transform: translateY(-2px);
+	}
+
+	@media screen and (max-width: 768px) {
+		.error-title {
+			font-size: 2.5rem;
+		}
+
+		#not-found-page img {
+			max-width: 150px; /* Reduced from 280px */
+		}
+
+		.error-desc {
+			font-size: 1.1rem;
+		}
+	}
 </style>
