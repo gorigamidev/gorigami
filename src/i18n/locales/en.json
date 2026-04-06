@@ -37,6 +37,12 @@
         "title": "Tools we build and maintain",
         "intro": "SaaS products and open-source frameworks designed to solve real problems."
     },
+    "fun": {
+        "label": "PLAYGROUND",
+        "title": "Small experiments, big fun",
+        "intro": "We build tools to solve problems, but we also build things just because we can.",
+        "playNow": "Play Now →"
+    },
     "team": {
         "label": "THE TEAM",
         "title": "Inside the Lab",

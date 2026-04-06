@@ -4,6 +4,7 @@ import { getLocalizedField } from './helpers';
 import { services } from '../data/services';
 import { processSteps } from '../data/process';
 import { products } from '../data/products';
+import { games } from '../data/fun';
 import { teamMembers } from '../data/team';
 import { demos } from '../data/demos';
 
@@ -52,6 +53,21 @@ export function updateAllDataTranslations() {
             if (taglineEl) taglineEl.textContent = getLocalizedField(product, 'tagline', lang);
             if (descEl) descEl.textContent = getLocalizedField(product, 'description', lang);
             if (ctaEl) ctaEl.textContent = getLocalizedField(product, 'cta_text', lang);
+        }
+    });
+
+    // Update fun games
+    const gameCards = document.querySelectorAll('.game-card');
+    gameCards.forEach((card, index) => {
+        if (games[index]) {
+            const game = games[index];
+            const nameEl = card.querySelector('[data-i18n-game-field="name"]');
+            const taglineEl = card.querySelector('[data-i18n-game-field="tagline"]');
+            const descEl = card.querySelector('[data-i18n-game-field="description"]');
+
+            if (nameEl) nameEl.textContent = getLocalizedField(game, 'name', lang);
+            if (taglineEl) taglineEl.textContent = getLocalizedField(game, 'tagline', lang);
+            if (descEl) descEl.textContent = getLocalizedField(game, 'description', lang);
         }
     });
 

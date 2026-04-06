@@ -9,6 +9,6 @@ export function getServerLang(cookies: AstroCookies): 'en' | 'es' {
         return cookieLang;
     }
 
-    console.log('[Server] No valid cookie, defaulting to EN');
-    return 'en'; // Default to English
+    console.log('[Server] No valid cookie, defaulting to ES');
+    return 'es'; // Default to Spanish for local strategy
 }

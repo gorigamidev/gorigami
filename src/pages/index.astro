@@ -6,17 +6,25 @@ import WhatWeBuild from "../components/sections/WhatWeBuild.astro";
 import Process from "../components/sections/Process.astro";
 import InHouseGrid from "../components/sections/InHouseGrid.astro";
 import Products from "../components/sections/Products.astro";
+import Fun from "../components/sections/Fun.astro";
 import Team from "../components/sections/Team.astro";
 import Contact from "../components/sections/Contact.astro";
+import { getServerLang } from "../i18n/serverUtils";
+
+const lang = getServerLang(Astro.cookies);
+const title = lang === 'es' 
+	? "Software a la Medida y Soluciones SaaS en Bogotá | Gorigami" 
+	: "Custom Software and SaaS Solutions in Bogotá | Gorigami";
 ---
 
-<Layout title="Gorigami — Create & Innovate">
+<Layout title={title}>
 	<Hero />
 	<Why />
 	<WhatWeBuild />
 	<Process />
 	<InHouseGrid />
 	<Products />
+	<Fun />
 	<Team />
 	<Contact />
 </Layout>

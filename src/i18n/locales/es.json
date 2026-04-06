@@ -37,6 +37,12 @@
         "title": "Herramientas que construimos y mantenemos",
         "intro": "Productos SaaS y frameworks de código abierto diseñados para resolver problemas reales."
     },
+    "fun": {
+        "label": "PLAYGROUND",
+        "title": "Pequeños experimentos, gran diversión",
+        "intro": "Construimos herramientas para resolver problemas, pero también construimos cosas simplemente porque podemos.",
+        "playNow": "Jugar ahora →"
+    },
     "team": {
         "label": "EL EQUIPO",
         "title": "Dentro del Laboratorio",
