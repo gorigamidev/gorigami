@@ -8,11 +8,26 @@ const translations = { en, es };
 
 // Get current language (default to EN)
 export function getLang(): 'en' | 'es' {
-    if (typeof window === 'undefined') return 'en';
+    if (typeof window === 'undefined') return 'es';
 
     const saved = localStorage.getItem('gorigami-lang');
-    // Only return 'es' if explicitly set, otherwise default to 'en'
-    return saved === 'es' ? 'es' : 'en';
+    if (saved === 'es' || saved === 'en') return saved;
+
+    // Detect browser language
+    const browserLang = (navigator.language || (navigator as any).userLanguage || '').toLowerCase();
+    
+    // If browser is Spanish (any variation), use ES
+    if (browserLang.startsWith('es')) {
+        return 'es';
+    }
+    
+    // If browser is something else (identifiable), use EN as the international version
+    if (browserLang) {
+        return 'en';
+    }
+
+    // Default to ES for local strategy if detection fails
+    return 'es';
 }
 
 export function setLang(lang: 'en' | 'es') {

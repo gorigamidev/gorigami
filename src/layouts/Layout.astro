@@ -101,20 +101,25 @@ const metaDescription = description || defaultDescription;
 
 		<!-- CRITICAL: i18n must run BEFORE anything else to prevent flash -->
 		<script is:inline>
-			// Immediately detect and set language from localStorage ONLY
+			// Immediately detect and set language
 			(function () {
-				// Get language from localStorage (default to EN)
 				let lang = localStorage.getItem("gorigami-lang");
 
-				// Only accept 'es', everything else defaults to 'en'
-				if (lang !== "es") {
-					lang = "en";
+				// If no saved preference, detect from browser
+				if (lang !== "es" && lang !== "en") {
+					const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+					if (browserLang.startsWith('es')) {
+						lang = 'es';
+					} else if (browserLang) {
+						lang = 'en';
+					} else {
+						lang = 'es';
+					}
 				}
 
 				// Set HTML lang attribute immediately
 				document.documentElement.lang = lang;
-
-				console.log("[i18n] Language on page load:", lang);
+				console.log("[i18n] Detected language:", lang);
 			})();
 		</script>
 
