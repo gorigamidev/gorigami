@@ -9,9 +9,25 @@ export interface Product {
     status: string;
     type: string;
     link?: string;
+    cta_text?: string;
+    cta_text_es?: string;
 }
 
 export const products: Product[] = [
+    {
+        slug: "korest",
+        name: "Korest",
+        name_es: "Korest",
+        tagline: "Quotations for makers",
+        tagline_es: "Cotizaciones para creadores",
+        description: "Smart quoting software that helps makers, builders, and craftspeople create professional estimates quickly and accurately.",
+        description_es: "Software inteligente de cotizaciones que ayuda a creadores, constructores y artesanos a crear estimaciones profesionales de forma rápida y precisa.",
+        status: "Ready",
+        type: "SaaS",
+        link: "https://korest.site",
+        cta_text_es: "Korest: Software para gestión de costos de manufactura →",
+        cta_text: "Korest: Smart manufacturing cost software →"
+    },
     {
         slug: "gorigami-data-framework",
         name: "Gorigami Data Framework",
@@ -22,7 +38,9 @@ export const products: Product[] = [
         description_es: "Un framework de datos modular y completo diseñado para ingerir, procesar, validar y exponer datos de manera confiable y escalable, utilizando tecnologías de código abierto y prácticas de ingeniería reproducibles. Construido para ejecutarse consistentemente de forma local, on-premise o en la nube, y puede adoptarse incrementalmente según tu madurez de datos.",
         status: "Ready",
         type: "Framework",
-        link: "https://github.com/gorigamidev/gorigamiDataFrame"
+        link: "https://github.com/gorigamidev/gorigamiDataFrame",
+        cta_text_es: "Explora Gorigami Data Framework →",
+        cta_text: "Explore Gorigami Data Framework →"
     },
     {
         slug: "xentro",
@@ -32,18 +50,10 @@ export const products: Product[] = [
         tagline_es: "Citas simplificadas para artistas",
         description: "A streamlined booking and scheduling platform designed specifically for artists, creators, and service professionals who need an elegant way to manage their time.",
         description_es: "Una plataforma de reservas y programación optimizada diseñada específicamente para artistas, creadores y profesionales de servicios que necesitan una forma elegante de gestionar su tiempo.",
-        status: "Coming Soon",
-        type: "SaaS"
-    },
-    {
-        slug: "korest",
-        name: "Korest",
-        name_es: "Korest",
-        tagline: "Quotations for makers",
-        tagline_es: "Cotizaciones para creadores",
-        description: "Smart quoting software that helps makers, builders, and craftspeople create professional estimates quickly and accurately.",
-        description_es: "Software inteligente de cotizaciones que ayuda a creadores, constructores y artesanos a crear estimaciones profesionales de forma rápida y precisa.",
-        status: "Coming Soon",
-        type: "SaaS"
+        status: "Preview",
+        type: "SaaS",
+        link: "https://xentro-app.pages.dev/",
+        cta_text_es: "Xentro: Citas simplificadas (Vista previa) →",
+        cta_text: "Xentro: Appointments made simple (Preview) →"
     }
 ];

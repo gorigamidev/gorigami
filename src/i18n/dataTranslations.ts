@@ -46,10 +46,12 @@ export function updateAllDataTranslations() {
             const nameEl = card.querySelector('[data-i18n-field="name"]');
             const taglineEl = card.querySelector('[data-i18n-field="tagline"]');
             const descEl = card.querySelector('[data-i18n-field="description"]');
+            const ctaEl = card.querySelector('[data-i18n-field="cta_text"]');
 
             if (nameEl) nameEl.textContent = getLocalizedField(product, 'name', lang);
             if (taglineEl) taglineEl.textContent = getLocalizedField(product, 'tagline', lang);
             if (descEl) descEl.textContent = getLocalizedField(product, 'description', lang);
+            if (ctaEl) ctaEl.textContent = getLocalizedField(product, 'cta_text', lang);
         }
     });
 

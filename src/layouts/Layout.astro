@@ -12,8 +12,8 @@ interface Props {
 	description?: string;
 }
 
-const { title, description } = Astro.props;
-const defaultDescription = "Gorigami. Small teams crafting custom digital systems that scale. From startups to enterprise, we build ERPs, e-commerce, APIs, and MVPs with craft and clarity.";
+const { title = "Gorigami | Software a la Medida en Bogotá y Soluciones SaaS", description } = Astro.props;
+const defaultDescription = "Gorigami S.A.S. | Expertos en desarrollo de software a la medida en Bogotá. Creamos soluciones SaaS, apps web y sistemas escalables con Vue.js y Node.js.";
 const metaDescription = description || defaultDescription;
 ---
 
@@ -52,25 +52,51 @@ const metaDescription = description || defaultDescription;
 
 		<!-- Structured Data (JSON-LD) -->
 		<script is:inline type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "Gorigami",
-				"url": "https://gorigami.xyz",
-				"logo": "https://res.cloudinary.com/gorigami/image/upload/v1769109709/gorigamiland/ggtra_xrwusg.png",
-				"description": metaDescription,
-				"contactPoint": {
-					"@type": "ContactPoint",
-					"telephone": "+57-305-719-7012",
-					"contactType": "sales",
-					"email": "develop@gorigami.xyz",
-					"areaServed": "World"
+			[
+				{
+					"@context": "https://schema.org",
+					"@type": "Organization",
+					"name": "Gorigami S.A.S.",
+					"url": "https://gorigami.xyz",
+					"logo": "https://res.cloudinary.com/gorigami/image/upload/v1769109709/gorigamiland/ggtra_xrwusg.png",
+					"description": "Expertos en desarrollo de software a la medida en Bogotá. Creamos soluciones SaaS, apps web y sistemas escalables.",
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"telephone": "+57-305-719-7012",
+						"contactType": "sales",
+						"email": "develop@gorigami.xyz",
+						"areaServed": "World"
+					},
+					"sameAs": [
+						"https://www.linkedin.com/company/gorigami",
+						"https://github.com/gorigamidev"
+					]
 				},
-				"sameAs": [
-					"https://www.linkedin.com/company/gorigami",
-					"https://github.com/gorigamidev"
-				]
-			}
+				{
+					"@context": "https://schema.org",
+					"@type": "ProfessionalService",
+					"name": "Gorigami S.A.S.",
+					"image": "https://res.cloudinary.com/gorigami/image/upload/v1769109709/gorigamiland/ggtra_xrwusg.png",
+					"@id": "https://gorigami.xyz",
+					"url": "https://gorigami.xyz",
+					"telephone": "+57 305719012",
+					"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Cll 163B 45 32",
+					"addressLocality": "Bogotá",
+					"addressRegion": "Cundinamarca",
+					"postalCode": "111156",
+					"addressCountry": "CO"
+					},
+					"geo": {
+					"@type": "GeoCoordinates",
+					"latitude": 4.745192885672313,
+					"longitude": -74.04844711987694
+					},
+					"serviceType": ["Software a la medida", "Soluciones SaaS", "Desarrollo Web"],
+					"areaServed": "Bogotá, Colombia"
+				}
+			]
 		</script>
 
 		<!-- CRITICAL: i18n must run BEFORE anything else to prevent flash -->

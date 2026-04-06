@@ -23,7 +23,9 @@ import { products } from "../../data/products";
 								data-i18n={
 									product.status === "Ready"
 										? "status.ready"
-										: "status.comingSoon"
+										: product.status === "Preview"
+											? "status.preview"
+											: "status.comingSoon"
 								}
 							>
 								{product.status}
@@ -39,8 +41,13 @@ import { products } from "../../data/products";
 						</p>
 
 						{product.link && (
-							<a href={product.link} target="_blank" class="product-link">
-								Learn more →
+							<a
+								href={product.link}
+								target="_blank"
+								class="product-link"
+								data-i18n-field="cta_text"
+							>
+								{product.cta_text || "Learn more →"}
 							</a>
 						)}
 					</div>
@@ -140,6 +147,10 @@ import { products } from "../../data/products";
 	.status-coming-soon {
 		background: var(--lavender-mist);
 		color: var(--midnight-violet);
+	}
+	.status-preview {
+		background: var(--midnight-violet);
+		color: var(--paper-white);
 	}
 
 	.product-card h3 {

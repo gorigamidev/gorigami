@@ -5,8 +5,8 @@
         "contact": "Contact"
     },
     "hero": {
-        "title": "Create & Innovate.",
-        "subhead": "We're a focused group of makers crafting custom digital systems that scale, from startups to enterprise.",
+        "title": "Custom Software in Bogotá | SaaS Solutions",
+        "subhead": "Experts in custom software development and scalable SaaS solutions. We build digital systems that transform businesses, from startups to enterprise.",
         "cta": "Start your project",
         "ctaSecondary": "See how we build"
     },
@@ -86,6 +86,7 @@
     },
     "status": {
         "ready": "Ready",
-        "comingSoon": "Coming Soon"
+        "comingSoon": "Coming Soon",
+        "preview": "Preview"
     }
 }
