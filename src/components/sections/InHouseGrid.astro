@@ -18,7 +18,17 @@ import { demos } from "../../data/demos";
 				demos.map((demo) => (
 					<a href={`/case-study/${demo.slug}`} class="demo-card">
 						<div class="demo-preview">
-							<img src={demo.poster} alt={demo.title} class="demo-image" />
+							<img
+								src={demo.poster.replace("f_auto,q_auto", "w_600,f_auto,q_auto")}
+								srcset={`${demo.poster.replace("f_auto,q_auto", "w_400,f_auto,q_auto")} 400w, ${demo.poster.replace("f_auto,q_auto", "w_800,f_auto,q_auto")} 800w`}
+								sizes="(max-width: 768px) 100vw, 400px"
+								alt={demo.title}
+								class="demo-image"
+								width="400"
+								height="250"
+								loading="lazy"
+								decoding="async"
+							/>
 							<div class="demo-overlay">
 								<span class="view-case" data-i18n="portfolio.viewCase">
 									View case study
