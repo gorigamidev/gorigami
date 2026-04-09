@@ -2,6 +2,7 @@
 import NavBar from "../components/common/NavBar.astro";
 import FooterMain from "../components/common/FooterMain.astro";
 import Toast from "../components/common/Toast.astro";
+import WhatsAppButton from "../components/common/WhatsAppButton.astro";
 import { ClientRouter } from "astro:transitions";
 // Use local fonts via fontsource for privacy and performance
 import "@fontsource-variable/urbanist";
@@ -197,6 +198,7 @@ const metaDescription = description || defaultDescription;
 			<FooterMain />
 			<Toast />
 		</main>
+		<WhatsAppButton />
 	</body>
 </html>
 

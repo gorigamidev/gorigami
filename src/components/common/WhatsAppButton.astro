@@ -1,0 +1,122 @@
+---
+---
+
+<a
+	href="https://wa.me/573057197012"
+	target="_blank"
+	rel="noopener noreferrer"
+	id="whatsapp-button"
+	aria-label="Chat on WhatsApp"
+>
+	<div class="whatsapp-container">
+		<span class="whatsapp-tooltip" data-i18n="contact.whatsappChat">Chat with us</span>
+		<svg class="whatsapp-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M12.011 20.916c-1.638 0-3.238-.431-4.639-1.246l-4.735 1.242 1.264-4.62c-.896-1.455-1.371-3.136-1.371-4.86 0-5.118 4.164-9.281 9.284-9.281 2.503 0 4.856.973 6.626 2.742a9.204 9.204 0 0 1 2.731 6.611c-.001 5.122-4.167 9.287-9.287 9.287h-.127zm5.552-7.238c-.304-.153-1.8-.887-2.078-.988-.278-.101-.481-.153-.684.153-.203.304-.785.988-.962 1.19-.177.203-.354.228-.658.076-.304-.153-1.281-.472-2.44-1.506-.902-.804-1.51-1.795-1.687-2.1-.177-.304-.019-.468.132-.619.136-.136.304-.354.456-.532.152-.177.203-.304.304-.506.101-.203.051-.38-.025-.532-.076-.152-.684-1.646-.937-2.254-.247-.59-.499-.51-.684-.51h-.583c-.203 0-.532.076-.811.38-.278.304-1.063 1.038-1.063 2.532 0 1.494 1.089 2.937 1.241 3.14.152.203 2.144 3.273 5.193 4.59.725.313 1.291.5 1.734.641.728.231 1.391.198 1.914.12.583-.087 1.8-.734 2.053-1.443.253-.709.253-1.316.177-1.443-.076-.127-.278-.203-.583-.355z" fill="currentColor"/>
+		</svg>
+	</div>
+</a>
+
+<style>
+	#whatsapp-button {
+		position: fixed;
+		bottom: 2.5rem;
+		right: 2.5rem;
+		z-index: 999;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.whatsapp-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.5rem;
+		height: 3.5rem;
+		background: linear-gradient(145deg, #25D366, #12a150);
+		border-radius: 50%;
+		color: white;
+		box-shadow: 
+			0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+			0 2px 4px -2px rgba(0, 0, 0, 0.05),
+			0 10px 15px -3px rgba(37, 211, 102, 0.3);
+		transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+		position: relative;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.whatsapp-container :global(.whatsapp-icon) {
+		width: 1.85rem;
+		height: 1.85rem;
+		display: block;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.05));
+		margin-top: 1px; /* Visual vertical adjustment for the bubble tail */
+	}
+
+	#whatsapp-button:hover {
+		transform: translateY(-5px);
+	}
+
+	#whatsapp-button:hover .whatsapp-container {
+		background: linear-gradient(145deg, #28e06d, #14b35a);
+		box-shadow: 
+			0 20px 25px -5px rgba(0, 0, 0, 0.1),
+			0 8px 10px -6px rgba(0, 0, 0, 0.1),
+			0 15px 20px -5px rgba(37, 211, 102, 0.4);
+	}
+
+	.whatsapp-tooltip {
+		position: absolute;
+		right: 4.5rem;
+		background: rgba(22, 9, 29, 0.85); /* Midnight Violet glass */
+		color: white;
+		padding: 0.6rem 1.25rem;
+		border-radius: 3rem;
+		font-size: 0.85rem;
+		font-weight: 500;
+		box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+		white-space: nowrap;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateX(10px);
+		transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+		font-family: var(--body-font);
+		pointer-events: none;
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		letter-spacing: 0.02em;
+	}
+
+	#whatsapp-button:hover .whatsapp-tooltip {
+		opacity: 1;
+		visibility: visible;
+		transform: translateX(0);
+	}
+
+	/* Responsive adjustment */
+	@media (max-width: 768px) {
+		#whatsapp-button {
+			bottom: 6rem; /* Positioned above mobile nav */
+			right: 1.5rem;
+		}
+		
+		.whatsapp-container {
+			width: 3.25rem;
+			height: 3.25rem;
+		}
+
+		.whatsapp-container :global(.whatsapp-icon) {
+			width: 1.5rem;
+			height: 1.5rem;
+		}
+
+		.whatsapp-tooltip {
+			display: none; /* Keep it minimal on mobile */
+		}
+	}
+
+</style>

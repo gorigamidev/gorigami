@@ -70,7 +70,8 @@
         "ecommerce": "E-commerce",
         "api": "API/Integration",
         "mvp": "MVP/Landing",
-        "other": "Other"
+        "other": "Other",
+        "whatsappChat": "Chat with us"
     },
     "footer": {
         "tagline": "Create & Innovate",
