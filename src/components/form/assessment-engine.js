@@ -335,14 +335,29 @@ export function initAssessment(resultsData, questionsData) {
       }
     });
 
-    // Reset button
+    // Reset Modal Logic
     const resetBtn = document.getElementById('btn-reset');
-    if (resetBtn) {
+    const modal = document.getElementById('reset-modal');
+    const modalCancel = document.getElementById('modal-cancel');
+    const modalConfirm = document.getElementById('modal-confirm');
+
+    if (resetBtn && modal && modalCancel && modalConfirm) {
       resetBtn.addEventListener('click', () => {
-        if (confirm('¿Estás seguro de que quieres reiniciar el diagnóstico? Se borrarán tus respuestas.')) {
-          sessionStorage.removeItem(STORAGE_KEY);
-          location.reload();
-        }
+        modal.classList.add('active');
+      });
+
+      modalCancel.addEventListener('click', () => {
+        modal.classList.remove('active');
+      });
+
+      modalConfirm.addEventListener('click', () => {
+        sessionStorage.removeItem(STORAGE_KEY);
+        location.reload();
+      });
+
+      // Close on backdrop click
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.remove('active');
       });
     }
   }

@@ -1,0 +1,456 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// SEO Metadata
+const title = "¿Tu empresa compite con datos? | Diagnóstico de Madurez | Gorigami";
+const description = "Evalúa el nivel de madurez de datos de tu organización. Deja de sobrevivir con Excel y empieza a competir con evidencia real.";
+
+// JSON-LD Structured Data
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Diagnóstico de Madurez de Datos Gorigami",
+  "operatingSystem": "Web",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Herramienta interactiva para evaluar la madurez de adopción de datos en empresas y organizaciones.",
+  "featureList": [
+    "Evaluación de Estrategia y Visión",
+    "Análisis de Flujo de Información",
+    "Medición de Cultura de Datos",
+    "Gobernanza y Calidad",
+    "Infraestructura Tecnológica"
+  ]
+};
+---
+
+<Layout title={title} description={description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article id="data-maturity-landing">
+    <!-- HERO SECTION -->
+    <section class="landing-hero">
+      <div class="hero-container">
+        <span class="label">INSIGHT ESTRATÉGICO 2026</span>
+        <h1>¿Tu empresa sobrevive a punta de <span>Excel</span> o realmente compite con <span>Datos</span>?</h1>
+        <p class="lead">
+          En el entorno empresarial actual, el problema no es la falta de información, sino el <strong>caos de datos</strong>. 
+          Los equipos pierden el 60% de su semana cuadrando archivos manuales en lugar de analizar oportunidades.
+        </p>
+        <div class="cta-wrapper">
+          <a href="/diagnostico" class="btn-primary">Realizar Diagnóstico Gratuito</a>
+          <span class="cta-note">Menos de 10 minutos • Reporte inmediato</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section">
+      <div class="container">
+        <div class="problem-grid">
+          <div class="problem-content">
+            <h2>El Laberinto del Reporte</h2>
+            <p>
+              Si sientes que las decisiones importantes se toman por "olfato" o que cada departamento tiene una versión distinta de la realidad, no tienes un problema de software. Tienes un <strong>problema de madurez</strong>.
+            </p>
+            <ul class="stats-list">
+              <li>
+                <span class="stat">60%</span>
+                <span class="stat-text">del tiempo se pierde en "carpintería de datos" manual.</span>
+              </li>
+              <li>
+                <span class="stat">0</span>
+                <span class="stat-text">confianza en los reportes cuando las fuentes no están integradas.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="problem-visual">
+            <div class="visual-box">
+              <div class="bar-chart">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+                <div class="bar" style="height: 50%;"></div>
+                <div class="bar highlight" style="height: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="value-prop">
+      <div class="container">
+        <div class="section-header">
+          <h2>¿Por qué la Madurez de Datos es tu motor oculto?</h2>
+          <p>Superar la etapa "reactiva" permite a las empresas líderes lograr:</p>
+        </div>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="icon">⚡</div>
+            <h3>Eficiencia Operativa</h3>
+            <p>Reducción drástica del tiempo dedicado a la limpieza y cruce manual de archivos.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">🎯</div>
+            <h3>Agilidad Estratégica</h3>
+            <p>Capacidad de pivotar en días ante cambios del mercado, no en meses.</p>
+          </div>
+          <div class="benefit-card">
+            <div class="icon">🛡️</div>
+            <h3>Cero Desconfianza</h3>
+            <p>Una "única versión de la verdad" donde todos los departamentos hablan el mismo idioma.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE 5 PILLARS -->
+    <section class="pillars-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="label">FRAMEWORK GORIGAMI</span>
+          <h2>Los 5 Pilares de la Transformación</h2>
+          <p>Para que una empresa sea inteligente, debe equilibrar estas cinco dimensiones. Si una falla, el sistema entero se vuelve lento.</p>
+        </div>
+        
+        <div class="pillars-grid">
+          <div class="pillar">
+            <span class="number">01</span>
+            <h3>Estrategia y Visión</h3>
+            <p>El dato como activo, no como archivo. Un roadmap claro que sabe qué datos necesitas hoy para ganar mañana.</p>
+          </div>
+          <div class="pillar">
+            <span class="number">02</span>
+            <h3>Flujo de Información</h3>
+            <p>Automatización sobre manualidad. Eliminamos cuellos de botella para que el dato llegue a quien lo necesita sin fricciones.</p>
+          </div>
+          <div class="pillar">
+            <span class="number">03</span>
+            <h3>Personas y Cultura</h3>
+            <p>Data Literacy. El mejor tablero es inútil si el equipo no sabe leerlo ni confía en la evidencia.</p>
+          </div>
+          <div class="pillar">
+            <span class="number">04</span>
+            <h3>Confianza y Calidad</h3>
+            <p>Gobernanza real. Definiciones comunes y limpieza proactiva. Si el reporte dice 100, todos confían en que es 100.</p>
+          </div>
+          <div class="pillar">
+            <span class="number">05</span>
+            <h3>Herramientas y Conexión</h3>
+            <p>Infraestructura invisible. Nube, APIs e IA integradas que escalan contigo, no que te frenan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>¿Dónde está parada tu organización hoy?</h2>
+          <p>
+            El primer paso para optimizar tu inversión tecnológica es saber qué terreno estás pisando. 
+            Recibe un análisis detallado y un mapa de ruta claro para dejar de adivinar.
+          </p>
+          <a href="/diagnostico" class="btn-primary large">Empezar Diagnóstico de Madurez</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  /* Base Styles */
+  #data-maturity-landing {
+    width: 100%;
+    background: var(--paper-white);
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+  }
+
+  .label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--sandy-brown);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: var(--midnight-violet);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hero Section */
+  .landing-hero {
+    padding: 10rem 1.5rem 6rem 1.5rem;
+    background: linear-gradient(135deg, var(--lavender-mist) 0%, var(--paper-white) 100%);
+    text-align: center;
+    position: relative;
+  }
+
+  .hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .landing-hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--midnight-violet);
+  }
+
+  .landing-hero h1 span {
+    color: var(--sandy-brown);
+    position: relative;
+  }
+
+  .lead {
+    font-size: 1.5rem;
+    color: var(--mid-gray);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  .cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--midnight-violet);
+    color: var(--paper-white);
+    padding: 1.25rem 2.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--midnight-violet-soft);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary.large {
+    font-size: 1.25rem;
+    padding: 1.5rem 3.5rem;
+  }
+
+  .cta-note {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    opacity: 0.8;
+  }
+
+  /* Problem Section */
+  .problem-section {
+    padding: 8rem 0;
+    background: var(--paper-white);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .stats-list {
+    margin-top: 3rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stat {
+    display: block;
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--sandy-brown);
+    line-height: 1;
+  }
+
+  .stat-text {
+    font-size: 1rem;
+    color: var(--mid-gray);
+  }
+
+  .problem-visual {
+    background: var(--lavender-mist);
+    padding: 3rem;
+    border-radius: 2rem;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .visual-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+  }
+
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    width: 100%;
+    height: 80%;
+  }
+
+  .bar {
+    flex: 1;
+    background: var(--light-gray);
+    border-radius: 4px 4px 0 0;
+    transition: height 1s ease;
+  }
+
+  .bar.highlight {
+    background: var(--sandy-brown);
+  }
+
+  /* Value Prop Section */
+  .value-prop {
+    padding: 8rem 0;
+    background: var(--smoke);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .benefit-card {
+    background: var(--paper-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px solid var(--light-gray);
+    transition: transform 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-10px);
+  }
+
+  .benefit-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefit-card h3 {
+    margin-bottom: 1rem;
+  }
+
+  /* Pillars Section */
+  .pillars-section {
+    padding: 8rem 0;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+  }
+
+  .pillar {
+    position: relative;
+    padding: 2rem;
+    border-left: 1px solid var(--light-gray);
+  }
+
+  .pillar .number {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--lavender-mist);
+    z-index: -1;
+    line-height: 1;
+  }
+
+  .pillar h3 {
+    margin-bottom: 1rem;
+    color: var(--midnight-violet);
+  }
+
+  /* Final CTA Section */
+  .final-cta {
+    padding: 8rem 0;
+    background: var(--midnight-violet);
+    color: var(--paper-white);
+    text-align: center;
+  }
+
+  .cta-box {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    color: var(--paper-white);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .final-cta p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 4rem;
+  }
+
+  .final-cta .btn-primary {
+    background: var(--sandy-brown);
+    color: var(--midnight-violet);
+  }
+
+  .final-cta .btn-primary:hover {
+    background: var(--sandy-brown-hover);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .landing-hero h1 { font-size: 3rem; }
+    .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .landing-hero { padding: 8rem 1.5rem 4rem 1.5rem; }
+    .landing-hero h1 { font-size: 2.5rem; }
+    .lead { font-size: 1.2rem; }
+    h2 { font-size: 2rem; }
+    .final-cta h2 { font-size: 2.2rem; }
+  }
+</style>
