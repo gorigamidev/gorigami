@@ -1,0 +1,508 @@
+---
+import { DataQA } from '../../data/DataQA';
+import { DataQA as ResultsData } from '../../data/ResultsDataQA';
+import { groupByDimension, DIMENSION_META } from '../../utils/scoring';
+
+const grouped = groupByDimension(DataQA);
+const dimensions = ['D1','D2','D3','D4','D5'];
+const industries = ['Tecnología','Servicios Profesionales','Manufactura / Industria','Finanzas / Banca / Seguros','Retail / Comercio','Salud','Educación','Logística / Transporte','Construcción / Inmobiliario','Agricultura / Agroindustria','Gobierno / Sector Público','Otro'];
+const companySizes = ['1-50','51-200','201-1000','1000+'];
+const resultsJSON = JSON.stringify(ResultsData[0]);
+---
+
+<style is:global>
+  #assessment {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: var(--paper-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem; /* Fixed header offset */
+  }
+
+  .assessment-shell {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    position: relative;
+    z-index: 10;
+    background: var(--paper-white);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 1rem 0;
+    margin: 0 0 2rem;
+  }
+  .progress-steps{display:flex;gap:.5rem;margin-bottom:.75rem}
+  .progress-dot{flex:1;height:4px;border-radius:2px;background:var(--light-gray);transition:background .3s}
+  .progress-dot.completed{background:var(--sandy-brown)}
+  .progress-dot.active{background:var(--midnight-violet)}
+  .progress-info{display:flex;justify-content:space-between;font-size:.75rem;color:var(--mid-gray);letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+
+  /* Steps */
+  .step{display:none;animation:fadeIn .4s ease}
+  .step.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+  /* Step Header */
+  .step-header{margin-bottom:2.5rem}
+  .step-label{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--sandy-brown);margin-bottom:.75rem}
+  .step-title{font-size:2rem;font-weight:700;color:var(--midnight-violet);margin-bottom:.5rem;font-family:var(--heading-font)}
+  .step-subtitle{font-size:1rem;color:var(--mid-gray);line-height:1.6}
+
+  /* Question Cards */
+  .question-card{margin-bottom:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid var(--light-gray)}
+  .question-card:last-child{border-bottom:none}
+  .question-text{font-size:1.05rem;color:var(--midnight-violet);margin-bottom:1.25rem;line-height:1.6;font-weight:500}
+  .question-id{font-size:.7rem;color:var(--mid-gray);margin-bottom:.5rem;font-weight:600;letter-spacing:.1em}
+
+  /* Likert Scale */
+  .likert-scale{display:flex;gap:.5rem}
+  .likert-option{flex:1;text-align:center}
+  .likert-option input{display:none}
+  .likert-option label{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:.75rem .5rem;border:2px solid var(--light-gray);cursor:pointer;transition:all .2s;min-height:60px;font-weight:600;font-size:1.1rem;color:var(--mid-gray)}
+  .likert-option input:checked+label{border-color:var(--midnight-violet);background:var(--midnight-violet);color:var(--paper-white)}
+  .likert-option label:hover{border-color:var(--sandy-brown)}
+  .likert-anchors{display:flex;justify-content:space-between;margin-top:.5rem;font-size:.7rem;color:var(--mid-gray)}
+
+  /* Binary Toggle */
+  .binary-toggle{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .binary-option input{display:none}
+  .binary-option label{display:flex;align-items:center;justify-content:center;padding:1.25rem;border:2px solid var(--light-gray);cursor:pointer;font-weight:600;font-size:1.1rem;color:var(--mid-gray);transition:all .2s;text-align:center}
+  .binary-option input:checked+label{border-color:var(--midnight-violet);background:var(--midnight-violet);color:var(--paper-white)}
+  .binary-option label:hover{border-color:var(--sandy-brown)}
+
+  /* MultiSelect */
+  .multi-select{display:flex;flex-direction:column;gap:.75rem}
+  .multi-option input{display:none}
+  .multi-option label{display:block;padding:1rem 1.25rem;border:2px solid var(--light-gray);cursor:pointer;font-size:.95rem;color:var(--mid-gray);transition:all .2s;line-height:1.5}
+  .multi-option input:checked+label{border-color:var(--sandy-brown);background:rgba(255,164,84,.08);color:var(--midnight-violet)}
+  .multi-option label:hover{border-color:var(--sandy-brown)}
+
+  /* Open Text */
+  .open-textarea{width:100%;padding:1rem;border:1px solid var(--light-gray);font-family:var(--body-font);font-size:1rem;resize:vertical;min-height:100px;transition:border-color .2s;color:var(--midnight-violet);background:var(--paper-white)}
+  .open-textarea:focus{outline:none;border-color:var(--midnight-violet)}
+
+  /* Navigation */
+  .step-nav{display:flex;justify-content:space-between;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--light-gray)}
+  .btn-nav{padding:1rem 2rem;font-weight:500;font-size:1rem;border:1px solid var(--midnight-violet);cursor:pointer;font-family:var(--body-font);transition:all .2s}
+  .btn-next{background:var(--midnight-violet);color:var(--paper-white)}
+  .btn-next:hover{background:var(--sandy-brown);border-color:var(--sandy-brown);transform:translateX(4px)}
+  .btn-next:disabled{opacity:.4;cursor:not-allowed;transform:none}
+  .btn-back{background:transparent;color:var(--midnight-violet)}
+  .btn-back:hover{background:var(--smoke)}
+
+  /* Onboarding Form */
+  .onboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+  .onboard-group{display:flex;flex-direction:column;gap:.5rem}
+  .onboard-group.full{grid-column:1/-1}
+  .onboard-group label{font-weight:500;font-size:.9rem;color:var(--midnight-violet);letter-spacing:.02em}
+  .onboard-group input,.onboard-group select{padding:.75rem;border:1px solid var(--light-gray);font-family:var(--body-font);font-size:1rem;color:var(--midnight-violet);background:var(--paper-white);transition:border-color .2s}
+  .onboard-group input:focus,.onboard-group select:focus{outline:none;border-color:var(--midnight-violet)}
+
+  /* Results Dashboard */
+  .results-dashboard{text-align:center}
+  .score-display{margin:2rem 0 1rem}
+  .score-value{font-size:5rem;font-weight:800;font-family:var(--heading-font);line-height:1}
+  .score-label{font-size:.85rem;color:var(--mid-gray);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+  .level-name{font-size:1.75rem;font-weight:700;color:var(--midnight-violet);margin:.5rem 0;font-family:var(--heading-font)}
+  .level-diagnosis{font-size:1.05rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto 1rem}
+  .level-status{font-size:.9rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto 3rem;font-style:italic}
+
+  /* Radar Chart */
+  .radar-section{margin:3rem 0}
+  .radar-chart{max-width:360px;margin:0 auto}
+
+  /* Benchmark Cards Grid */
+  .benchmark-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+    text-align: left;
+  }
+
+  .benchmark-card {
+    padding: 2.25rem 2rem;
+    background: var(--paper-white);
+    border: 1px solid var(--light-gray);
+    border-top: 5px solid;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .benchmark-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+    border-color: var(--midnight-violet);
+  }
+
+  .benchmark-card.low { border-top-color: #ef4444; }
+  .benchmark-card.mid { border-top-color: #f59e0b; }
+  .benchmark-card.high { border-top-color: #10b981; }
+
+  .benchmark-dim {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .benchmark-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  .benchmark-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--midnight-violet);
+    font-family: var(--heading-font);
+    line-height: 1.3;
+    max-width: 70%;
+  }
+
+  .status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .status-badge.low { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+  .status-badge.mid { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+  .status-badge.high { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+  .benchmark-score-row {
+    margin-bottom: 1.5rem;
+  }
+
+  .benchmark-score-val {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--midnight-violet);
+    font-family: var(--heading-font);
+  }
+  .benchmark-score-val span {
+    font-size: 1rem;
+    color: var(--mid-gray);
+    font-weight: 400;
+  }
+
+  .benchmark-divider {
+    height: 1px;
+    background: var(--light-gray);
+    margin-bottom: 1.5rem;
+    width: 40px;
+  }
+
+  .benchmark-msg {
+    font-size: 0.9rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+
+  /* Reset Button */
+  .btn-reset{margin-top:3rem;padding:1rem 2rem;background:transparent;border:1px solid var(--light-gray);color:var(--mid-gray);cursor:pointer;font-family:var(--body-font);font-size:.9rem;transition:all .2s}
+  .btn-reset:hover{border-color:var(--midnight-violet);color:var(--midnight-violet)}
+
+  /* Results Dashboard Actions */
+  .results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .btn-reset {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid var(--light-gray);
+    color: var(--mid-gray);
+    cursor: pointer;
+    font-family: var(--body-font);
+    font-size: .9rem;
+    transition: all .2s;
+  }
+
+  .btn-reset:hover {
+    border-color: var(--midnight-violet);
+    color: var(--midnight-violet);
+  }
+
+  /* Validation Errors */
+  .error-pulse {
+    animation: pulseRed 1s infinite;
+  }
+  @keyframes pulseRed {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .benchmark-cards {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .benchmark-card {
+      padding: 1.5rem;
+    }
+    .results-actions {
+      flex-direction: column-reverse;
+      gap: 1rem;
+    }
+    #assessment {
+      margin-top: 0;
+      min-height: calc(100dvh - 80px); /* Account for bottom mobile nav */
+      align-items: flex-start;
+    }
+    .assessment-shell {
+      padding: 1rem 1rem 3rem;
+    }
+    .progress-bar {
+      margin: 0 0 1.5rem;
+      padding: 1rem 0;
+    }
+    .step-title {
+      font-size: 1.5rem;
+    }
+    .likert-scale {
+      flex-wrap: wrap;
+    }
+    .likert-option {
+      flex: 0 0 calc(20% - 0.4rem);
+    }
+    .likert-option label {
+      padding: 0.5rem 0.25rem;
+      min-height: 48px;
+      font-size: 1rem;
+    }
+    .onboard-grid {
+      grid-template-columns: 1fr;
+    }
+    .binary-toggle {
+      grid-template-columns: 1fr;
+    }
+    .score-value {
+      font-size: 3.5rem;
+    }
+    .step-nav {
+      flex-direction: column-reverse;
+      gap: 1rem;
+    }
+    .btn-nav {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>
+
+<section id="assessment">
+<div class="assessment-shell">
+  <form id="assessment-form" novalidate>
+
+<!-- Progress Bar -->
+<div class="progress-bar">
+  <div class="progress-steps">
+    {Array.from({length:7}).map((_,i) => <div class="progress-dot" />)}
+  </div>
+  <div class="progress-info">
+    <span id="progress-label">Identificación</span>
+    <span id="progress-pct">0%</span>
+  </div>
+</div>
+
+<!-- Step 0: Onboarding -->
+<div class="step" data-step="0">
+  <div class="step-header">
+    <div class="step-label">PASO 0 DE 5</div>
+    <h1 class="step-title">Diagnóstico de Madurez de Datos</h1>
+    <p class="step-subtitle">Antes de comenzar, cuéntanos un poco sobre ti y tu empresa. Solo tu email es obligatorio.</p>
+  </div>
+  <div class="onboard-grid">
+    <div class="onboard-group">
+      <label for="onboard-full_name">Nombre completo</label>
+      <input type="text" id="onboard-full_name" placeholder="Tu nombre" />
+    </div>
+    <div class="onboard-group">
+      <label for="onboard-email">Email *</label>
+      <input type="email" id="onboard-email" placeholder="tu@empresa.com" required />
+    </div>
+    <div class="onboard-group">
+      <label for="onboard-company_name">Empresa</label>
+      <input type="text" id="onboard-company_name" placeholder="Nombre de tu empresa" />
+    </div>
+    <div class="onboard-group">
+      <label for="onboard-industry">Industria</label>
+      <select id="onboard-industry">
+        <option value="">Seleccionar...</option>
+        {industries.map(ind => <option value={ind}>{ind}</option>)}
+      </select>
+    </div>
+    <div class="onboard-group">
+      <label for="onboard-job_role">Cargo</label>
+      <input type="text" id="onboard-job_role" placeholder="Tu cargo" />
+    </div>
+    <div class="onboard-group">
+      <label for="onboard-company_size">Tamaño de empresa</label>
+      <select id="onboard-company_size">
+        <option value="">Seleccionar...</option>
+        {companySizes.map(s => <option value={s}>{s} empleados</option>)}
+      </select>
+    </div>
+  </div>
+  <div class="step-nav">
+    <div></div>
+    <button class="btn-nav btn-next" type="button">Comenzar →</button>
+  </div>
+</div>
+
+<!-- Steps 1-5: Dimensions -->
+{dimensions.map((dim, di) => {
+  const questions = grouped[dim] || [];
+  const meta = DIMENSION_META[dim];
+  return (
+    <div class="step" data-step={di + 1}>
+      <div class="step-header">
+        <div class="step-label">{dim} — PASO {di + 1} DE 5</div>
+        <h2 class="step-title">{meta.title}</h2>
+        <p class="step-subtitle">{meta.subtitle}</p>
+      </div>
+
+      {questions.map(q => (
+        <div class="question-card">
+          <div class="question-id">Pregunta {q.ID}</div>
+          <div class="question-text">{q.QA}</div>
+
+          {q.QA_Type === 'Cualitativa [1...5]' && (
+            <div>
+              <div class="likert-scale">
+                {[1,2,3,4,5].map(v => (
+                  <div class="likert-option">
+                    <input type="radio" name={q.ID} id={`q${q.ID}-${v}`} value={v} required />
+                    <label for={`q${q.ID}-${v}`}>{v}</label>
+                  </div>
+                ))}
+              </div>
+              <div class="likert-anchors">
+                <span>Totalmente en desacuerdo</span>
+                <span>Totalmente de acuerdo</span>
+              </div>
+            </div>
+          )}
+
+          {q.QA_Type === 'Si/No' && (
+            <div class="binary-toggle">
+              <div class="binary-option">
+                <input type="radio" name={q.ID} id={`q${q.ID}-yes`} value="1" required />
+                <label for={`q${q.ID}-yes`}>Sí</label>
+              </div>
+              <div class="binary-option">
+                <input type="radio" name={q.ID} id={`q${q.ID}-no`} value="0" required />
+                <label for={`q${q.ID}-no`}>No</label>
+              </div>
+            </div>
+          )}
+
+          {q.QA_Type === 'SeleccionMultiple' && q.Opciones && (
+            <div class="multi-select" data-qid={q.ID}>
+              {q.Opciones.map((opt, oi) => (
+                <div class="multi-option">
+                  <input type="checkbox" id={`q${q.ID}-${oi}`} value={opt} />
+                  <label for={`q${q.ID}-${oi}`}>{opt}</label>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {q.QA_Type === 'Abierta' && (
+            <textarea class="open-textarea" data-qid={q.ID} placeholder="Escribe tu respuesta aquí..." rows="4"></textarea>
+          )}
+        </div>
+      ))}
+
+      <div class="step-nav">
+        <button class="btn-nav btn-back" type="button">← Atrás</button>
+        <button class="btn-nav btn-next" type="button">
+          {di === 4 ? 'Ver resultados →' : 'Siguiente →'}
+        </button>
+      </div>
+    </div>
+  );
+})}
+
+<!-- Step 6: Results -->
+<div class="step" data-step="6">
+  <div class="step-header">
+    <div class="step-label">RESULTADOS</div>
+    <h2 class="step-title">Tu Diagnóstico de Madurez</h2>
+  </div>
+  <div class="results-dashboard">
+    <div class="score-display">
+      <div class="score-value" id="result-score">—</div>
+      <div class="score-label">Puntaje Global de Madurez</div>
+    </div>
+    <div class="level-name" id="result-level-name"></div>
+    <p class="level-diagnosis" id="result-diagnosis"></p>
+    <p class="level-status" id="result-status"></p>
+    <div id="results-radar" class="radar-section">
+      <div class="radar-chart" id="radar-container"></div>
+    </div>
+    <div class="benchmark-cards" id="benchmark-cards"></div>
+    
+    <div class="results-actions">
+      <button class="btn-nav btn-back" type="button">← Revisar respuestas</button>
+      <button class="btn-reset" id="btn-reset" type="button">↺ Reiniciar diagnóstico</button>
+    </div>
+    </div>
+  </form>
+</div>
+</section>
+
+<script define:vars={{ resultsJSON, questionsJSON: JSON.stringify(DataQA) }}>
+  // Pass results and questions data to client
+  // @ts-ignore
+  window.__assessmentResults = JSON.parse(resultsJSON);
+  // @ts-ignore
+  window.__assessmentQuestions = JSON.parse(questionsJSON);
+</script>
+
+<script>
+  import { initAssessment } from './assessment-engine.js';
+  
+  function boot() {
+    const results = (window as any).__assessmentResults;
+    const questions = (window as any).__assessmentQuestions;
+    if (results && questions) {
+      initAssessment(results, questions);
+    }
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+  
+  // Re-init on View Transitions navigation
+  document.addEventListener('astro:page-load', boot);
+</script>
