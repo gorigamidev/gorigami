@@ -117,19 +117,19 @@ export const DIMENSION_META: Record<string, { title: string; subtitle: string }>
     subtitle: 'Midiendo cómo tu información se alinea con los objetivos del negocio.',
   },
   D2: {
-    title: 'Procesos y Flujos de Datos',
-    subtitle: 'Evaluando cómo fluye y se cuida la información en la organización.',
+    title: 'Cómo fluye y se cuida la información',
+    subtitle: 'Evaluando la agilidad y los procesos de limpieza de datos en la organización.',
   },
   D3: {
-    title: 'Personas y Cultura de Datos',
+    title: 'Las personas y la cultura de datos',
     subtitle: 'Analizando la capacidad y disposición del equipo para usar datos.',
   },
   D4: {
-    title: 'Calidad y Gobernanza',
-    subtitle: 'Midiendo la confianza y calidad de la información disponible.',
+    title: 'Confianza y calidad de la información',
+    subtitle: 'Midiendo la integridad y la gobernanza de la información disponible.',
   },
   D5: {
-    title: 'Tecnología e Infraestructura',
-    subtitle: 'Evaluando las herramientas y conexión de los sistemas actuales.',
+    title: 'Herramientas y conexión de sistemas',
+    subtitle: 'Evaluando la potencia y sincronización de las herramientas actuales.',
   },
 };

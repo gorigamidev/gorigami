@@ -11,25 +11,25 @@ export const DataQA: DataQARow[] = [
     "ID": "1.1",
     "D_Block": "D1",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Siento que la información que recolectamos (ventas, inventarios, planillas) realmente ayuda a que la empresa alcance sus metas principales."
+    "QA": "Los datos que recolectamos (ventas, inventarios) son la fuente principal para las decisiones que tomamos en las reuniones semanales/mensuales."
   },
   {
     "ID": "1.2",
     "D_Block": "D1",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Conozco o he escuchado cuáles son los planes de la empresa para mejorar el uso de la tecnología y los datos en el próximo año."
+    "QA": "He visto o me han presentado formalmente los proyectos tecnológicos que la empresa ejecutará en los próximos 12 meses."
   },
   {
     "ID": "1.3",
     "D_Block": "D1",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Siento que los jefes y directivos están dispuestos a gastar tiempo y dinero en herramientas que nos ayuden a manejar mejor la información."
+    "QA": "En el último año, la empresa ha aprobado presupuesto o tiempo para adquirir/mejorar herramientas de manejo de información."
   },
   {
     "ID": "1.4",
     "D_Block": "D1",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "En esta empresa, los datos se cuidan y se valoran tanto como si fueran dinero o maquinaria pesada."
+    "QA": "En mi empresa, los datos se cuidan y se valoran tanto como si fueran dinero o maquinaria pesada."
   },
   {
     "ID": "1.5",
@@ -53,7 +53,7 @@ export const DataQA: DataQARow[] = [
     "ID": "1.8",
     "D_Block": "D1",
     "QA_Type": "Si/No",
-    "QA": "¿Hay dinero destinado exclusivamente para comprar software, mejorar equipos o capacitar al personal en el manejo de información?"
+    "QA": "¿Existe una partida presupuestaria específica para software, hardware o capacitación en datos?"
   },
   {
     "ID": "1.9",
@@ -78,13 +78,13 @@ export const DataQA: DataQARow[] = [
     "ID": "2.1",
     "D_Block": "D2",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Cuando alguien nuevo entra a trabajar, existen instrucciones claras (guías o manuales) que le enseñan cómo ingresar o actualizar la información en el sistema."
+    "QA": "Al ingresar al cargo, recibí un paso a paso claro (guía/manual) de cómo usar los sistemas de la empresa."
   },
   {
     "ID": "2.2",
     "D_Block": "D2",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Revisamos y corregimos la información de forma constante para evitar errores, en lugar de esperar a que algo falle para arreglarlo."
+    "QA": "Tenemos procesos de limpieza de datos programados (ej. corregir nombres, correos o duplicados) antes de que generen errores en los reportes."
   },
   {
     "ID": "2.3",
@@ -96,19 +96,19 @@ export const DataQA: DataQARow[] = [
     "ID": "2.4",
     "D_Block": "D2",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Siempre estamos buscando formas más rápidas y mejores de manejar nuestros reportes o registros para que el trabajo sea menos pesado."
+    "QA": "En los últimos 6 meses, hemos eliminado al menos un paso manual o un reporte innecesario para hacer el trabajo más ágil."
   },
   {
     "ID": "2.5",
     "D_Block": "D2",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "En el día a día, la empresa se esfuerza por dejar de usar papel o archivos sueltos y pasar todo a sistemas digitales organizados."
+    "QA": "La mayoría de mis tareas diarias se registran directamente en un sistema, reduciendo el uso de anotaciones en papel o archivos Excel sueltos."
   },
   {
     "ID": "2.6",
     "D_Block": "D2",
     "QA_Type": "Si/No",
-    "QA": "¿Existen documentos oficiales que expliquen paso a paso cómo registrar un nuevo cliente, producto o proveedor?"
+    "QA": "¿Existen manuales de procedimientos actualizados para la captura de datos maestros (clientes/productos)?"
   },
   {
     "ID": "2.7",
@@ -139,25 +139,25 @@ export const DataQA: DataQARow[] = [
     "ID": "2.10",
     "D_Block": "D2",
     "QA_Type": "Abierta",
-    "QA": "¿Cuál es la tarea o el reporte que más tiempo te quita y qué crees que debería ser más sencillo de hacer?"
+    "QA": "¿Cuál es la tarea o el reporte que más tiempo te quita y que crees que debería ser más sencillo de hacer?"
   },
   {
     "ID": "3.1",
     "D_Block": "D3",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Me siento capaz de leer e interpretar las gráficas y reportes que uso en mi día a día para tomar decisiones sin ayuda de otros."
+    "QA": "Me siento capaz de tomar decisiones asertivas con base en reportes, datos y/o gráficos."
   },
   {
     "ID": "3.2",
     "D_Block": "D3",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "En las reuniones, los jefes nos piden ver los datos o cifras antes de tomar una decisión importante, en lugar de guiarse sólo por la intuición o creencias."
+    "QA": "En mi área, es obligatorio presentar una cifra o reporte que respalde cualquier propuesta antes de que sea aprobada."
   },
   {
     "ID": "3.3",
     "D_Block": "D3",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Tengo claro quién es el \"dueño\" de la información que usó (a quién le pertenece) y quién es el responsable de mantenerla al día."
+    "QA": "Tengo claro quién es el \"dueño\" de la información que uso (a quién le pertenece) y quién es el responsable de mantenerla al día."
   },
   {
     "ID": "3.4",
@@ -230,7 +230,7 @@ export const DataQA: DataQARow[] = [
     "ID": "4.4",
     "D_Block": "D4",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "El sistema me avisa o me impide cometer errores cuando ingresó información (ej. no me deja dejar campos vacíos o poner letras donde van números)."
+    "QA": "El sistema me avisa o me impide cometer errores cuando ingreso información (ej. no me deja dejar campos vacíos o poner letras donde van números)."
   },
   {
     "ID": "4.5",
@@ -285,13 +285,13 @@ export const DataQA: DataQARow[] = [
     "ID": "5.2",
     "D_Block": "D5",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Siento que los diferentes programas que usamos están bien conectados; la información se actualiza sola entre ellos sin que yo tenga que hacer nada extra."
+    "QA": "La información se sincroniza entre programas al instante; lo que registro en un sistema se ve reflejado en los demás sin esperar a que alguien lo cargue."
   },
   {
     "ID": "5.3",
     "D_Block": "D5",
     "QA_Type": "Cualitativa [1...5]",
-    "QA": "Tenemos herramientas modernas (como tableros de control en la nube) que nos permiten ver y analizar grandes cantidades de datos de forma sencilla."
+    "QA": "Utilizo herramientas modernas (Nube, Power BI, Dashboards) para visualizar mis indicadores en lugar de tablas estáticas."
   },
   {
     "ID": "5.4",

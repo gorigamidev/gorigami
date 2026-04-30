@@ -52,7 +52,7 @@ function updateProgress() {
   if (pctEl) pctEl.textContent = `${pct}%`;
   const labelEl = document.getElementById('progress-label');
   if (labelEl) {
-    const labels = ['Identificación', 'D1: Estrategia', 'D2: Procesos', 'D3: Personas', 'D4: Calidad', 'D5: Tecnología', 'Resultados'];
+    const labels = ['Identificación', 'D1: Estrategia', 'D2: Flujo', 'D3: Personas', 'D4: Confianza', 'D5: Sistemas', 'Resultados'];
     labelEl.textContent = labels[currentStep] || '';
   }
 }
