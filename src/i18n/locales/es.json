@@ -95,5 +95,10 @@
         "ready": "Listo",
         "comingSoon": "Próximamente",
         "preview": "Vista Previa"
+    },
+    "notFound": {
+        "title": "¡Ups! Te perdiste.",
+        "desc": "No logramos encontrar la página que buscas.",
+        "cta": "→ Volver al inicio"
     }
 }

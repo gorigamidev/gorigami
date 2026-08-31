@@ -8,7 +8,6 @@ const lang = getLang();
 
 <section id="what-we-build">
 	<div class="services-container">
-		<div class="section-label" data-i18n="whatWeBuild.label">CAPABILITIES</div>
 		<h2 data-i18n="whatWeBuild.title">What we build</h2>
 
 		<div class="services-grid">
@@ -80,15 +79,6 @@ const lang = getLang();
 		margin: 0 auto;
 	}
 
-	.section-label {
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
-		color: var(--sandy-brown);
-		margin-bottom: 1.5rem;
-	}
-
 	#what-we-build h2 {
 		font-size: 2.5rem;
 		color: var(--ink-black);
@@ -107,7 +97,7 @@ const lang = getLang();
 		background: transparent;
 		padding: 2rem 0;
 		border-top: 1px solid var(--light-gray);
-		transition: all 0.2s ease;
+		transition: border-color 0.2s var(--ease-out);
 	}
 
 	.service-card:hover {
@@ -151,7 +141,7 @@ const lang = getLang();
 		font-weight: 500;
 		font-size: 1rem;
 		text-decoration: none;
-		transition: all 0.2s ease;
+		transition: background-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 		border: 1px solid var(--ink-black);
 	}
 

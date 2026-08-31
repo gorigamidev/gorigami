@@ -34,16 +34,30 @@ const jsonLd = {
   <article id="data-maturity-landing">
     <!-- HERO SECTION -->
     <section class="landing-hero">
+      <div class="hero-bg-shape"></div>
       <div class="hero-container">
-        <span class="label">INSIGHT ESTRATÉGICO 2026</span>
-        <h1>¿Tu empresa sobrevive a punta de <span>Excel</span> o realmente compite con <span>Datos</span>?</h1>
-        <p class="lead">
-          En el entorno empresarial actual, el problema no es la falta de información, sino el <strong>caos de datos</strong>. 
-          Los equipos pierden el 60% de su semana cuadrando archivos manuales en lugar de analizar oportunidades.
-        </p>
-        <div class="cta-wrapper">
-          <a href="/diagnostico" class="btn-primary">Realizar Diagnóstico Gratuito</a>
-          <span class="cta-note">Menos de 10 minutos • Reporte inmediato</span>
+        <div class="hero-text">
+          <span class="label">INSIGHT ESTRATÉGICO 2026</span>
+          <h1>¿Tu empresa sobrevive a punta de <span>Excel</span> o realmente compite con <span>Datos</span>?</h1>
+          <p class="lead">
+            En el entorno empresarial actual, el problema no es la falta de información, sino el <strong>caos de datos</strong>.
+            Los equipos dedican buena parte de su semana a cuadrar archivos manuales en lugar de analizar oportunidades.
+          </p>
+          <div class="cta-wrapper">
+            <a href="/diagnostico" class="btn-primary">Realizar Diagnóstico Gratuito</a>
+            <span class="cta-note">Menos de 10 minutos • Reporte inmediato</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-card">
+            <div class="bar-chart">
+              <div class="bar" style="height: 40%;"></div>
+              <div class="bar" style="height: 70%;"></div>
+              <div class="bar" style="height: 50%;"></div>
+              <div class="bar highlight" style="height: 90%;"></div>
+            </div>
+            <p class="visual-caption">Cuatro fuentes distintas. Cuatro versiones del mismo número.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -59,24 +73,17 @@ const jsonLd = {
             </p>
             <ul class="stats-list">
               <li>
-                <span class="stat">60%</span>
-                <span class="stat-text">del tiempo se pierde en "carpintería de datos" manual.</span>
+                <span class="stat-icon icon-flag"></span>
+                <span class="stat-text">Las decisiones clave se toman por intuición, no por evidencia compartida.</span>
               </li>
               <li>
-                <span class="stat">0</span>
-                <span class="stat-text">confianza en los reportes cuando las fuentes no están integradas.</span>
+                <span class="stat-icon icon-flag"></span>
+                <span class="stat-text">Cada área confía en su propia versión de la misma métrica.</span>
               </li>
             </ul>
           </div>
-          <div class="problem-visual">
-            <div class="visual-box">
-              <div class="bar-chart">
-                <div class="bar" style="height: 40%;"></div>
-                <div class="bar" style="height: 70%;"></div>
-                <div class="bar" style="height: 50%;"></div>
-                <div class="bar highlight" style="height: 90%;"></div>
-              </div>
-            </div>
+          <div class="problem-quote">
+            <p>&ldquo;No tienes un problema de software. Tienes un problema de madurez.&rdquo;</p>
           </div>
         </div>
       </div>
@@ -91,17 +98,17 @@ const jsonLd = {
         </div>
         <div class="benefits-grid">
           <div class="benefit-card">
-            <div class="icon">⚡</div>
+            <span class="benefit-icon icon-efficiency"></span>
             <h3>Eficiencia Operativa</h3>
             <p>Reducción drástica del tiempo dedicado a la limpieza y cruce manual de archivos.</p>
           </div>
           <div class="benefit-card">
-            <div class="icon">🎯</div>
+            <span class="benefit-icon icon-agility"></span>
             <h3>Agilidad Estratégica</h3>
             <p>Capacidad de pivotar en días ante cambios del mercado, no en meses.</p>
           </div>
           <div class="benefit-card">
-            <div class="icon">🛡️</div>
+            <span class="benefit-icon icon-trust"></span>
             <h3>Cero Desconfianza</h3>
             <p>Una "única versión de la verdad" donde todos los departamentos hablan el mismo idioma.</p>
           </div>
@@ -203,18 +210,42 @@ const jsonLd = {
   /* Hero Section */
   .landing-hero {
     padding: 10rem 1.5rem 6rem 1.5rem;
-    background: linear-gradient(135deg, var(--lavender-mist) 0%, var(--paper-white) 100%);
-    text-align: center;
+    background: var(--paper-white);
     position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-shape {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 50%;
+    height: 120%;
+    background: var(--lavender-mist);
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+    opacity: 0.6;
   }
 
   .hero-container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-text {
+    flex: 1;
+    max-width: 600px;
+    text-align: left;
   }
 
   .landing-hero h1 {
-    font-size: 4rem;
+    font-size: 3.25rem;
     line-height: 1.1;
     margin-bottom: 2rem;
     color: var(--midnight-violet);
@@ -226,7 +257,7 @@ const jsonLd = {
   }
 
   .lead {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--mid-gray);
     margin-bottom: 3rem;
     line-height: 1.6;
@@ -235,8 +266,30 @@ const jsonLd = {
   .cta-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
+  }
+
+  .hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .visual-card {
+    width: 100%;
+    max-width: 340px;
+    background: var(--paper-white);
+    border: 1px solid var(--light-gray);
+    padding: 2.5rem 2rem;
+  }
+
+  .visual-caption {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    text-align: center;
+    line-height: 1.5;
   }
 
   .btn-primary {
@@ -247,7 +300,7 @@ const jsonLd = {
     font-weight: 600;
     font-size: 1.1rem;
     text-decoration: none;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition: transform 0.2s var(--ease-out), background-color 0.2s var(--ease-out);
     border: none;
     cursor: pointer;
   }
@@ -286,53 +339,77 @@ const jsonLd = {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  .stat {
-    display: block;
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--sandy-brown);
-    line-height: 1;
+  .stats-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .stat-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    position: relative;
+  }
+
+  .icon-flag::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: var(--sandy-brown);
+    left: 0;
+  }
+
+  .icon-flag::after {
+    content: "";
+    position: absolute;
+    width: 0.85rem;
+    height: 0.6rem;
+    background: var(--sandy-brown);
+    left: 2px;
+    top: 0;
   }
 
   .stat-text {
     font-size: 1rem;
     color: var(--mid-gray);
+    line-height: 1.6;
   }
 
-  .problem-visual {
+  .problem-quote {
     background: var(--lavender-mist);
     padding: 3rem;
-    border-radius: 2rem;
-    height: 400px;
+    border-left: 3px solid var(--sandy-brown);
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: center;
   }
 
-  .visual-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-around;
+  .problem-quote p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--midnight-violet);
+    font-family: var(--heading-font);
+    margin: 0;
   }
 
   .bar-chart {
     display: flex;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 0.75rem;
     width: 100%;
-    height: 80%;
+    height: 140px;
   }
 
   .bar {
     flex: 1;
     background: var(--light-gray);
-    border-radius: 4px 4px 0 0;
-    transition: height 1s ease;
+    transition: height 1s var(--ease-out);
   }
 
   .bar.highlight {
@@ -356,16 +433,58 @@ const jsonLd = {
     padding: 3rem 2rem;
     text-align: center;
     border: 1px solid var(--light-gray);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
   }
 
   .benefit-card:hover {
     transform: translateY(-10px);
+    border-color: var(--sandy-brown);
   }
 
-  .benefit-card .icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+  .benefit-icon {
+    display: block;
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  /* Efficiency - upward trend mark */
+  .icon-efficiency::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--sandy-brown);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Agility - target */
+  .icon-agility::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--sandy-brown);
+    border-radius: 50%;
+  }
+  .icon-agility::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: var(--sandy-brown);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Trust - shield */
+  .icon-trust::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--sandy-brown);
+    clip-path: polygon(50% 0%, 100% 15%, 100% 55%, 50% 100%, 0% 55%, 0% 15%);
   }
 
   .benefit-card h3 {
@@ -441,16 +560,21 @@ const jsonLd = {
 
   /* Responsive */
   @media (max-width: 992px) {
-    .landing-hero h1 { font-size: 3rem; }
+    .landing-hero h1 { font-size: 2.75rem; }
+    .hero-container { flex-direction: column-reverse; text-align: center; gap: 3rem; }
+    .hero-text { max-width: 100%; text-align: center; }
+    .cta-wrapper { align-items: center; }
     .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
     .benefits-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
     .landing-hero { padding: 8rem 1.5rem 4rem 1.5rem; }
-    .landing-hero h1 { font-size: 2.5rem; }
-    .lead { font-size: 1.2rem; }
+    .landing-hero h1 { font-size: 2.25rem; }
+    .lead { font-size: 1.1rem; }
     h2 { font-size: 2rem; }
     .final-cta h2 { font-size: 2.2rem; }
+    .problem-quote { padding: 2rem; }
+    .problem-quote p { font-size: 1.25rem; }
   }
 </style>

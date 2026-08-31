@@ -149,7 +149,7 @@ import { processSteps } from "../../data/process";
 		justify-content: center;
 		position: relative;
 		z-index: 2;
-		transition: all 0.3s ease;
+		transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 		box-shadow: 0 4px 12px rgba(255, 164, 84, 0.15);
 		flex-shrink: 0;
 	}
@@ -165,7 +165,7 @@ import { processSteps } from "../../data/process";
 		font-weight: 800;
 		color: var(--sandy-brown);
 		font-family: var(--heading-font);
-		transition: color 0.3s ease;
+		transition: color 0.3s var(--ease-out);
 	}
 
 	.step-card:hover .waypoint-number {

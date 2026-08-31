@@ -4,6 +4,7 @@ import FooterMain from "../components/common/FooterMain.astro";
 import Toast from "../components/common/Toast.astro";
 import WhatsAppButton from "../components/common/WhatsAppButton.astro";
 import { ClientRouter } from "astro:transitions";
+import { getServerLang } from "../i18n/serverUtils";
 // Use local fonts via fontsource for privacy and performance
 import "@fontsource-variable/urbanist";
 import "@fontsource-variable/inter";
@@ -16,10 +17,11 @@ interface Props {
 const { title = "Gorigami | Software a la Medida en Bogotá y Soluciones SaaS", description } = Astro.props;
 const defaultDescription = "Gorigami S.A.S. | Expertos en desarrollo de software a la medida en Bogotá. Creamos soluciones SaaS, apps web y sistemas escalables con Vue.js y Node.js.";
 const metaDescription = description || defaultDescription;
+const lang = getServerLang(Astro.cookies);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<!-- Google Tag Manager -->
 		<script is:inline>
@@ -141,7 +143,6 @@ const metaDescription = description || defaultDescription;
 
 				// Set HTML lang attribute immediately
 				document.documentElement.lang = lang;
-				console.log("[i18n] Detected language:", lang);
 			})();
 		</script>
 
@@ -173,9 +174,6 @@ const metaDescription = description || defaultDescription;
 			// CRITICAL: Re-initialize translations on View Transitions navigation
 			// This ensures language persists when navigating between pages
 			document.addEventListener("astro:page-load", () => {
-				console.log(
-					"[i18n] Page navigated via View Transitions - re-initializing",
-				);
 				initI18n();
 			});
 		</script>
@@ -253,11 +251,14 @@ const metaDescription = description || defaultDescription;
 		--accent: var(--sandy-brown);
 		--accent-hover: var(--sandy-brown-hover);
 
-		/* Deprecated - keeping for backward compatibility */
-		--dark-color: var(--midnight-violet);
-		--white-base: var(--paper-white);
-		--text-dark: var(--midnight-violet);
-		--text-light: var(--mid-gray);
+		/* Status colors - shared across toast, badges, validation states */
+		--color-success: #10b981;
+		--color-warning: #f59e0b;
+		--color-danger: #ef4444;
+
+		/* Motion */
+		--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+		--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 	}
 	* {
 		margin: 0;

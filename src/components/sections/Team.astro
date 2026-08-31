@@ -5,7 +5,6 @@ import { teamMembers } from "../../data/team";
 <section id="team">
 	<div class="team-container">
 		<div class="team-header">
-			<div class="section-label" data-i18n="team.label">THE TEAM</div>
 			<h2 data-i18n="team.title">Inside the Lab</h2>
 			<p class="team-subtitle" data-i18n="team.subtitle">
 				A small group of builders, designers, and engineers, focused on creating
@@ -69,15 +68,6 @@ import { teamMembers } from "../../data/team";
 		margin-bottom: 5rem;
 	}
 
-	.section-label {
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
-		color: var(--sandy-brown);
-		margin-bottom: 1.5rem;
-	}
-
 	#team h2 {
 		font-size: 3rem;
 		color: var(--midnight-violet);
@@ -138,8 +128,8 @@ import { teamMembers } from "../../data/team";
 		object-position: center 30%;
 		filter: grayscale(1) contrast(1.1);
 		transition:
-			filter 0.3s ease,
-			transform 0.3s ease;
+			filter 0.3s var(--ease-out),
+			transform 0.3s var(--ease-out);
 	}
 
 	.member-panel:hover .portrait {

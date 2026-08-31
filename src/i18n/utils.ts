@@ -100,8 +100,6 @@ export function initI18n() {
         module.updateAllDataTranslations();
         // Make it globally available
         (window as any).updateAllDataTranslations = module.updateAllDataTranslations;
-
-        console.log('[i18n] Translations loaded and applied');
     });
 
     // Update active button state

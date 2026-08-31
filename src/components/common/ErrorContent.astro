@@ -9,11 +9,11 @@
 			height="350"
 		/>
 		<div class="error-content">
-			<h1 class="error-title">Oops! You're lost.</h1>
-			<p class="error-desc">
+			<h1 class="error-title" data-i18n="notFound.title">Oops! You're lost.</h1>
+			<p class="error-desc" data-i18n="notFound.desc">
 				We can't seem to find the page you're looking for.
 			</p>
-			<a href="/" class="btn-home">→ Return Home</a>
+			<a href="/" class="btn-home" data-i18n="notFound.cta">→ Return Home</a>
 		</div>
 	</div>
 </main>
@@ -70,18 +70,17 @@
 		padding: 1rem 2.5rem;
 		font-weight: 600;
 		font-size: 1rem;
-		color: #ffffff !important;
+		color: var(--paper-white, #ffffff);
 		background: var(--midnight-violet, #16091d);
 		border: 2px solid var(--midnight-violet, #16091d);
 		text-decoration: none;
-		transition: all 0.3s ease;
-		border-radius: 4px;
+		transition: background-color 0.3s var(--ease-out, ease), color 0.3s var(--ease-out, ease), transform 0.3s var(--ease-out, ease);
 		cursor: pointer;
 	}
 
 	.btn-home:hover {
 		background: transparent;
-		color: var(--midnight-violet, #16091d) !important;
+		color: var(--midnight-violet, #16091d);
 		transform: translateY(-2px);
 	}
 

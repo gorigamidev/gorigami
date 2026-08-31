@@ -5,9 +5,6 @@ import { demos } from "../../data/demos";
 <section id="in-house">
 	<div class="in-house-bg-shape"></div>
 	<div class="demos-container">
-		<div class="section-label" data-i18n="portfolio.label">
-			PROJECTS WE'VE CRAFTED
-		</div>
 		<h2 data-i18n="portfolio.title">Systems we believe in</h2>
 		<p class="intro" data-i18n="portfolio.intro">
 			Real projects, real impact. Built with craft and clarity.
@@ -80,15 +77,6 @@ import { demos } from "../../data/demos";
 		z-index: 1;
 	}
 
-	.section-label {
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.15em;
-		text-transform: uppercase;
-		color: var(--sandy-brown);
-		margin-bottom: 1.5rem;
-	}
-
 	#in-house h2 {
 		font-size: 2.5rem;
 		margin-bottom: 1rem;
@@ -111,12 +99,9 @@ import { demos } from "../../data/demos";
 	}
 
 	.demo-card {
-		background: transparent;
-		overflow: hidden;
-		transition: all 0.2s ease;
 		background: var(--paper-white);
 		overflow: hidden;
-		transition: all 0.3s ease;
+		transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
 		border: 1px solid var(--light-gray);
 		display: flex;
 		flex-direction: column;
@@ -143,7 +128,7 @@ import { demos } from "../../data/demos";
 		height: 100%;
 		object-fit: cover;
 		filter: grayscale(0.3);
-		transition: all 0.3s ease;
+		transition: filter 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 	}
 
 	.demo-card:hover .demo-image {
@@ -159,7 +144,7 @@ import { demos } from "../../data/demos";
 		align-items: center;
 		justify-content: center;
 		opacity: 0;
-		transition: opacity 0.3s ease;
+		transition: opacity 0.3s var(--ease-out);
 	}
 
 	.demo-card:hover .demo-overlay {
@@ -222,28 +207,27 @@ import { demos } from "../../data/demos";
 		font-weight: 400;
 	}
 
-	.walkthrough-cta {
+	.demos-cta {
 		text-align: left;
 		margin-top: 4rem;
 		padding-top: 3rem;
 		border-top: 1px solid var(--light-gray);
 	}
 
-	.btn-walkthrough {
+	.demos-cta .btn-primary {
 		display: inline-block;
 		padding: 1rem 1.5rem;
-		background: transparent;
-		color: var(--ink-black);
+		background: var(--ink-black);
+		color: var(--paper-white);
 		border: 1px solid var(--ink-black);
 		font-weight: 500;
 		font-size: 1rem;
 		text-decoration: none;
-		transition: all 0.2s ease;
+		transition: background-color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 	}
 
-	.btn-walkthrough:hover {
-		background: var(--ink-black);
-		color: var(--paper-white);
+	.demos-cta .btn-primary:hover {
+		background: var(--accent-hover);
 		transform: translateX(4px);
 	}
 

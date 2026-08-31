@@ -73,7 +73,6 @@ function collectAnswers() {
   document.querySelectorAll('.open-textarea').forEach(ta => {
     if (ta.value.trim()) answers[ta.dataset.qid] = ta.value.trim();
   });
-  console.log('Current State of Answers:', answers);
 }
 
 function collectOnboard() {
@@ -90,14 +89,6 @@ const DIM_WEIGHTS = { D1: 0.25, D2: 0.20, D3: 0.25, D4: 0.15, D5: 0.15 };
 
 function calcScores(questionsData) {
   const dims = {};
-  console.group('Assessment Scoring Debug');
-  
-  // Output raw numerical answers for audit
-  const numericalAnswers = {};
-  for (const [qid, val] of Object.entries(answers)) {
-    if (typeof val === 'number') numericalAnswers[qid] = val;
-  }
-  console.log('NUMERICAL SCORES JSON:', JSON.stringify(numericalAnswers, null, 2));
 
   for (let d = 1; d <= 5; d++) {
     const dKey = 'D' + d;
@@ -113,24 +104,17 @@ function calcScores(questionsData) {
       .map(q => answers[q.ID])
       .filter(v => typeof v === 'number');
 
-    console.log(`${dKey} Raw Arrays:`, { qualScores, binScores });
-
     const avgQual = qualScores.length ? qualScores.reduce((a, b) => a + b, 0) / qualScores.length : 3;
     const rawBinAvg = binScores.length ? binScores.reduce((a, b) => a + b, 0) / binScores.length : 0.5;
 
     // Use centralized utility for dimension score
     const dimScore = calcDimensionScore(avgQual, rawBinAvg);
     dims[dKey] = dimScore;
-
-    console.log(`${dKey}: AvgQual=${avgQual.toFixed(2)}, RawBinAvg=${rawBinAvg.toFixed(2)} -> Dn=${dimScore}`);
   }
-  
+
   // Use centralized utility for global score
   const global = calcGlobalScore(dims);
-  
-  console.log('FINAL GLOBAL MATURITY SCORE:', global);
-  console.groupEnd();
-  
+
   return { dims, global };
 }
 
@@ -188,9 +172,9 @@ function renderResults(resultsData, questionsData) {
   const scoreEl = document.getElementById('result-score');
   if (scoreEl) {
     scoreEl.textContent = global.toFixed(1);
-    if (global < 2) scoreEl.style.color = '#ef4444';
-    else if (global < 4) scoreEl.style.color = '#f59e0b';
-    else scoreEl.style.color = '#10b981';
+    if (global < 2) scoreEl.style.color = 'var(--color-danger)';
+    else if (global < 4) scoreEl.style.color = 'var(--color-warning)';
+    else scoreEl.style.color = 'var(--color-success)';
   }
 
   // Level info
@@ -277,8 +261,7 @@ export function initAssessment(resultsData, questionsData) {
   const shell = document.querySelector('.assessment-shell');
   if (shell && !shell.dataset.wired) {
     shell.dataset.wired = 'true';
-    console.log('Wiring assessment event delegation');
-    
+
     shell.addEventListener('click', (e) => {
       const btn = e.target.closest('.btn-nav');
       if (!btn) return;
@@ -305,7 +288,7 @@ export function initAssessment(resultsData, questionsData) {
             if (!isChecked) {
               if (!firstMissing) firstMissing = card;
               card.classList.add('error-pulse');
-              card.style.border = '2px solid #ef4444';
+              card.style.border = '2px solid var(--color-danger)';
             } else {
               card.classList.remove('error-pulse');
               card.style.border = '1px solid var(--light-gray)'; // Reset to original
@@ -319,10 +302,9 @@ export function initAssessment(resultsData, questionsData) {
         }
 
         collectAnswers();
-        
+
         const next = currentStep + 1;
-        console.log(`Navigating Next: ${currentStep} -> ${next}`);
-        
+
         if (next === TOTAL_STEPS - 1) renderResults(resultsData, questionsData);
         showStep(next);
       }
@@ -330,7 +312,6 @@ export function initAssessment(resultsData, questionsData) {
       else if (btn.classList.contains('btn-back')) {
         collectAnswers();
         const prev = Math.max(0, currentStep - 1);
-        console.log(`Navigating Back: ${currentStep} -> ${prev}`);
         showStep(prev);
       }
     });

@@ -68,13 +68,13 @@
 		bottom: 2rem;
 		right: 2rem;
 		padding: 1rem 1.5rem;
-		border-radius: 0.5rem;
+		border-radius: 2px;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		z-index: 9999;
-		transition: all 0.3s ease;
+		transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 		min-width: 300px;
 		color: var(--paper-white);
 		font-family: var(--body-font);
@@ -115,11 +115,11 @@
 
 	/* Types */
 	.toast-success {
-		background-color: #10b981; /* Green */
+		background-color: var(--color-success);
 	}
 
 	.toast-error {
-		background-color: #ef4444; /* Red */
+		background-color: var(--color-danger);
 	}
 
 	.toast-info {

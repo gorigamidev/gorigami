@@ -26,8 +26,6 @@
 <script is:inline>
 	// Global function for language switching
 	function switchLang(lang) {
-		console.log("[LanguageSwitcher] Switching to:", lang);
-
 		// Save to localStorage (primary persistence mechanism)
 		localStorage.setItem("gorigami-lang", lang);
 
@@ -46,21 +44,11 @@
 		// Update all translations on the page (if function is available)
 		if (typeof window.updatePageTranslations === "function") {
 			window.updatePageTranslations(lang);
-			console.log("[LanguageSwitcher] Static translations updated");
-		} else {
-			console.warn(
-				"[LanguageSwitcher] updatePageTranslations not yet available",
-			);
 		}
 
 		// Update data-driven content (if function is available)
 		if (typeof window.updateAllDataTranslations === "function") {
 			window.updateAllDataTranslations();
-			console.log("[LanguageSwitcher] Data translations updated");
-		} else {
-			console.warn(
-				"[LanguageSwitcher] updateAllDataTranslations not yet available",
-			);
 		}
 	}
 </script>
@@ -80,7 +68,7 @@
 		background: transparent;
 		border: 1px solid var(--light-gray);
 		cursor: pointer;
-		transition: all 0.2s ease;
+		transition: background-color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
 		font-family: var(--body-font);
 		font-size: 0.85rem;
 		font-weight: 500;

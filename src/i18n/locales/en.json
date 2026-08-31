@@ -95,5 +95,10 @@
         "ready": "Ready",
         "comingSoon": "Coming Soon",
         "preview": "Preview"
+    },
+    "notFound": {
+        "title": "Oops! You're lost.",
+        "desc": "We can't seem to find the page you're looking for.",
+        "cta": "→ Return Home"
     }
 }
