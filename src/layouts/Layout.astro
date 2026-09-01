@@ -203,7 +203,12 @@ const lang = getServerLang(Astro.cookies);
 </html>
 
 <style is:global>
+	@import "../../tokens.css";
+
 	/* global styles - Brand Lineage: minimal, intentional, calm */
+	/* Design system: see /design.md — tokens.css is the source of truth.
+	   The names below are kept as aliases so every existing component keeps
+	   working unchanged while the whole site reads from the OKLCH tokens. */
 
 	/* UI Fonts - Imports handled via @fontsource-variable in frontmatter */
 
@@ -216,49 +221,28 @@ const lang = getServerLang(Astro.cookies);
 		font-display: swap;
 	}
 
-	/* UI Fonts */
-
 	:root {
-		--logo-font: "Nautilus", serif;
-		--heading-font: "Urbanist Variable", system-ui, sans-serif;
-		--body-font: "Inter Variable", system-ui, sans-serif;
+		--logo-font: var(--font-wordmark);
+		--heading-font: var(--font-display);
+		--body-font: var(--font-body);
 		font-size: 16px;
 
-		/* Gorigami Brand Color System: 70% white, 25% dark, 5% accent */
-
-		/* Primary Dark - Midnight Violet */
-		--midnight-violet: #16091d;
-		--midnight-violet-soft: #2a1d31;
-
-		/* Primary Light - Smoke */
-		--smoke: #f0f0ef;
-		--paper-white: #ffffff;
-
-		/* Accent - Sandy Brown */
-		--sandy-brown: #ffa454;
-		--sandy-brown-hover: #ff9340;
-
-		/* Light Accent - Lavender Mist */
-		--lavender-mist: #f3f2ff;
-
-		/* Supporting Grays */
-		--mid-gray: #6b6b6b;
-		--light-gray: #e0e0df;
+		/* Legacy brand names, aliased to tokens.css */
+		--midnight-violet: var(--color-ink);
+		--midnight-violet-soft: oklch(25.6% 0.041 313.3);
+		--smoke: var(--color-paper-2);
+		--paper-white: var(--color-paper);
+		--sandy-brown: var(--color-accent);
+		--sandy-brown-hover: var(--color-accent-2);
+		--lavender-mist: var(--color-paper-3);
+		--mid-gray: var(--color-ink-2);
+		--light-gray: var(--color-rule);
 
 		/* Semantic Aliases (70/25/5 rule) */
 		--ink-black: var(--midnight-violet);
 		--off-white: var(--smoke);
 		--accent: var(--sandy-brown);
 		--accent-hover: var(--sandy-brown-hover);
-
-		/* Status colors - shared across toast, badges, validation states */
-		--color-success: #10b981;
-		--color-warning: #f59e0b;
-		--color-danger: #ef4444;
-
-		/* Motion */
-		--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-		--ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 	}
 	* {
 		margin: 0;

@@ -1,0 +1,53 @@
+/* Gorigami design tokens — source of truth, see design.md */
+:root {
+  --color-paper: oklch(100% 0 0); /* pure white — genre-permitted (modern-minimal) */
+  --color-paper-2: oklch(95.5% 0.001 106); /* smoke */
+  --color-paper-3: oklch(96.6% 0.017 290); /* lavender-mist, decorative tint */
+  --color-ink: oklch(17.1% 0.044 313); /* midnight-violet */
+  --color-ink-2: oklch(52.8% 0 0); /* mid-gray body/muted */
+  --color-rule: oklch(90.6% 0.001 106); /* light-gray */
+  --color-accent: oklch(79.5% 0.144 60); /* sandy-brown */
+  --color-accent-2: oklch(76.5% 0.16 55); /* sandy-brown hover */
+  --color-focus: var(--color-accent);
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  --font-display: "Urbanist Variable", system-ui, sans-serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+  --font-wordmark: "Nautilus", serif;
+
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 8rem;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-display: clamp(2.5rem, 4vw + 1.5rem, 5rem);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur-base: 240ms;
+  --dur-slow: 320ms;
+
+  --radius-card: 0px;
+  --radius-input: 0px;
+  --radius-badge: 2px;
+  /* No pill radius token: the brand is hard-edged everywhere except the
+     WhatsApp launcher, which stays a literal circle (50%) as the one
+     deliberate exception — an icon-badge, not a card. */
+}

@@ -91,28 +91,34 @@ const jsonLd = {
 
     <!-- VALUE PROPOSITION -->
     <section class="value-prop">
-      <div class="container">
-        <div class="section-header">
-          <h2>¿Por qué la Madurez de Datos es tu motor oculto?</h2>
+      <div class="container value-prop-grid">
+        <div class="value-prop-header">
+          <h2>¿Por qué la madurez de datos es tu motor oculto?</h2>
           <p>Superar la etapa "reactiva" permite a las empresas líderes lograr:</p>
         </div>
-        <div class="benefits-grid">
-          <div class="benefit-card">
+        <ul class="benefits-list">
+          <li class="benefit-item">
             <span class="benefit-icon icon-efficiency"></span>
-            <h3>Eficiencia Operativa</h3>
-            <p>Reducción drástica del tiempo dedicado a la limpieza y cruce manual de archivos.</p>
-          </div>
-          <div class="benefit-card">
+            <div>
+              <h3>Eficiencia Operativa</h3>
+              <p>Reducción drástica del tiempo dedicado a la limpieza y cruce manual de archivos.</p>
+            </div>
+          </li>
+          <li class="benefit-item">
             <span class="benefit-icon icon-agility"></span>
-            <h3>Agilidad Estratégica</h3>
-            <p>Capacidad de pivotar en días ante cambios del mercado, no en meses.</p>
-          </div>
-          <div class="benefit-card">
+            <div>
+              <h3>Agilidad Estratégica</h3>
+              <p>Capacidad de pivotar en días ante cambios del mercado, no en meses.</p>
+            </div>
+          </li>
+          <li class="benefit-item">
             <span class="benefit-icon icon-trust"></span>
-            <h3>Cero Desconfianza</h3>
-            <p>Una "única versión de la verdad" donde todos los departamentos hablan el mismo idioma.</p>
-          </div>
-        </div>
+            <div>
+              <h3>Cero Desconfianza</h3>
+              <p>Una "única versión de la verdad" donde todos los departamentos hablan el mismo idioma.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -172,6 +178,7 @@ const jsonLd = {
 </Layout>
 
 <style>
+  /* Hallmark · genre: modern-minimal · macrostructure: Split Studio · design-system: design.md */
   /* Base Styles */
   #data-maturity-landing {
     width: 100%;
@@ -233,7 +240,7 @@ const jsonLd = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 4rem;
+    gap: var(--space-2xl);
     position: relative;
     z-index: 1;
   }
@@ -247,7 +254,7 @@ const jsonLd = {
   .landing-hero h1 {
     font-size: 3.25rem;
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-lg);
     color: var(--midnight-violet);
   }
 
@@ -259,7 +266,7 @@ const jsonLd = {
   .lead {
     font-size: 1.25rem;
     color: var(--mid-gray);
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-xl);
     line-height: 1.6;
   }
 
@@ -323,14 +330,14 @@ const jsonLd = {
 
   /* Problem Section */
   .problem-section {
-    padding: 8rem 0;
+    padding: var(--space-4xl) 0;
     background: var(--paper-white);
   }
 
   .problem-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    gap: 4rem;
+    gap: var(--space-2xl);
     align-items: center;
   }
 
@@ -416,37 +423,64 @@ const jsonLd = {
     background: var(--sandy-brown);
   }
 
-  /* Value Prop Section */
+  /* Value Prop Section — Split Studio diptych, flipped from Problem above */
   .value-prop {
-    padding: 8rem 0;
+    padding: var(--space-4xl) 0;
     background: var(--smoke);
   }
 
-  .benefits-grid {
+  .value-prop-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-3xl);
+    align-items: start;
   }
 
-  .benefit-card {
-    background: var(--paper-white);
-    padding: 3rem 2rem;
-    text-align: center;
-    border: 1px solid var(--light-gray);
-    transition: transform 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+  .value-prop-header {
+    position: sticky;
+    top: var(--space-3xl);
   }
 
-  .benefit-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--sandy-brown);
+  .value-prop-header p {
+    color: var(--mid-gray);
+    font-size: var(--text-lg);
+  }
+
+  .benefits-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .benefits-list > .benefit-item:last-child {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .benefit-item h3 {
+    margin-bottom: var(--space-3xs);
+  }
+
+  .benefit-item p {
+    margin: 0;
+    color: var(--mid-gray);
   }
 
   .benefit-icon {
     display: block;
     position: relative;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin: 0 auto 1.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
   }
 
   /* Efficiency - upward trend mark */
@@ -487,19 +521,15 @@ const jsonLd = {
     clip-path: polygon(50% 0%, 100% 15%, 100% 55%, 50% 100%, 0% 55%, 0% 15%);
   }
 
-  .benefit-card h3 {
-    margin-bottom: 1rem;
-  }
-
   /* Pillars Section */
   .pillars-section {
-    padding: 8rem 0;
+    padding: var(--space-4xl) 0;
   }
 
   .pillars-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+    gap: var(--space-xl);
   }
 
   .pillar {
@@ -526,7 +556,7 @@ const jsonLd = {
 
   /* Final CTA Section */
   .final-cta {
-    padding: 8rem 0;
+    padding: var(--space-4xl) 0;
     background: var(--midnight-violet);
     color: var(--paper-white);
     text-align: center;
@@ -540,13 +570,13 @@ const jsonLd = {
   .final-cta h2 {
     color: var(--paper-white);
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--space-lg);
   }
 
   .final-cta p {
     font-size: 1.25rem;
     opacity: 0.9;
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-2xl);
   }
 
   .final-cta .btn-primary {
@@ -561,11 +591,12 @@ const jsonLd = {
   /* Responsive */
   @media (max-width: 992px) {
     .landing-hero h1 { font-size: 2.75rem; }
-    .hero-container { flex-direction: column-reverse; text-align: center; gap: 3rem; }
+    .hero-container { flex-direction: column-reverse; text-align: center; gap: var(--space-xl); }
     .hero-text { max-width: 100%; text-align: center; }
     .cta-wrapper { align-items: center; }
-    .problem-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .benefits-grid { grid-template-columns: 1fr; }
+    .problem-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
+    .value-prop-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .value-prop-header { position: static; }
   }
 
   @media (max-width: 768px) {

@@ -1,12 +1,13 @@
 <main id="not-found-page">
 	<div class="error-container">
+		<span class="ghost-number" aria-hidden="true">404</span>
 		<img
 			src="https://res.cloudinary.com/gorigami/image/upload/f_auto,q_auto/v1769109708/gorigamiland/EnjoyWork_lgbnej.png"
 			alt="Lost Gorilla"
 			loading="lazy"
 			decoding="async"
-			width="350"
-			height="350"
+			width="180"
+			height="180"
 		/>
 		<div class="error-content">
 			<h1 class="error-title" data-i18n="notFound.title">Oops! You're lost.</h1>
@@ -19,15 +20,18 @@
 </main>
 
 <style>
+	/* Hallmark · genre: modern-minimal · a small on-brand moment, not a generic centred block */
 	#not-found-page {
-		min-height: 80vh;
+		min-height: 70vh;
 		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 4rem 10%;
+		position: relative;
+		padding: var(--space-2xl) 10%;
 		background-color: var(--smoke, #f0f0ef);
 		font-family: var(--body-font, sans-serif);
+		overflow: hidden;
 	}
 
 	.error-container {
@@ -35,32 +39,48 @@
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: 2rem;
-		max-width: 600px;
+		gap: var(--space-sm);
+		max-width: 480px;
+		position: relative;
+		z-index: 1;
+	}
+
+	.ghost-number {
+		position: absolute;
+		top: -2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		font-family: var(--heading-font, sans-serif);
+		font-size: 10rem;
+		font-weight: 900;
+		line-height: 1;
+		color: var(--lavender-mist);
+		z-index: 0;
+		user-select: none;
 	}
 
 	#not-found-page img {
 		height: auto;
-		margin-top: 3rem;
 		width: 100%;
-		max-width: 200px;
+		max-width: 140px;
 		object-fit: contain;
+		position: relative;
 	}
 
 	.error-title {
 		font-family: var(--heading-font, sans-serif);
-		font-size: 3.5rem;
+		font-size: 2.5rem;
 		font-weight: 800;
 		color: var(--midnight-violet, #16091d);
 		line-height: 1.2;
-		margin-bottom: 1rem;
+		margin-bottom: var(--space-2xs);
 	}
 
 	.error-desc {
 		color: var(--mid-gray, #6b6b6b);
-		font-size: 1.25rem;
-		margin-bottom: 2.5rem;
-		max-width: 400px;
+		font-size: 1.1rem;
+		margin-bottom: var(--space-sm);
+		max-width: 380px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -85,16 +105,21 @@
 	}
 
 	@media screen and (max-width: 768px) {
+		.ghost-number {
+			font-size: 6rem;
+			top: -1rem;
+		}
+
 		.error-title {
-			font-size: 2.5rem;
+			font-size: 2rem;
 		}
 
 		#not-found-page img {
-			max-width: 150px; /* Reduced from 280px */
+			max-width: 110px;
 		}
 
 		.error-desc {
-			font-size: 1.1rem;
+			font-size: 1rem;
 		}
 	}
 </style>

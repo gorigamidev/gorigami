@@ -1,4 +1,5 @@
 ---
+// Hallmark · macrostructure: Split Studio (index rhythm) · design-system: design.md
 import { products } from "../../data/products";
 ---
 
@@ -9,44 +10,49 @@ import { products } from "../../data/products";
 			SaaS products and open-source frameworks designed to solve real problems.
 		</p>
 
-		<div class="products-grid">
+		<div class="products-list">
 			{
-				products.map((product) => (
-					<div class="product-card">
-						<div class="product-header">
-							<div class="product-type">{product.type}</div>
-							<div
-								class={`product-status status-${product.status.toLowerCase().replace(" ", "-")}`}
-								data-i18n={
-									product.status === "Ready"
-										? "status.ready"
-										: product.status === "Preview"
-											? "status.preview"
-											: "status.comingSoon"
-								}
-							>
-								{product.status}
+				products.map((product, i) => (
+					<div class="product-row">
+						<div class="product-index">{(i + 1).toString().padStart(2, "0")}</div>
+
+						<div class="product-meta">
+							<div class="product-header">
+								<span class="product-type">{product.type}</span>
+								<span
+									class={`product-status status-${product.status.toLowerCase().replace(" ", "-")}`}
+									data-i18n={
+										product.status === "Ready"
+											? "status.ready"
+											: product.status === "Preview"
+												? "status.preview"
+												: "status.comingSoon"
+									}
+								>
+									{product.status}
+								</span>
 							</div>
+							<h3 data-i18n-field="name">{product.name}</h3>
+							<p class="product-tagline" data-i18n-field="tagline">
+								{product.tagline}
+							</p>
 						</div>
 
-						<h3 data-i18n-field="name">{product.name}</h3>
-						<p class="product-tagline" data-i18n-field="tagline">
-							{product.tagline}
-						</p>
-						<p class="product-description" data-i18n-field="description">
-							{product.description}
-						</p>
-
-						{product.link && (
-							<a
-								href={product.link}
-								target="_blank"
-								class="product-link"
-								data-i18n-field="cta_text"
-							>
-								{product.cta_text || "Learn more →"}
-							</a>
-						)}
+						<div class="product-body">
+							<p class="product-description" data-i18n-field="description">
+								{product.description}
+							</p>
+							{product.link && (
+								<a
+									href={product.link}
+									target="_blank"
+									class="product-link"
+									data-i18n-field="cta_text"
+								>
+									{product.cta_text || "Learn more →"}
+								</a>
+							)}
+						</div>
 					</div>
 				))
 			}
@@ -55,9 +61,10 @@ import { products } from "../../data/products";
 </section>
 
 <style>
+	/* Hallmark · genre: modern-minimal · macrostructure: Split Studio (index rhythm) · design-system: design.md */
 	#products {
 		width: 100%;
-		padding: 8rem 10%;
+		padding: var(--space-4xl) 10%;
 		background: var(--paper-white);
 		border-top: 1px solid var(--light-gray);
 	}
@@ -68,46 +75,59 @@ import { products } from "../../data/products";
 	}
 
 	#products h2 {
-		font-size: 2.5rem;
+		font-size: var(--text-3xl);
 		color: var(--midnight-violet);
-		margin-bottom: 1.5rem;
+		margin-bottom: var(--space-md);
 		font-weight: 700;
 	}
 
 	.intro {
-		font-size: 1.25rem;
+		font-size: var(--text-lg);
 		color: var(--mid-gray);
-		margin-bottom: 4rem;
+		margin-bottom: var(--space-3xl);
 		max-width: 600px;
 	}
 
-	.products-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-	}
-
-	.product-card {
-		background: var(--smoke);
-		padding: 2rem;
-		border: 1px solid var(--light-gray);
+	.products-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
-		transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
 	}
 
-	.product-card:hover {
-		transform: translateY(-4px);
-		box-shadow: 0 8px 24px rgba(22, 9, 29, 0.08);
+	.product-row {
+		display: grid;
+		grid-template-columns: 3.5rem 1fr 1.3fr;
+		gap: var(--space-lg);
+		padding: var(--space-xl) 0;
+		border-top: 1px solid var(--light-gray);
+		transition: border-color 0.3s var(--ease-out);
+	}
+
+	.products-list > .product-row:last-child {
+		border-bottom: 1px solid var(--light-gray);
+	}
+
+	.product-row:hover {
 		border-color: var(--sandy-brown);
+	}
+
+	.product-index {
+		font-family: var(--heading-font);
+		font-size: var(--text-2xl);
+		font-weight: 700;
+		color: var(--light-gray);
+		line-height: 1;
+		transition: color 0.3s var(--ease-out);
+	}
+
+	.product-row:hover .product-index {
+		color: var(--sandy-brown);
 	}
 
 	.product-header {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 0.5rem;
+		gap: var(--space-sm);
+		margin-bottom: var(--space-2xs);
 	}
 
 	.product-type {
@@ -124,7 +144,7 @@ import { products } from "../../data/products";
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		padding: 0.25rem 0.75rem;
-		border-radius: 2px;
+		border-radius: var(--radius-badge);
 	}
 
 	.status-ready {
@@ -141,11 +161,11 @@ import { products } from "../../data/products";
 		color: var(--paper-white);
 	}
 
-	.product-card h3 {
-		font-size: 1.5rem;
+	.product-meta h3 {
+		font-size: var(--text-2xl);
 		color: var(--midnight-violet);
 		font-weight: 700;
-		margin: 0;
+		margin: 0 0 var(--space-3xs);
 	}
 
 	.product-tagline {
@@ -159,8 +179,7 @@ import { products } from "../../data/products";
 		font-size: 0.95rem;
 		color: var(--mid-gray);
 		line-height: 1.7;
-		margin: 0;
-		flex-grow: 1;
+		margin: 0 0 var(--space-sm);
 	}
 
 	.product-link {
@@ -169,7 +188,6 @@ import { products } from "../../data/products";
 		font-size: 0.95rem;
 		font-weight: 600;
 		text-decoration: none;
-		margin-top: 0.5rem;
 		transition: color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 	}
 
@@ -180,28 +198,40 @@ import { products } from "../../data/products";
 
 	/* Tablet */
 	@media screen and (max-width: 1024px) {
-		.products-grid {
-			grid-template-columns: repeat(2, 1fr);
+		.product-row {
+			grid-template-columns: 2.5rem 1fr;
+		}
+
+		.product-body {
+			grid-column: 2 / -1;
 		}
 	}
 
 	/* Mobile */
 	@media screen and (max-width: 768px) {
 		#products {
-			padding: 5rem 1.5rem;
+			padding: var(--space-2xl) 1.5rem;
 		}
 
 		#products h2 {
-			font-size: 2rem;
+			font-size: var(--text-2xl);
 		}
 
 		.intro {
 			font-size: 1.1rem;
 		}
 
-		.products-grid {
+		.product-row {
 			grid-template-columns: 1fr;
-			gap: 1.5rem;
+			gap: var(--space-xs);
+		}
+
+		.product-body {
+			grid-column: auto;
+		}
+
+		.product-index {
+			font-size: var(--text-lg);
 		}
 	}
 </style>

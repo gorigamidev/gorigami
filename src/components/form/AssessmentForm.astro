@@ -11,6 +11,7 @@ const resultsJSON = JSON.stringify(ResultsData[0]);
 ---
 
 <style is:global>
+  /* Hallmark · genre: modern-minimal · app page (no marketing macrostructure) · design-system: design.md */
   #assessment {
     position: relative;
     width: 100%;
@@ -109,25 +110,30 @@ const resultsJSON = JSON.stringify(ResultsData[0]);
   .onboard-group input:focus,.onboard-group select:focus{outline:none;border-color:var(--midnight-violet)}
   .onboard-group input:focus-visible,.onboard-group select:focus-visible{box-shadow:0 0 0 3px var(--sandy-brown)}
 
-  /* Results Dashboard */
-  .results-dashboard{text-align:center}
-  .score-display{margin:2rem 0 1rem}
-  .score-value{font-size:5rem;font-weight:800;font-family:var(--heading-font);line-height:1}
-  .score-label{font-size:.85rem;color:var(--mid-gray);text-transform:uppercase;letter-spacing:.1em;margin-top:.5rem}
+  /* Results Dashboard — the payoff moment, gets the page's one reveal */
+  .results-dashboard{text-align:center;animation:resultsIn .5s var(--ease-out)}
+  @keyframes resultsIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion: reduce){
+    .results-dashboard{animation:none}
+  }
+  .score-display{margin:var(--space-lg) 0 var(--space-sm);position:relative;display:inline-block}
+  .score-value{font-size:5.5rem;font-weight:800;font-family:var(--heading-font);line-height:1}
+  .score-label{font-size:.85rem;color:var(--mid-gray);text-transform:uppercase;letter-spacing:.1em;margin-top:var(--space-xs);padding-top:var(--space-xs);border-top:1px solid var(--light-gray)}
   .level-name{font-size:1.75rem;font-weight:700;color:var(--midnight-violet);margin:.5rem 0;font-family:var(--heading-font)}
-  .level-diagnosis{font-size:1.05rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto 1rem}
-  .level-status{font-size:.9rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto 3rem;font-style:italic}
+  .level-diagnosis{font-size:1.05rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto var(--space-sm)}
+  .level-status{font-size:.9rem;color:var(--mid-gray);line-height:1.6;max-width:560px;margin:0 auto var(--space-xl);font-style:italic}
 
   /* Radar Chart */
-  .radar-section{margin:3rem 0}
-  .radar-chart{max-width:360px;margin:0 auto}
+  .radar-section{margin:var(--space-xl) 0}
+  .radar-chart{max-width:420px;margin:0 auto}
+  .radar-chart svg{width:100%;height:auto;display:block}
 
   /* Benchmark Cards Grid */
   .benchmark-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 4rem;
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
     text-align: left;
   }
 
