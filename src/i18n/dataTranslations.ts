@@ -40,7 +40,7 @@ export function updateAllDataTranslations() {
     });
 
     // Update products
-    const productCards = document.querySelectorAll('.product-card');
+    const productCards = document.querySelectorAll('.product-row');
     productCards.forEach((card, index) => {
         if (products[index]) {
             const product = products[index];
@@ -48,11 +48,13 @@ export function updateAllDataTranslations() {
             const taglineEl = card.querySelector('[data-i18n-field="tagline"]');
             const descEl = card.querySelector('[data-i18n-field="description"]');
             const ctaEl = card.querySelector('[data-i18n-field="cta_text"]');
+            const infoEl = card.querySelector('[data-i18n-field="infoLinkText"]');
 
             if (nameEl) nameEl.textContent = getLocalizedField(product, 'name', lang);
             if (taglineEl) taglineEl.textContent = getLocalizedField(product, 'tagline', lang);
             if (descEl) descEl.textContent = getLocalizedField(product, 'description', lang);
             if (ctaEl) ctaEl.textContent = getLocalizedField(product, 'cta_text', lang);
+            if (infoEl) infoEl.textContent = getLocalizedField(product, 'infoLinkText', lang);
         }
     });
 

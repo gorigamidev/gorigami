@@ -11,6 +11,10 @@ export interface Product {
     link?: string;
     cta_text?: string;
     cta_text_es?: string;
+    /** Optional secondary link — e.g. a docs/info site separate from the product itself. */
+    infoLink?: string;
+    infoLinkText?: string;
+    infoLinkText_es?: string;
 }
 
 export const products: Product[] = [
@@ -52,8 +56,11 @@ export const products: Product[] = [
         description_es: "Una plataforma de reservas y programación optimizada diseñada específicamente para artistas, creadores y profesionales de servicios que necesitan una forma elegante de gestionar su tiempo.",
         status: "Preview",
         type: "SaaS",
-        link: "https://xentro-app.pages.dev/",
+        link: "https://xentro.click",
         cta_text_es: "Xentro: Citas simplificadas (Vista previa) →",
-        cta_text: "Xentro: Appointments made simple (Preview) →"
+        cta_text: "Xentro: Appointments made simple (Preview) →",
+        infoLink: "https://info.xentro.click",
+        infoLinkText: "Learn more →",
+        infoLinkText_es: "Saber más →"
     }
 ];

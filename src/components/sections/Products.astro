@@ -42,16 +42,28 @@ import { products } from "../../data/products";
 							<p class="product-description" data-i18n-field="description">
 								{product.description}
 							</p>
-							{product.link && (
-								<a
-									href={product.link}
-									target="_blank"
-									class="product-link"
-									data-i18n-field="cta_text"
-								>
-									{product.cta_text || "Learn more →"}
-								</a>
-							)}
+							<div class="product-links">
+								{product.link && (
+									<a
+										href={product.link}
+										target="_blank"
+										class="product-link"
+										data-i18n-field="cta_text"
+									>
+										{product.cta_text || "Learn more →"}
+									</a>
+								)}
+								{product.infoLink && (
+									<a
+										href={product.infoLink}
+										target="_blank"
+										class="product-link product-link-secondary"
+										data-i18n-field="infoLinkText"
+									>
+										{product.infoLinkText || "Learn more →"}
+									</a>
+								)}
+							</div>
 						</div>
 					</div>
 				))
@@ -182,6 +194,13 @@ import { products } from "../../data/products";
 		margin: 0 0 var(--space-sm);
 	}
 
+	.product-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-lg);
+	}
+
 	.product-link {
 		display: inline-block;
 		color: var(--midnight-violet);
@@ -194,6 +213,15 @@ import { products } from "../../data/products";
 	.product-link:hover {
 		color: var(--sandy-brown);
 		transform: translateX(4px);
+	}
+
+	.product-link-secondary {
+		color: var(--mid-gray);
+		font-weight: 500;
+	}
+
+	.product-link-secondary:hover {
+		color: var(--midnight-violet);
 	}
 
 	/* Tablet */
